@@ -93,7 +93,6 @@
     ghostty
     nerd-fonts.jetbrains-mono
     noto-fonts-color-emoji
-    bluez
     tree-sitter
     discord
     cava

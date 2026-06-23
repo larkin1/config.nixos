@@ -71,6 +71,7 @@
   neovim
   wget
   git
+  bluez
   ];
 
   environment.variables.EDITOR = "nvim";
