@@ -49,6 +49,59 @@
     variant = "";
   };
 
+  # Power management
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+
+      # Disable turbo on battery
+      CPU_BOOST_ON_AC = 1;
+      CPU_BOOST_ON_BAT = 0;
+
+      # Platform profiles (Intel Evo supports this)
+      PLATFORM_PROFILE_ON_AC = "performance";
+      PLATFORM_PROFILE_ON_BAT = "low-power";
+
+      # Aggressive PCI runtime PM
+      RUNTIME_PM_ON_AC = "on";
+      RUNTIME_PM_ON_BAT = "auto";
+
+      # WiFi power save
+      WIFI_PWR_ON_AC = "off";
+      WIFI_PWR_ON_BAT = "on";
+
+      # NVMe power management
+      DISK_IOSCHED = "none";
+      PCIE_ASPM_ON_BAT = "powersupersave";
+    };
+  };
+
+  # Handles lid close, power button etc.
+  services.logind = {
+    lidSwitch = "suspend";
+    lidSwitchExternalPower = "suspend";
+  };
+
+  # Power profiles daemon conflicts with TLP — disable it
+  services.power-profiles-daemon.enable = false;
+
+  # Enable thermald for Intel thermal management
+  services.thermald.enable = true;
+
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1002", ATTR{power/control}="auto"
+  '';
+  boot.kernelParams = [ "amd_iommu=pt" ];
+  hardware.amdgpu.opencl.enable = true;  # keep opencl available
+
+  swapDevices = [{
+    device = "/swapfile";
+    size = 8192;
+  }];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."larkin" = {
