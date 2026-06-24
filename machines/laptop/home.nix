@@ -64,6 +64,7 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    libreoffice-fresh
     zip
     unzip
     starship
@@ -94,7 +95,7 @@
     nerd-fonts.jetbrains-mono
     noto-fonts-color-emoji
     tree-sitter
-    discord
+    vesktop
     cava
     yazi
     timg

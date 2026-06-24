@@ -22,8 +22,8 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  # networking.wireless.iwd.enable = true;
-  # networking.networkmanager.wifi.backend = "iwd";
+  networking.wireless.iwd.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
 
   # Set your time zone.
   time.timeZone = "Australia/Sydney";
@@ -94,8 +94,21 @@
 
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1002", ATTR{power/control}="auto"
+    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0x272b", ATTR{d3cold_allowed}="0"
   '';
-  boot.kernelParams = [ "amd_iommu=pt" ];
+
+  # Re-apply after every resume since s2idle can reset it
+  systemd.services.disable-wifi-d3cold = {
+    description = "Disable D3cold for Intel BE200 Wi-Fi";
+    wantedBy = [ "multi-user.target" "post-resume.target" ];
+    after = [ "systemd-udevd.service" "post-resume.target" ];
+    script = ''
+      echo 0 > /sys/bus/pci/devices/0000:55:00.0/d3cold_allowed
+    '';
+    serviceConfig.Type = "oneshot";
+  };
+
+  boot.kernelParams = [ "amd_iommu=pt" "iwlwifi.enable_ini=0" ];
   hardware.amdgpu.opencl.enable = true;  # keep opencl available
 
   swapDevices = [{

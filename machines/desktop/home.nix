@@ -109,7 +109,7 @@ hl.monitor({
     nerd-fonts.jetbrains-mono
     noto-fonts-color-emoji
     tree-sitter
-    discord
+    vesktop
     cava
     yazi
     timg
