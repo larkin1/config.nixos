@@ -67,11 +67,11 @@
     "config-hypr": {
       "flake": false,
       "locked": {
-        "lastModified": 1782363558,
-        "narHash": "sha256-vOWXuwOrQTQWwYmZM7VHEVnL1W5DJbstBIvCVYbr2QU=",
+        "lastModified": 1782371936,
+        "narHash": "sha256-874uIcy5ANk6nZT3dRUU9epbP8+rjPipuhWKJ2Egl2k=",
         "ref": "refs/heads/main",
-        "rev": "99a1eb311bdcd6f8a50213163faa25a3dff48d28",
-        "revCount": 86,
+        "rev": "237b18c23c934e9c98d9c30b750769452ea8b14f",
+        "revCount": 87,
         "type": "git",
         "url": "https://github.com/larkin1/config.hypr"
       },
@@ -112,14 +112,30 @@
         "url": "https://github.com/larkin1/config.starship"
       }
     },
+    "config-walls": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1782371746,
+        "narHash": "sha256-E75MxooEr8bQVrabO5V1X1TNNB4uxzS5kSes25xJjqY=",
+        "ref": "refs/heads/main",
+        "rev": "247979598e8447811b475a0e59ce2f64751b700c",
+        "revCount": 1,
+        "type": "git",
+        "url": "https://github.com/larkin1/config.walls"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://github.com/larkin1/config.walls"
+      }
+    },
     "config-waybar": {
       "flake": false,
       "locked": {
-        "lastModified": 1781991899,
-        "narHash": "sha256-pbnpktyvqCm3qSIN5/k6RwpskoH4r2ObmNBv2tzVs40=",
+        "lastModified": 1782372001,
+        "narHash": "sha256-bL8EF0k/DvtPHHyln7AhhKzdHk8ZkPmZCqR7coniiiU=",
         "ref": "refs/heads/main",
-        "rev": "f23e5cc036d87d71c3848fc2af6d8e31e1e1c3da",
-        "revCount": 41,
+        "rev": "20c466686dd1ff499a5f3be3d794f6a7f58aaa6b",
+        "revCount": 42,
         "type": "git",
         "url": "https://github.com/larkin1/config.waybar"
       },
@@ -151,11 +167,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782220169,
-        "narHash": "sha256-NxykfEdGQjop9m49Bk61pXpAduH8ICHgXC1N3Ph3Jp0=",
+        "lastModified": 1782358560,
+        "narHash": "sha256-vCcLh9pw3XO/+Lxk8r6xv6QnoCrTfGqiACcI7O637Wg=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "4b0b9474749820afac53ea30d4ccfef60aba5ce6",
+        "rev": "3a70e333f2950c302e875c44cfcfaff3f80f36bc",
         "type": "github"
       },
       "original": {
@@ -202,6 +218,7 @@
         "config-hypr": "config-hypr",
         "config-nvim": "config-nvim",
         "config-starship": "config-starship",
+        "config-walls": "config-walls",
         "config-waybar": "config-waybar",
         "config-yazi": "config-yazi",
         "home-manager": "home-manager",

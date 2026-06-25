@@ -43,6 +43,11 @@
       sensitivity = -0.5,
     })
   '';
+
+  home.file.".config/wallpapers" = {
+    source = "${inputs.config-walls}";
+    recursive = true;
+  };
       
   home.file.".config/ghostty" = {
     source = "${inputs.config-ghostty}";
@@ -123,6 +128,7 @@
     libnotify
     dunst
     wl-clipboard
+    gcc
   ];
 
   fonts.fontconfig.enable = true;

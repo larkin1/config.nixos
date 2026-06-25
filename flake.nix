@@ -45,6 +45,10 @@
       url = "git+https://github.com/larkin1/config.yazi";
       flake = false;
     };
+    config-walls = {
+      url = "git+https://github.com/larkin1/config.walls";
+      flake = false;
+    };
 
     spicetify-nix.url = "git+https://github.com/Gerg-L/spicetify-nix";
   };
