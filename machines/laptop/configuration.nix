@@ -81,9 +81,9 @@
   };
 
   # Handles lid close, power button etc.
-  services.logind = {
-    lidSwitch = "suspend";
-    lidSwitchExternalPower = "suspend";
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+    HandleLidSwitchExternalPower = "suspend";
   };
 
   # Power profiles daemon conflicts with TLP — disable it
