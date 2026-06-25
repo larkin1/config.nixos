@@ -21,6 +21,13 @@
       scale = "1",
     })
   '';
+
+  home.file.".config/hypr/lua/devices.lua".text = ''
+    hl.device ({
+      name="lift-mouse",
+      sensitivity = -0.5,
+    })
+  '';
       
   home.file.".config/ghostty" = {
     source = "${inputs.config-ghostty}";

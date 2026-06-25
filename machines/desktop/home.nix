@@ -14,28 +14,35 @@
     recursive = true;
   };
   home.file.".config/hypr/lua/monitors.lua".text = ''
-hl.monitor({
-  output = "DP-1",
-  mode = "highrr",
-  position = "0x0",
-  scale = "1",
-})
+    hl.monitor({
+      output = "DP-1",
+      mode = "highrr",
+      position = "0x0",
+      scale = "1",
+    })
 
-hl.monitor({
-  output = "DP-2",
-  mode = "highrr",
-  position = "2560x-300",
-  scale = "1",
-  transform = 1,
-})
+    hl.monitor({
+      output = "DP-2",
+      mode = "highrr",
+      position = "2560x-300",
+      scale = "1",
+      transform = 1,
+    })
 
-hl.monitor({
-  output = "DP-3",
-  mode = "highrr",
-  position = "-1080x-300",
-  scale = "1",
-  transform = 3,
-})  '';
+    hl.monitor({
+      output = "DP-3",
+      mode = "highrr",
+      position = "-1080x-300",
+      scale = "1",
+      transform = 3,
+    })  
+  '';
+   home.file.".config/hypr/lua/devices.lua".text = ''
+    hl.device ({
+      name="my-epic-mouse",
+      sensitivity = -0.5,
+    })
+  '';
       
   home.file.".config/ghostty" = {
     source = "${inputs.config-ghostty}";

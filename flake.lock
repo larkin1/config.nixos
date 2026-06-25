@@ -67,11 +67,11 @@
     "config-hypr": {
       "flake": false,
       "locked": {
-        "lastModified": 1782223678,
-        "narHash": "sha256-nCbLQVR4KVoMUK/BKKSlmioZ7E211CE2k83iwjWj1xg=",
+        "lastModified": 1782363558,
+        "narHash": "sha256-vOWXuwOrQTQWwYmZM7VHEVnL1W5DJbstBIvCVYbr2QU=",
         "ref": "refs/heads/main",
-        "rev": "dbaf9a3a7e4da66bf5f0af59f04494fdce71da04",
-        "revCount": 85,
+        "rev": "99a1eb311bdcd6f8a50213163faa25a3dff48d28",
+        "revCount": 86,
         "type": "git",
         "url": "https://github.com/larkin1/config.hypr"
       },
