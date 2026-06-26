@@ -115,6 +115,7 @@
     dunst
     wl-clipboard
     gcc
+    go
   ];
 
   fonts.fontconfig.enable = true;
