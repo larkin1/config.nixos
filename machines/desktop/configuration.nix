@@ -74,6 +74,11 @@
   bluez
   ];
 
+  services.locate = {
+    enable = true;
+    package = pkgs.plocate;
+  };
+
   environment.variables.EDITOR = "nvim";
 
   environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];

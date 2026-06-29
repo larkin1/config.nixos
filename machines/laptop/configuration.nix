@@ -138,7 +138,13 @@
   wget
   git
   bluez
+  brightnessctl
   ];
+
+  services.locate = {
+    enable = true;
+    package = pkgs.plocate;
+  };
 
   environment.variables.EDITOR = "nvim";
 
