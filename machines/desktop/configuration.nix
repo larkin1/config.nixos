@@ -49,7 +49,6 @@
     variant = "";
   };
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."larkin" = {
     isNormalUser = true;
@@ -73,6 +72,11 @@
   git
   bluez
   ];
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
 
   services.locate = {
     enable = true;

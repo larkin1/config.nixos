@@ -3,80 +3,48 @@
 {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
+    ../../common/home/dots.nix
   ];
+
   # user definition
   home.username = "larkin";
   home.homeDirectory = "/home/larkin";
 
   # config files
-  home.file.".config/hypr" = {
-    source = "${inputs.config-hypr}";
-    recursive = true;
-  };
   home.file.".config/hypr/lua/monitors.lua".text = ''
     hl.monitor({
-      output = "",
-      mode = "preferred",
-      position = "auto-left",
+      output = "DP-1",
+      mode = "highrr",
+      position = "0x0",
       scale = "1",
     })
-  '';
 
-  home.file.".config/hypr/lua/devices.lua".text = ''
+    hl.monitor({
+      output = "DP-2",
+      mode = "highrr",
+      position = "2560x-300",
+      scale = "1",
+      transform = 1,
+    })
+
+    hl.monitor({
+      output = "DP-3",
+      mode = "highrr",
+      position = "-1080x-300",
+      scale = "1",
+      transform = 3,
+    })  
+  '';
+   home.file.".config/hypr/lua/devices.lua".text = ''
     hl.device ({
-      name="lift-mouse",
+      name="my-epic-mouse",
       sensitivity = -0.5,
     })
   '';
-      
-  home.file.".config/wallpapers" = {
-    source = "${inputs.config-walls}";
-    recursive = true;
-  };
-
-  home.file.".config/ghostty" = {
-    source = "${inputs.config-ghostty}";
-    recursive = true;
-  };
-
-  home.file.".config/starship" = {
-    source = "${inputs.config-starship}";
-    recursive = true;
-  };
-
-  home.file.".config/cava" = {
-    source = "${inputs.config-cava}";
-    recursive = true;
-  };
-
-  home.file.".config/dunst" = {
-    source = "${inputs.config-dunst}";
-    recursive = true;
-  };
-
-  home.file.".config/fuzzel" = {
-    source = "${inputs.config-fuzzel}";
-    recursive = true;
-  };
-
-  home.file.".config/nvim" = {
-    source = "${inputs.config-nvim}";
-    recursive = true;
-  };
-
-  home.file.".config/waybar" = {
-    source = "${inputs.config-waybar}";
-    recursive = true;
-  };
-
-  home.file.".config/yazi" = {
-    source = "${inputs.config-yazi}";
-    recursive = true;
-  };
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    libreoffice-fresh
+    onlyoffice-desktopeditors
     zip
     unzip
     starship

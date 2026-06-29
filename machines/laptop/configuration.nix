@@ -141,6 +141,11 @@
   brightnessctl
   ];
 
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
   services.locate = {
     enable = true;
     package = pkgs.plocate;

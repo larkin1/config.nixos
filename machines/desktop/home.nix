@@ -3,16 +3,14 @@
 {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
+    ../../common/home/dots.nix
   ];
+
   # user definition
   home.username = "larkin";
   home.homeDirectory = "/home/larkin";
 
   # config files
-  home.file.".config/hypr" = {
-    source = "${inputs.config-hypr}";
-    recursive = true;
-  };
   home.file.".config/hypr/lua/monitors.lua".text = ''
     hl.monitor({
       output = "DP-1",
@@ -44,53 +42,9 @@
     })
   '';
 
-  home.file.".config/wallpapers" = {
-    source = "${inputs.config-walls}";
-    recursive = true;
-  };
-      
-  home.file.".config/ghostty" = {
-    source = "${inputs.config-ghostty}";
-    recursive = true;
-  };
-
-  home.file.".config/starship" = {
-    source = "${inputs.config-starship}";
-    recursive = true;
-  };
-
-  home.file.".config/cava" = {
-    source = "${inputs.config-cava}";
-    recursive = true;
-  };
-
-  home.file.".config/dunst" = {
-    source = "${inputs.config-dunst}";
-    recursive = true;
-  };
-
-  home.file.".config/fuzzel" = {
-    source = "${inputs.config-fuzzel}";
-    recursive = true;
-  };
-
-  home.file.".config/nvim" = {
-    source = "${inputs.config-nvim}";
-    recursive = true;
-  };
-
-  home.file.".config/waybar" = {
-    source = "${inputs.config-waybar}";
-    recursive = true;
-  };
-
-  home.file.".config/yazi" = {
-    source = "${inputs.config-yazi}";
-    recursive = true;
-  };
-
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    onlyoffice-desktopeditors
     zip
     unzip
     starship
@@ -140,7 +94,6 @@
       user.email = "88820972+larkin1@users.noreply.github.com";
     };
   };
-
 
   programs.spicetify =
   let
