@@ -2,7 +2,7 @@
 
 {
   imports = [
-    inputs.spicetify-nix.homeManagerModules.default
+    # inputs.spicetify-nix.homeManagerModules.default
     ../../common/home/dots.nix
     ../../common/home/hypr.nix
     ../../common/home/user.nix
@@ -12,7 +12,6 @@
     ../../common/home/zsh.nix
   ];
 
-  config files
   home.file.".config/hypr/lua/monitors.lua".text = ''
     hl.monitor({
       output = "",
@@ -22,10 +21,7 @@
     })
   '';
    home.file.".config/hypr/lua/devices.lua".text = ''
-    hl.device ({
-      name="my-epic-mouse",
-      sensitivity = -0.5,
-    })
+   -- no per-device config
   '';
 
   # Packages that should be installed to the user profile.
@@ -39,10 +35,8 @@
     glow 
     btop
     firefox
-    google-chrome
     ghostty
     fuzzel
-    vesktop
     cava
     yazi
     timg
@@ -51,9 +45,6 @@
     bemoji
     tree-sitter
     gcc
-    zoom-us
-    quickshell
-    qbittorrent
   ];
 
   services.playerctld.enable = true;

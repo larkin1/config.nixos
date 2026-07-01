@@ -38,10 +38,7 @@
     })  
   '';
    home.file.".config/hypr/lua/devices.lua".text = ''
-    hl.device ({
-      name="my-epic-mouse",
-      sensitivity = -0.5,
-    })
+   -- no per-device config
   '';
 
   # Packages that should be installed to the user profile.

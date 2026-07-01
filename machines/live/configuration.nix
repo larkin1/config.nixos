@@ -11,10 +11,8 @@
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.tmp.useTmpfs = true;
 
   networking.hostName = "live"; # Define your hostname.
 
@@ -78,10 +76,10 @@
     xwayland.enable = true;
   };
 
-  services.locate = {
-    enable = true;
-    package = pkgs.plocate;
-  };
+  # services.locate = {
+  #   enable = true;
+  #   package = pkgs.plocate;
+  # };
 
   environment.variables.EDITOR = "nvim";
 
