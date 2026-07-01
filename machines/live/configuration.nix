@@ -16,6 +16,10 @@
 
   networking.hostName = "live"; # Define your hostname.
 
+  nixpkgs.config.permittedInsecurePackages = [ # TEMPORARY UNTIL SPICETIFY BUMPS TO A LATER PNPM VER
+    "pnpm-10.29.2"
+  ];
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
