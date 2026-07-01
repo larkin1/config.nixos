@@ -26,7 +26,7 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    onlyoffice-desktopeditors
+    # onlyoffice-desktopeditors
     nix-output-monitor
     waybar
     zip

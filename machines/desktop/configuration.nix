@@ -70,7 +70,6 @@
   neovim
   wget
   git
-  bluez
   ];
 
   programs.hyprland = {

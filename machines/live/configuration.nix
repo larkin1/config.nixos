@@ -12,7 +12,7 @@
 
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "live"; # Define your hostname.
 
@@ -68,7 +68,6 @@
   neovim
   wget
   git
-  bluez
   ];
 
   programs.hyprland = {

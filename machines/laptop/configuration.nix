@@ -137,7 +137,6 @@
   neovim
   wget
   git
-  bluez
   brightnessctl
   ];
 
