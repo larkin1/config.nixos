@@ -67,6 +67,9 @@
     bemoji
     tree-sitter
     gcc
+    zoom-us
+    quickshell
+    qbittorrent
   ];
 
   services.playerctld.enable = true;
