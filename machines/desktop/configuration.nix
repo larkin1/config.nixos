@@ -13,7 +13,15 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  
+  # Disk usage optimisation
   boot.loader.systemd-boot.configurationLimit = 3;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+  nix.settings.auto-optimise-store = true;
 
   boot.tmp.useTmpfs = true;
 
