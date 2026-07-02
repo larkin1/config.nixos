@@ -10,43 +10,43 @@
 
     # Fetch the latest configuration files direct from Github
     config-ghostty = {
-      url = "git+https://github.com/larkin1/config.ghostty";
+      url = "git+https://github.com/larkin1/config.ghostty?shallow=1";
       flake = false;
     };
     config-starship = {
-      url = "git+https://github.com/larkin1/config.starship";
+      url = "git+https://github.com/larkin1/config.starship?shallow=1";
       flake = false;
     };
     config-hypr = {
-      url = "git+https://github.com/larkin1/config.hypr";
+      url = "git+https://github.com/larkin1/config.hypr?shallow=1";
       flake = false;
     };
     config-waybar = {
-      url = "git+https://github.com/larkin1/config.waybar";
+      url = "git+https://github.com/larkin1/config.waybar?shallow=1";
       flake = false;
     };
     config-cava = {
-      url = "git+https://github.com/larkin1/config.cava";
+      url = "git+https://github.com/larkin1/config.cava?shallow=1";
       flake = false;
     };
     config-fuzzel = {
-      url = "git+https://github.com/larkin1/config.fuzzel";
+      url = "git+https://github.com/larkin1/config.fuzzel?shallow=1";
       flake = false;
     };
     config-nvim = {
-      url = "git+https://github.com/larkin1/config.nvim";
+      url = "git+https://github.com/larkin1/config.nvim?shallow=1";
       flake = false;
     };
     config-dunst = {
-      url = "git+https://github.com/larkin1/config.dunst";
+      url = "git+https://github.com/larkin1/config.dunst?shallow=1";
       flake = false;
     };
     config-yazi = {
-      url = "git+https://github.com/larkin1/config.yazi";
+      url = "git+https://github.com/larkin1/config.yazi?shallow=1";
       flake = false;
     };
     config-walls = {
-      url = "git+https://github.com/larkin1/config.walls";
+      url = "git+https://github.com/larkin1/config.walls?shallow=1";
       flake = false;
     };
 

@@ -63,6 +63,8 @@
     shell = pkgs.zsh;
   };
 
+  services.mingetty.autologinUser = "larkin";
+
   programs.zsh.enable = true;
 
   # Allow unfree packages
@@ -97,6 +99,8 @@
     enable = true;
     powerOnBoot = true;
   };
+
+  security.polkit.enable = true;
 
   security.rtkit.enable = true;
   services.pipewire = {
