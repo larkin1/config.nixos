@@ -14,6 +14,9 @@
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
 
+  isoImage.makeEfiBootable = true;
+  isoImage.makeUsbBootable = true;
+
   networking.hostName = "live"; # Define your hostname.
 
   nixpkgs.config.permittedInsecurePackages = [ # TEMPORARY UNTIL SPICETIFY BUMPS TO A LATER PNPM VER
