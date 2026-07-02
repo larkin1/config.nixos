@@ -87,7 +87,7 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            (nixpkgs + "/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix")
+            (nixpkgs + "/nixos/modules/installer/cd-dvd/iso-image.nix")
             ./machines/live/configuration.nix
             home-manager.nixosModules.home-manager
             {
