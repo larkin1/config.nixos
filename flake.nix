@@ -55,34 +55,26 @@
 
   outputs =
     inputs@{ nixpkgs, home-manager, ... }:
-    {
+    let
+      mkHost = { hostname, system ? "x86_64-linux", username ? "larkin" }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            ./machines/${hostname}/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.${username} = ./machines/${hostname}/home.nix;
+            }
+          ];
+        };
+    in {
       nixosConfigurations = {
-        laptop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./machines/laptop/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.larkin = ./machines/laptop/home.nix;
-            }
-          ];
-        };
-        desktop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./machines/desktop/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.larkin = ./machines/desktop/home.nix;
-            }
-          ];
-        };
+        laptop = mkHost { hostname = "laptop"; };
+        desktop = mkHost { hostname = "desktop"; };
+        work = mkHost { hostname = "work"; };
     };
   };
 }
