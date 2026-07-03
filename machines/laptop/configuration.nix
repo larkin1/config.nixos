@@ -1,13 +1,10 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
+      ../../common/system/nvim.nix
     ];
 
   # Bootloader.
@@ -147,7 +144,6 @@
   # $ nix search wget
   nix.settings.experimental-features = [ "nix-command" "flakes"];
   environment.systemPackages = with pkgs; [
-  neovim
   wget
   git
   brightnessctl
@@ -162,8 +158,6 @@
     enable = true;
     package = pkgs.plocate;
   };
-
-  environment.variables.EDITOR = "nvim";
 
   environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
 

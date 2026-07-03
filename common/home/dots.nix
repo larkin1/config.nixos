@@ -26,11 +26,6 @@
     recursive = true;
   };
 
-  home.file.".config/nvim" = {
-    source = "${inputs.config-nvim}";
-    recursive = true;
-  };
-
   home.file.".config/waybar" = {
     source = "${inputs.config-waybar}";
     recursive = true;

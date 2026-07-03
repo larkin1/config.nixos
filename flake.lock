@@ -88,10 +88,10 @@
     "config-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1780974278,
-        "narHash": "sha256-XZGvrQ0GWxhpIs4OzaBlGum5RAyR/3w2yes0okFPiVA=",
+        "lastModified": 1783080857,
+        "narHash": "sha256-FgRbyJSqnY6GK2DWyhwLfQEYw5JjaJYXba4xnKX1keI=",
         "ref": "refs/heads/main",
-        "rev": "eae3ef89b630bbbcd09efdb515ac141479e2e8b2",
+        "rev": "8bfdd3d15ce063cda33ca282994f3233094ef3d5",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.nvim"

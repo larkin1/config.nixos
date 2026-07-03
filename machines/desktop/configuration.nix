@@ -12,6 +12,7 @@
       ../../common/system/locale.nix
       ../../common/system/network.nix
       ../../common/system/pipewire.nix
+      ../../common/system/nvim.nix
     ];
 
   nixpkgs.config.permittedInsecurePackages = [ # TEMPORARY UNTIL SPICETIFY BUMPS TO A LATER PNPM VER
@@ -27,13 +28,11 @@
   # System packages
   nix.settings.experimental-features = [ "nix-command" "flakes"];
   environment.systemPackages = with pkgs; [
-    neovim
     wget
     git
   ];
 
   # These feel like they would be common between configs, but i don't know where to put them.
-  environment.variables.EDITOR = "nvim";
   hardware.graphics.enable = true;
   security.polkit.enable = true;
   environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];

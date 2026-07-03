@@ -10,6 +10,7 @@
     ../../common/home/fonts.nix
     ../../common/home/spotify.nix
     ../../common/home/zsh.nix
+    ../../common/home/nvim.nix
   ];
 
   # config files

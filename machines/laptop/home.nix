@@ -5,6 +5,7 @@
     inputs.spicetify-nix.homeManagerModules.default
     ../../common/home/dots.nix
     ../../common/home/hypr.nix
+    ../../common/home/nvim.nix
   ];
 
   # user definition
