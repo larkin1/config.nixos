@@ -4,6 +4,7 @@
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
     ../../common/home/dots.nix
+    ../../common/home/hypr.nix
   ];
 
   # user definition
@@ -13,33 +14,14 @@
   # config files
   home.file.".config/hypr/lua/monitors.lua".text = ''
     hl.monitor({
-      output = "DP-1",
-      mode = "highrr",
-      position = "0x0",
+      output = "",
+      mode = "preferred",
+      position = "auto-left",
       scale = "1",
     })
-
-    hl.monitor({
-      output = "DP-2",
-      mode = "highrr",
-      position = "2560x-300",
-      scale = "1",
-      transform = 1,
-    })
-
-    hl.monitor({
-      output = "DP-3",
-      mode = "highrr",
-      position = "-1080x-300",
-      scale = "1",
-      transform = 3,
-    })  
   '';
    home.file.".config/hypr/lua/devices.lua".text = ''
-    hl.device ({
-      name="my-epic-mouse",
-      sensitivity = -0.5,
-    })
+   -- no per-device config
   '';
 
   # Packages that should be installed to the user profile.
