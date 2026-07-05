@@ -64,8 +64,6 @@
     cliphist
     wl-clipboard
     bemoji
-    tree-sitter
-    gcc
     zoom-us
     quickshell
     qbittorrent

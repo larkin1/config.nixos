@@ -58,7 +58,6 @@
     ghostty
     nerd-fonts.jetbrains-mono
     noto-fonts-color-emoji
-    tree-sitter
     vesktop
     cava
     yazi
@@ -66,7 +65,6 @@
     libnotify
     dunst
     wl-clipboard
-    gcc
     go
   ];
 
