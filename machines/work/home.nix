@@ -36,6 +36,8 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    obs-studio
+    inputs.helium.packages.${system}.default
     onlyoffice-desktopeditors
     nix-output-monitor
     waybar

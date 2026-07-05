@@ -57,6 +57,9 @@
       # cat stuff
       cat = "bat -n --paging=never";
       less = "bat -n --paging=always";
+
+      # random
+      ":q" = "exit";
     };
   };
 }
