@@ -3,12 +3,20 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+
+    # --- Special Apps ---
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    helium = {
+      url = "github:schembriaiden/helium-browser-nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    # Fetch the latest configuration files direct from Github
+
+    # --- Configurations ---
     config-ghostty = {
       url = "git+https://github.com/larkin1/config.ghostty?shallow=1";
       flake = false;
