@@ -17,43 +17,11 @@
 
 
     # --- Configurations ---
-    config-ghostty = {
-      url = "git+https://github.com/larkin1/config.ghostty?shallow=1";
-      flake = false;
-    };
-    config-starship = {
-      url = "git+https://github.com/larkin1/config.starship?shallow=1";
-      flake = false;
-    };
-    config-hypr = {
-      url = "git+https://github.com/larkin1/config.hypr?shallow=1";
-      flake = false;
-    };
-    config-waybar = {
-      url = "git+https://github.com/larkin1/config.waybar?shallow=1";
-      flake = false;
-    };
-    config-cava = {
-      url = "git+https://github.com/larkin1/config.cava?shallow=1";
-      flake = false;
-    };
-    config-fuzzel = {
-      url = "git+https://github.com/larkin1/config.fuzzel?shallow=1";
-      flake = false;
-    };
-    config-nvim = {
+    config-nvim = { # i keep my nvim config in a separate repo because i also want it elsewhere
       url = "git+https://github.com/larkin1/config.nvim?shallow=1";
       flake = false;
     };
-    config-dunst = {
-      url = "git+https://github.com/larkin1/config.dunst?shallow=1";
-      flake = false;
-    };
-    config-yazi = {
-      url = "git+https://github.com/larkin1/config.yazi?shallow=1";
-      flake = false;
-    };
-    config-walls = {
+    config-walls = { # i keep my walls in a separate repo to keep the size of this repo relatively low
       url = "git+https://github.com/larkin1/config.walls?shallow=1";
       flake = false;
     };

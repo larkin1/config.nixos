@@ -1,38 +1,39 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
-  home.file.".config/ghostty" = {
-    source = "${inputs.config-ghostty}";
-    recursive = true;
+  xdg.configFile."cava" = {
+    source = ../../configs/cava;
+    recursive = false;
   };
 
-  home.file.".config/starship" = {
-    source = "${inputs.config-starship}";
-    recursive = true;
+  xdg.configFile."dunst" = {
+    source = ../../configs/dunst;
+    recursive = false;
   };
 
-  home.file.".config/cava" = {
-    source = "${inputs.config-cava}";
-    recursive = true;
+  xdg.configFile."fuzzel" = {
+    source = ../../configs/fuzzel;
+    recursive = false;
   };
 
-  home.file.".config/dunst" = {
-    source = "${inputs.config-dunst}";
-    recursive = true;
+  xdg.configFile."ghostty" = {
+    source = ../../configs/ghostty;
+    recursive = false;
   };
 
-  home.file.".config/fuzzel" = {
-    source = "${inputs.config-fuzzel}";
-    recursive = true;
+  xdg.configFile."starship" = {
+    source = ../../configs/starship;
+    recursive = false;
   };
 
-  home.file.".config/waybar" = {
-    source = "${inputs.config-waybar}";
-    recursive = true;
+  xdg.configFile."waybar" = {
+    source = ../../configs/waybar;
+    recursive = false;
   };
 
-  home.file.".config/yazi" = {
-    source = "${inputs.config-yazi}";
-    recursive = true;
+  xdg.configFile."yazi" = {
+    source = ../../configs/yazi;
+    recursive = false;
   };
+
 }

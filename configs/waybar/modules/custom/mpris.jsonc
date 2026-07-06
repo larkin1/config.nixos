@@ -1,0 +1,14 @@
+{
+  "custom/mpris": {
+    "exec": "$HOME/.config/waybar/scripts/mpris.sh playing",
+    "format":"{}",
+    "interval": 1,
+    "max-length": 60,
+    "on-click": "$HOME/.config/waybar/scripts/mpris.sh play",
+    "on-click-middle": "playerctl pause --all-players",
+    "on-click-right": "$HOME/.config/waybar/scripts/mpris.sh menu",
+    "on-scroll-up": "$HOME/.config/waybar/scripts/mpris.sh prev",
+    "on-scroll-down": "$HOME/.config/waybar/scripts/mpris.sh next",
+    "exec-on-event":true
+  }
+}

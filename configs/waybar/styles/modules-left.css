@@ -1,0 +1,52 @@
+/*----------------
+    media info
+----------------*/
+
+#custom-mpris {
+	padding: 0 10px;
+	background-color: @mpris;
+}
+
+/*--------------
+    username
+--------------*/
+
+#custom-user {
+	padding-right: 12px;
+}
+
+/*----------------
+    workspaces
+----------------*/
+
+#custom-right_div.1 {
+	background-color: @mpris;
+}
+
+#custom-right_div.6 {
+  color: @mpris;
+}
+
+#custom-left_div.1,
+#custom-right_div.1 {
+	color: @workspaces;
+}
+#workspaces {
+	padding: 0 2px;
+	background-color: @workspaces;
+}
+#workspaces button.active label,
+#workspaces button.focused label {
+	color: @accent;
+}
+
+#workspaces button:hover {
+	background-color: @surface0;
+}
+/*------------------
+    window title
+------------------*/
+
+#window {
+	margin-left: 12px;
+}

@@ -1,90 +1,5 @@
 {
   "nodes": {
-    "config-cava": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780614040,
-        "narHash": "sha256-mppVbsqos58E7PwQHBr9W6a9pkdo71Hu7Oy3fX89r88=",
-        "ref": "refs/heads/main",
-        "rev": "5defe1d95ae28b2c3baabc305ea85c45815769df",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.cava"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.cava"
-      }
-    },
-    "config-dunst": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780710747,
-        "narHash": "sha256-uTzrKxN9VbZ2uB/D9sSQszstPumtscPg7VDqOEYrAPM=",
-        "ref": "refs/heads/main",
-        "rev": "c08c8c6596b56b5c951f3a4c0331c021a725f9c3",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.dunst"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.dunst"
-      }
-    },
-    "config-fuzzel": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780353241,
-        "narHash": "sha256-kYnZecBcAUvMoUiurDsHPBWfLz6wEeEoyuZFfSbC8Y8=",
-        "ref": "refs/heads/main",
-        "rev": "635fa93b8e3a14a00e587162a7fdd60c5f7255a0",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.fuzzel"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.fuzzel"
-      }
-    },
-    "config-ghostty": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1773030471,
-        "narHash": "sha256-fioAhzVs+ptoeXUIBzbVxPYYZ70sVN38it1id4K2RdM=",
-        "ref": "refs/heads/main",
-        "rev": "70a8d6c6dbecf96fe13cfd8f2184be415532192e",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.ghostty"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.ghostty"
-      }
-    },
-    "config-hypr": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1782961592,
-        "narHash": "sha256-4EvXipNp0/rp6JYDDSkir0TXD1ncjC7RYMK94PW0jZI=",
-        "ref": "refs/heads/main",
-        "rev": "cfc471343b34800fc40d9a6c7f088496d5aa84af",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.hypr"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.hypr"
-      }
-    },
     "config-nvim": {
       "flake": false,
       "locked": {
@@ -100,23 +15,6 @@
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.nvim"
-      }
-    },
-    "config-starship": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780554176,
-        "narHash": "sha256-jCWaPiio50OtS7sesCuUOfvPdHyDIk5lkw4daPimaCU=",
-        "ref": "refs/heads/main",
-        "rev": "0d7a39c6d6b7eb7c0536e81c7e3fb0d2a67a9dc9",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.starship"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.starship"
       }
     },
     "config-walls": {
@@ -136,40 +34,6 @@
         "url": "https://github.com/larkin1/config.walls"
       }
     },
-    "config-waybar": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1782414351,
-        "narHash": "sha256-WoHAT2+k1Ip59K25UQ2SZfYThw3wXT0mTLnm/3ngaXg=",
-        "ref": "refs/heads/main",
-        "rev": "64cba13cd806525f874e2bf90425a4e5154d311c",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.waybar"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.waybar"
-      }
-    },
-    "config-yazi": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1780022740,
-        "narHash": "sha256-SjFW1a1by6ThE+M0zyNocm0NisF7e5ShUt3h6RTVM0Y=",
-        "ref": "refs/heads/main",
-        "rev": "bf1ef44e559fe2800526bdf33735b3c928638587",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.yazi"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.yazi"
-      }
-    },
     "helium": {
       "inputs": {
         "nixpkgs": [
@@ -178,11 +42,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1783050329,
-        "narHash": "sha256-v0GGTttQboqPkX8L5TAm0GQpG/jwhmzFJyMgphD1BHA=",
+        "lastModified": 1783223803,
+        "narHash": "sha256-tm6T+BmxX03IV5m5YLR9RixTATCs/FXbJMjZa4kzsA8=",
         "owner": "schembriaiden",
         "repo": "helium-browser-nix-flake",
-        "rev": "b9209362800a8ffb10ed76d38352ec873cfdc228",
+        "rev": "a4d5eb6e4b8a44d84fd66fe6771c49b51369bf51",
         "type": "github"
       },
       "original": {
@@ -198,11 +62,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783134515,
-        "narHash": "sha256-qMoZazubXlXUD9k/syJ/aiWC4X4g73mwVmZ7Z4+rdpM=",
+        "lastModified": 1783222121,
+        "narHash": "sha256-E/ElL373TO8lQ2aMvYyzN+k4xkVaUGoRqoa8AtM71tI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "b885baad531fa3d3beae2ba9a0712d22974d8016",
+        "rev": "a1645f40777620c4bd2b6d854b290c2fc354a266",
         "type": "github"
       },
       "original": {
@@ -213,11 +77,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1782959384,
-        "narHash": "sha256-xnJJk+ct+D2+wdRxj1wk36w5zV9RVESwRqcklPdt3fM=",
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "65179426c83bb3f6bc14898b42ea1c6f01d374b0",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
         "type": "github"
       },
       "original": {
@@ -229,11 +93,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1782467914,
-        "narHash": "sha256-inDx/w70OSJoJPqtKh0BrzAsbZZhpya7YgS43jHnhwg=",
-        "rev": "e73de5be04e0eff4190a1432b946d469c794e7b4",
+        "lastModified": 1783224372,
+        "narHash": "sha256-FGQ8TfSm9WviNE/fQAWsKs+y4GkX8fU4EScewpw54Y8=",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1022855.e73de5be04e0/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1027867.d407951447dc/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
@@ -242,16 +106,8 @@
     },
     "root": {
       "inputs": {
-        "config-cava": "config-cava",
-        "config-dunst": "config-dunst",
-        "config-fuzzel": "config-fuzzel",
-        "config-ghostty": "config-ghostty",
-        "config-hypr": "config-hypr",
         "config-nvim": "config-nvim",
-        "config-starship": "config-starship",
         "config-walls": "config-walls",
-        "config-waybar": "config-waybar",
-        "config-yazi": "config-yazi",
         "helium": "helium",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
@@ -264,11 +120,11 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1782898510,
-        "narHash": "sha256-7QVN7ijsXbIBRrI9LdXfeoFktTS0I6HZya9tu6+STrs=",
+        "lastModified": 1783303713,
+        "narHash": "sha256-d6Zs6wD0kvWQXn7qPU0YsuqoqBhT7zi5+1M365FINt8=",
         "ref": "refs/heads/master",
-        "rev": "9cabea6f5973ec01f60080ea50f54f8f6d74dc95",
-        "revCount": 1007,
+        "rev": "d9d714243e2f8d10af28db5111f018ec2d77acc9",
+        "revCount": 1009,
         "type": "git",
         "url": "https://github.com/Gerg-L/spicetify-nix"
       },

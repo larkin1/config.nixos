@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
-  home.file.".config/hypr" = {
-    source = "${inputs.config-hypr}";
+  xdg.configFile."hypr" = {
+    source = ../../configs/hypr;
     recursive = true;
   };
 
