@@ -178,6 +178,7 @@
     pulse.enable = true;
   };
 
+  # leave this
   system.stateVersion = "26.05";
 
 }

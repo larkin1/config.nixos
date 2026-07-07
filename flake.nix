@@ -34,8 +34,8 @@
     let
       mkHost = { hostname, system ? "x86_64-linux", username ? "larkin" }:
         nixpkgs.lib.nixosSystem {
-          inherit system;
           modules = [
+            { nixpkgs.hostPlatform = system; }
             ./machines/${hostname}/configuration.nix
             home-manager.nixosModules.home-manager
             {
