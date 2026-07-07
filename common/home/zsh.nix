@@ -8,6 +8,7 @@
     zoxide
     bat
     fzf
+    fd
   ];
 
   programs.zsh = {

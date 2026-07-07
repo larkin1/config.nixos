@@ -36,6 +36,7 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    orca-slicer
     obs-studio
     inputs.helium.packages.${system}.default
     onlyoffice-desktopeditors
@@ -60,10 +61,27 @@
     zoom-us
     quickshell
     qbittorrent
+    gtk3
+    (pkgs.writeShellScriptBin "orca-slicer-fixed" ''
+      GSETTINGS_SCHEMA_DIR="${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}/glib-2.0/schemas" \
+        orca-slicer "$@"
+    '') # wrapper script to launch orcaslicer
   ];
 
+  # new desktop file for orcaslicer
+  # You might think "why not just put the wrapper script directly into the desktop launcher?
+  # and you would be right to think that, but for some reason, fuzzel doesn't launch it properly
+  # when it's wrapped directly into the desktop file... idk why, but this solution works ok?
+  xdg.desktopEntries."com.orcaslicer.OrcaSlicer" = { 
+    name = "OrcaSlicer";
+    exec = "orca-slicer-fixed %U";
+    icon = "OrcaSlicer";
+    terminal = false;
+    categories = [ "Graphics" "3DGraphics" "Engineering" ];
+  };
+
   services.playerctld.enable = true;
-  
+
   # safe to ignore
   home.stateVersion = "26.05";
 }

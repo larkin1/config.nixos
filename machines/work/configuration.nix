@@ -21,6 +21,14 @@
 
   networking.hostName = "work";
 
+  networking.firewall = {
+    extraCommands = ''
+      iptables -I INPUT -m pkttype --pkt-type multicast -j ACCEPT
+      iptables -A INPUT -m pkttype --pkt-type multicast -j ACCEPT
+      iptables -I INPUT -p udp -m udp --match multiport --dports 1990,2021 -j ACCEPT
+    '';
+  };
+
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
 
   nixpkgs.config.allowUnfree = true; # Allows unfree packages
