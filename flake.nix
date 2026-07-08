@@ -10,6 +10,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hjem = {
+      url = "github:feel-co/hjem";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     helium = {
       url = "github:schembriaiden/helium-browser-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +27,8 @@
       url = "git+https://github.com/larkin1/config.nvim?shallow=1";
       flake = false;
     };
-    config-walls = { # i keep my walls in a separate repo to keep the size of this repo relatively low
+
+    config-walls = { # i keep my walls in a separate repo to keep the size of this repo lower
       url = "git+https://github.com/larkin1/config.walls?shallow=1";
       flake = false;
     };
@@ -38,6 +45,7 @@
             { nixpkgs.hostPlatform = system; }
             ./machines/${hostname}/configuration.nix
             home-manager.nixosModules.home-manager
+            inputs.hjem.nixosModules.default
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

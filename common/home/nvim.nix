@@ -15,6 +15,7 @@
     rust-analyzer
     basedpyright
     qt6.qtdeclarative # qmlls
+    nil
   ];
 
   programs.neovim.defaultEditor = true;
