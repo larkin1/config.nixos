@@ -1,11 +1,10 @@
-{ config, pkgs, ... }:
+{ pkgs, hostname, ... }:
 
 {
   imports =
     [
       ./hardware-configuration.nix
       ./hjem.nix
-      # ../../lib/system/base-user.nix
       ../../lib/system/bluetooth.nix
       ../../lib/system/bootloader.nix
       ../../lib/system/disk-optimisations.nix
@@ -14,13 +13,14 @@
       ../../lib/system/network.nix
       ../../lib/system/pipewire.nix
       ../../lib/system/nvim.nix
+      ../../lib/system/fonts.nix
     ];
 
   nixpkgs.config.permittedInsecurePackages = [ # TEMPORARY UNTIL SPICETIFY BUMPS TO A LATER PNPM VER
     "pnpm-10.29.2"
   ];
 
-  networking.hostName = "hjem-test";
+  networking.hostName = hostname;
 
   # networking.firewall = {
   #   extraCommands = ''

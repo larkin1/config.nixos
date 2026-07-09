@@ -44,7 +44,7 @@
           specialArgs = {
             inherit inputs;
             inherit username;
-            hostDir = ./hosts/${hostname};
+            inherit hostname;
           };
           modules = [
             { nixpkgs.hostPlatform = system; }
