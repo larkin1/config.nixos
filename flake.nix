@@ -41,16 +41,21 @@
     let
       mkHost = { hostname, system ? "x86_64-linux", username ? "larkin" }:
         nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            inherit username;
+            hostDir = ./hosts/${hostname};
+          };
           modules = [
             { nixpkgs.hostPlatform = system; }
-            ./machines/${hostname}/configuration.nix
+            ./hosts/${hostname}/configuration.nix
+            # inputs.hjem.nixosModules.default
             home-manager.nixosModules.home-manager
-            inputs.hjem.nixosModules.default
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.${username} = ./machines/${hostname}/home.nix;
+              home-manager.users.${username} = ./hosts/${hostname}/home.nix;
             }
           ];
         };
@@ -59,6 +64,7 @@
         laptop = mkHost { hostname = "laptop"; };
         desktop = mkHost { hostname = "desktop"; };
         work = mkHost { hostname = "work"; };
+        hjem-test = mkHost { hostname = "hjem-test"; username = "test"; };
     };
   };
 }

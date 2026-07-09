@@ -3,9 +3,9 @@
 {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
-    ../../common/home/dots.nix
-    ../../common/home/hypr.nix
-    ../../common/home/nvim.nix
+    ../../lib/home/dots.nix
+    ../../lib/home/hypr.nix
+    ../../lib/home/nvim.nix
   ];
 
   # user definition

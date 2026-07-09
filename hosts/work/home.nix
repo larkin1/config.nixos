@@ -3,14 +3,14 @@
 {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
-    ../../common/home/dots.nix
-    ../../common/home/hypr.nix
-    ../../common/home/user.nix
-    ../../common/home/git.nix
-    ../../common/home/fonts.nix
-    ../../common/home/spotify.nix
-    ../../common/home/zsh.nix
-    ../../common/home/nvim.nix
+    ../../lib/home/dots.nix
+    ../../lib/home/hypr.nix
+    ../../lib/home/user.nix
+    ../../lib/home/git.nix
+    ../../lib/home/fonts.nix
+    ../../lib/home/spotify.nix
+    ../../lib/home/zsh.nix
+    ../../lib/home/nvim.nix
   ];
 
   # config files

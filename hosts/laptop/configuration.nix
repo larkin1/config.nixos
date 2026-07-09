@@ -4,7 +4,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../common/system/nvim.nix
+      ../../lib/system/nvim.nix
     ];
 
   # Bootloader.

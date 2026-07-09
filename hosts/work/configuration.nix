@@ -4,22 +4,32 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../common/system/base-user.nix
-      ../../common/system/bluetooth.nix
-      ../../common/system/bootloader.nix
-      ../../common/system/disk-optimisations.nix
-      ../../common/system/hypr.nix
-      ../../common/system/locale.nix
-      ../../common/system/network.nix
-      ../../common/system/pipewire.nix
-      ../../common/system/nvim.nix
+      ../../lib/system/base-user.nix
+      ../../lib/system/bluetooth.nix
+      ../../lib/system/bootloader.nix
+      ../../lib/system/disk-optimisations.nix
+      ../../lib/system/hypr.nix
+      ../../lib/system/locale.nix
+      ../../lib/system/network.nix
+      ../../lib/system/pipewire.nix
+      ../../lib/system/nvim.nix
     ];
 
   nixpkgs.config.permittedInsecurePackages = [ # TEMPORARY UNTIL SPICETIFY BUMPS TO A LATER PNPM VER
     "pnpm-10.29.2"
   ];
 
-  networking.hostName = "desktop";
+  networking.hostName = "work";
+
+  networking.firewall = {
+    extraCommands = ''
+      iptables -I INPUT -m pkttype --pkt-type multicast -j ACCEPT
+      iptables -A INPUT -m pkttype --pkt-type multicast -j ACCEPT
+      iptables -I INPUT -p udp -m udp --match multiport --dports 1990,2021 -j ACCEPT
+      iptables -I INPUT -p tcp -m tcp --dport 990 -j ACCEPT
+      iptables -I INPUT -p tcp -m tcp --dport 8883 -j ACCEPT
+    '';
+  };
 
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
 
