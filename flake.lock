@@ -3,10 +3,10 @@
     "config-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1783556133,
-        "narHash": "sha256-2Z7aUzojBiBOxJRRFxW0FUSV2zqOkmyYL4OQLFa1JJk=",
+        "lastModified": 1783653833,
+        "narHash": "sha256-jMDCsyXyjdWnan0rQ19/Az8Rlz1aTp9SXsBPOdQoRaU=",
         "ref": "refs/heads/main",
-        "rev": "475d48a0767574ba1602c939022847a458255c6b",
+        "rev": "f4045004f79bf89eb477d4a51e62b664b345dd29",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.nvim"
@@ -82,11 +82,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1783550008,
-        "narHash": "sha256-qbbZUk9IG9dLNwCPwdPBs6I5clxwugRpP+1YU+GPK20=",
+        "lastModified": 1783618078,
+        "narHash": "sha256-F43DGcBoIO8xOZFAfodg3jy0VghB9NGdb6xbTYAIx1A=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f4d01c1d87c7c2ec909549165d5a8338f1bd3315",
+        "rev": "144f4e36d0186195037da9fce80a727108978070",
         "type": "github"
       },
       "original": {

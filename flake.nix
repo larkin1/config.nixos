@@ -49,14 +49,14 @@
           modules = [
             { nixpkgs.hostPlatform = system; }
             ./hosts/${hostname}/configuration.nix
-            # inputs.hjem.nixosModules.default
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.users.${username} = ./hosts/${hostname}/home.nix;
-            }
+            inputs.hjem.nixosModules.default
+            # home-manager.nixosModules.home-manager
+            # {
+            #   home-manager.useGlobalPkgs = true;
+            #   home-manager.useUserPackages = true;
+            #   home-manager.extraSpecialArgs = { inherit inputs; };
+            #   home-manager.users.${username} = ./hosts/${hostname}/home.nix;
+            # }
           ];
         };
     in {

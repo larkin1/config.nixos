@@ -29,7 +29,7 @@
 
         source ${config.hjem.users."${username}".environment.loadEnv}
 
-        HELPDIR="${zsh}/share/zsh/$ZSH_VERSION/help
+        HELPDIR="${zsh}/share/zsh/$ZSH_VERSION/help"
 
         autoload -U compinit && compinit
         # History options should be set in .zshrc and after oh-my-zsh sourcing.
