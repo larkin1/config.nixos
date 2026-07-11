@@ -44,6 +44,7 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
+    cameractrls
     inputs.helium.packages.${system}.default
     onlyoffice-desktopeditors
     nix-output-monitor
