@@ -36,7 +36,7 @@
       position = "-1080x-300",
       scale = "1",
       transform = 3,
-    })  
+    })
   '';
    home.file.".config/hypr/lua/devices.lua".text = ''
    -- no per-device config
@@ -52,7 +52,7 @@
     zip
     unzip
     jq
-    glow 
+    glow
     btop
     firefox
     google-chrome
@@ -71,7 +71,7 @@
   ];
 
   services.playerctld.enable = true;
-  
+
   # safe to ignore
   home.stateVersion = "26.05";
 }

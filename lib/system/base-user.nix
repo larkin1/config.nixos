@@ -10,7 +10,7 @@
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
-  
+
   # Enable zsh since we define `users.users.<user>.shell` as zsh
   programs.zsh.enable = true;
 }

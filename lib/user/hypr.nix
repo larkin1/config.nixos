@@ -1,5 +1,5 @@
 { pkgs, inputs, hostname, username, ... }:
- 
+
 {
   hjem.users."${username}" = {
     packages = with pkgs; [

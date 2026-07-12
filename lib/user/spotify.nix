@@ -1,15 +1,15 @@
 { pkgs, inputs, username, ... }:
 
-let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
 {
   hjem.extraModules = [ inputs.spicetify-nix.hjemModules.default ];
 
   hjem.users."${username}" = {
-    programs.spicetify = {
+    programs.spicetify =
+    let
+      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+    in
+    {
       enable = true;
-      wayland = false;
 
       enabledExtensions = with spicePkgs.extensions; [
         adblock
@@ -17,7 +17,6 @@ in
       ];
 
       enabledSnippets = with spicePkgs.snippets; [
-        # rotatingCoverart
         pointer
       ];
 

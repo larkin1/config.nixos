@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     # --- required ---
     neovim
-    
+
     # --- tree-sitter ---
     tree-sitter
     gcc

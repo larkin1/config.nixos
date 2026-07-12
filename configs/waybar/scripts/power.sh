@@ -57,7 +57,7 @@ menu() {
   done
 }
 
-case "${1:-}" in 
+case "${1:-}" in
   menu) menu ;;
   *)
     echo "usage: $0 {menu}" >&2

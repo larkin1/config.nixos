@@ -28,7 +28,7 @@
       position = "1920x-450",
       scale = "1",
       transform = 3,
-    })  
+    })
   '';
    home.file.".config/hypr/lua/devices.lua".text = ''
    -- no per-device config
@@ -45,7 +45,7 @@
     zip
     unzip
     jq
-    glow 
+    glow
     btop
     firefox
     google-chrome
@@ -72,7 +72,7 @@
   # You might think "why not just put the wrapper script directly into the desktop launcher?
   # and you would be right to think that, but for some reason, fuzzel doesn't launch it properly
   # when it's wrapped directly into the desktop file... idk why, but this solution works ok?
-  xdg.desktopEntries."com.orcaslicer.OrcaSlicer" = { 
+  xdg.desktopEntries."com.orcaslicer.OrcaSlicer" = {
     name = "OrcaSlicer";
     exec = "orca-slicer-fixed %U";
     icon = "OrcaSlicer";

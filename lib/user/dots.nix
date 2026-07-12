@@ -19,5 +19,7 @@
       ".config/starship".source = ../../configs/starship;
     };
   };
+
+  services.playerctld.enable = true;
 }
 

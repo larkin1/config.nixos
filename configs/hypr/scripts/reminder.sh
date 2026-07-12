@@ -14,7 +14,7 @@ if [ -z "$opt" ]; then
 fi
 
 case "$opt" in
-  file) 
+  file)
     file="$(fd . "/" --type f | fuzzel --dmenu \
       --delayed-filter-limit=500 \
       --hide-before-typing \
@@ -26,7 +26,7 @@ case "$opt" in
       --search="${HOME}/")"
     action="xdg-open \"${file}\""
   ;;
-  url) 
+  url)
     url="$(printf "" | fuzzel --dmenu \
       --prompt="Url: " \
       --placeholder="https://... (strips double https:// strings)" \
@@ -43,7 +43,7 @@ case "$opt" in
   pass)
     action=:
   ;;
-  workspace) 
+  workspace)
     wspace=$(seq 10 | fuzzel --dmenu \
       --prompt="Workspace: " \
       --placeholder="Workspace to focus..." \

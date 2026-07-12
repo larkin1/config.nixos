@@ -77,7 +77,7 @@ player_menu() {
 
   lx=$((lx - 1))
   ly=$((ly - 25))
-  
+
   player=$(
     printf "$(playerctl -l)\nvolume\npause-all\nplay-all" | fuzzel --dmenu \
     --anchor=top-left \
@@ -196,7 +196,7 @@ player_menu() {
 
 }
 
-case "${1:-}" in 
+case "${1:-}" in
   playing) get_playing_string ;;
   menu) player_menu ;;
   play) play_current ;;

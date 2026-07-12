@@ -1,6 +1,8 @@
 { config, pkgs, username, ... }:
 
 {
+  programs.zsh.enable = true;
+
   users.users."${username}" = {
     shell = pkgs.zsh;
   };
@@ -32,12 +34,11 @@
         HELPDIR="${zsh}/share/zsh/$ZSH_VERSION/help"
 
         autoload -U compinit && compinit
-        # History options should be set in .zshrc and after oh-my-zsh sourcing.
-        # See https://github.com/nix-community/home-manager/issues/177.
+
         HISTSIZE="10000"
         SAVEHIST="10000"
 
-        HISTFILE="/home/larkin/.zsh_history"
+        HISTFILE="/home/${username}/.zsh_history"
         mkdir -p "$(dirname "$HISTFILE")"
 
         # Set shell options
@@ -50,12 +51,6 @@
           setopt "$opt"
         done
         unset opt set_opts
-
-        bindkey -v
-        bindkey '^[[A' history-substring-search-up
-        bindkey '^[[B' history-substring-search-down
-        bindkey -M vicmd 'k' history-substring-search-up
-        bindkey -M vicmd 'j' history-substring-search-down
 
         zstyle ':completion:*' menu select
         zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -80,10 +75,15 @@
         alias -- lta='eza --tree --icons -a'
 
         source "${syntax}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
         source "${hist}/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+
         bindkey "^[[A" history-substring-search-up
+        bindkey "^[OA" history-substring-search-up
         bindkey "^[[B" history-substring-search-down
+        bindkey "^[OB" history-substring-search-down
+        bindkey -v
+        bindkey -M vicmd 'k' history-substring-search-up
+        bindkey -M vicmd 'j' history-substring-search-down
       '';
     };
   };

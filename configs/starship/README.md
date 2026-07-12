@@ -26,7 +26,7 @@ my zsh prompt and shell config. it has the [Starship](https://starship.rs/) and 
 
 ## aliases
 
-these commands are aliased, and thus may behave slightly different... if the replacements aren't installed i think my script should complain about that but everything should still work. 
+these commands are aliased, and thus may behave slightly different... if the replacements aren't installed i think my script should complain about that but everything should still work.
 
 | command | what it invokes | falls back to | how |
 |---|---|---|---|

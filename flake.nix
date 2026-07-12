@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-
     # --- Special Apps ---
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -20,7 +19,6 @@
       url = "github:schembriaiden/helium-browser-nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
 
     # --- Configurations ---
     config-nvim = { # i keep my nvim config in a separate repo because i also want it elsewhere
@@ -64,7 +62,7 @@
         laptop = mkHost { hostname = "laptop"; };
         desktop = mkHost { hostname = "desktop"; };
         work = mkHost { hostname = "work"; };
-        hjem-test = mkHost { hostname = "hjem-test"; username = "test"; };
+        hjem-test = mkHost { hostname = "hjem-test"; username = "larkin"; };
     };
   };
 }

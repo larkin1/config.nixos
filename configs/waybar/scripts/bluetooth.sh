@@ -127,7 +127,7 @@ power_toggle() {
   fi
 }
 
-case "${1:-}" in 
+case "${1:-}" in
   menu) connect_menu ;;
   power_toggle) power_toggle ;;
   *)

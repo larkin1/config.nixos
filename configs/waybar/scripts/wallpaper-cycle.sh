@@ -53,7 +53,7 @@ if [ -z "$next_wall" ]; then
       next_wall=$(echo "$walls" | head -n 1)
       ;;
   esac
-fi 
+fi
 
 echo "$next_wall" > "$STATE_FILE"
 
