@@ -32,4 +32,18 @@
       ".config/wallpapers".source = "${inputs.config-walls}";
     };
   };
+
+  # Enable hyprland and let x11 apps run
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  # -- required for function menu --
+  services.locate = {
+    enable = true;
+    package = pkgs.plocate;
+  };
+
+  services.playerctld.enable = true;
 }

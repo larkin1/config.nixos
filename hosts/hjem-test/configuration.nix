@@ -8,7 +8,6 @@
       ../../lib/system/bluetooth.nix
       ../../lib/system/bootloader.nix
       ../../lib/system/disk-optimisations.nix
-      ../../lib/system/hypr.nix
       ../../lib/system/locale.nix
       ../../lib/system/network.nix
       ../../lib/system/pipewire.nix
@@ -22,7 +21,7 @@
 
   networking.hostName = hostname;
 
-  # networking.firewall = {
+  # networking.firewall = { # orcaslicer networking
   #   extraCommands = ''
   #     iptables -I INPUT -m pkttype --pkt-type multicast -j ACCEPT
   #     iptables -A INPUT -m pkttype --pkt-type multicast -j ACCEPT

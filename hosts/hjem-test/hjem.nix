@@ -2,7 +2,6 @@
 
 {
   imports = [
-    # ../../lib/system/base-user.nix # temporary, avoids killing the existing user
     ../../lib/user/dots.nix
     ../../lib/user/hypr.nix
     ../../lib/user/git.nix
@@ -14,20 +13,25 @@
 
   hjem.users."${username}" = {
     packages = with pkgs; [
+
+      # -- Desktop apps --
       inputs.helium.packages.${system}.default
+      firefox
+      google-chrome
+      vesktop
+      zoom-us
+      qbittorrent
       onlyoffice-desktopeditors
-      nix-output-monitor
+
+      # -- cli/tui tools --
       zip
       unzip
       glow
       btop
-      firefox
-      google-chrome
-      vesktop
       timg
-      zoom-us
+
+      # -- misc --
       quickshell
-      qbittorrent
     ];
   };
 }

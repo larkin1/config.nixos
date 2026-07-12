@@ -3,11 +3,13 @@
 {
   hjem.users."${username}" = {
     packages = with pkgs; [
-      waybar
-      ghostty
-      fuzzel
       cava
       yazi
+      dunst
+      fuzzel
+      waybar
+      ghostty
+      starship
     ];
     files = {
       ".config/cava".source =     ../../configs/cava;
@@ -20,6 +22,6 @@
     };
   };
 
-  services.playerctld.enable = true;
+  services.playerctld.enable = true; # required for waybar player widget to work correctly
 }
 
