@@ -5,13 +5,13 @@
     [
       ./hardware.nix
       ./home.nix
-      ../../lib/system/core/disk-optimisations.nix
       ../../lib/system/core/locale.nix
-      ../../lib/system/hardware/bootloader.nix
+      ../../lib/system/core/bootloader.nix
       ../../lib/system/hardware/nvidia.nix
+      ../../lib/system/hardware/disk-optimisations.nix
       ../../lib/system/services/bluetooth.nix
-      ../../lib/system/services/network.nix
       ../../lib/system/services/pipewire.nix
+      ../../lib/system/services/network.nix
       ../../lib/system/desktop/fonts.nix
       ../../lib/system/dev/nvim.nix
     ];

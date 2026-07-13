@@ -23,9 +23,9 @@
       ".config/hypr".source = pkgs.symlinkJoin {
         name = "hypr-config";
         paths = [
-          ../../configs/hypr
-          (pkgs.writeTextDir "lua/monitors.lua" (builtins.readFile ../../hosts/${hostname}/home/monitors.lua))
-          (pkgs.writeTextDir "lua/devices.lua" (builtins.readFile ../../hosts/${hostname}/home/devices.lua))
+          ../../../configs/hypr
+          (pkgs.writeTextDir "lua/monitors.lua" (builtins.readFile ../../../hosts/${hostname}/home/monitors.lua))
+          (pkgs.writeTextDir "lua/devices.lua" (builtins.readFile ../../../hosts/${hostname}/home/devices.lua))
         ];
       };
 
