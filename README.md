@@ -4,7 +4,7 @@ My personal NixOS config.
 ## Structure:
 ```
  /
-├──  configs       # desktop configuration files are kept here... "dotfiles" if you will.
+├──  configs       # desktop configuration files are kept here... most of the stuff that goes in ~/.config
 │
 ├──  hosts         # all machines are kept here
 │   ├──  desktop   # home tower
