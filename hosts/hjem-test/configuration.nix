@@ -13,6 +13,7 @@
       ../../lib/system/pipewire.nix
       ../../lib/system/nvim.nix
       ../../lib/system/fonts.nix
+      ../../lib/system/nvidia.nix
     ];
 
   nixpkgs.config.permittedInsecurePackages = [ # TEMPORARY UNTIL SPICETIFY BUMPS TO A LATER PNPM VER
@@ -20,16 +21,6 @@
   ];
 
   networking.hostName = hostname;
-
-  # networking.firewall = { # orcaslicer networking
-  #   extraCommands = ''
-  #     iptables -I INPUT -m pkttype --pkt-type multicast -j ACCEPT
-  #     iptables -A INPUT -m pkttype --pkt-type multicast -j ACCEPT
-  #     iptables -I INPUT -p udp -m udp --match multiport --dports 1990,2021 -j ACCEPT
-  #     iptables -I INPUT -p tcp -m tcp --dport 990 -j ACCEPT
-  #     iptables -I INPUT -p tcp -m tcp --dport 8883 -j ACCEPT
-  #   '';
-  # };
 
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
 

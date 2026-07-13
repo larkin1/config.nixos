@@ -9,6 +9,7 @@
     ../../lib/user/zsh.nix
     ../../lib/user/nvim.nix
     ../../lib/user/user.nix
+    ../../lib/user/orcaslicer.nix
   ];
 
   hjem.users."${username}" = {
@@ -32,6 +33,7 @@
 
       # -- misc --
       quickshell
+      python3
     ];
   };
 }
