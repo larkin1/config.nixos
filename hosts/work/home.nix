@@ -2,14 +2,14 @@
 
 {
   imports = [
-    ../../lib/user/dots.nix
-    ../../lib/user/hypr.nix
-    ../../lib/user/git.nix
-    ../../lib/user/spotify.nix
-    ../../lib/user/zsh.nix
-    ../../lib/user/nvim.nix
     ../../lib/user/user.nix
-    ../../lib/user/orcaslicer.nix
+    ../../lib/user/cli/git.nix
+    ../../lib/user/cli/zsh.nix
+    ../../lib/user/cli/nvim.nix
+    ../../lib/user/desktop/dots.nix
+    ../../lib/user/desktop/hypr.nix
+    ../../lib/user/programs/spotify.nix
+    ../../lib/user/programs/orcaslicer.nix
   ];
 
   hjem.users."${username}" = {

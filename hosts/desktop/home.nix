@@ -1,77 +1,39 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, inputs, username, ... }:
 
 {
   imports = [
-    inputs.spicetify-nix.homeManagerModules.default
-    ../../lib/home/dots.nix
-    ../../lib/home/hypr.nix
-    ../../lib/home/user.nix
-    ../../lib/home/git.nix
-    ../../lib/home/fonts.nix
-    ../../lib/home/spotify.nix
-    ../../lib/home/zsh.nix
-    ../../lib/home/nvim.nix
+    ../../lib/user/user.nix
+    ../../lib/user/cli/git.nix
+    ../../lib/user/cli/zsh.nix
+    ../../lib/user/cli/nvim.nix
+    ../../lib/user/desktop/dots.nix
+    ../../lib/user/desktop/hypr.nix
+    ../../lib/user/programs/spotify.nix
   ];
 
-  # config files
-  home.file.".config/hypr/lua/monitors.lua".text = ''
-    hl.monitor({
-      output = "DP-1",
-      mode = "highrr",
-      position = "0x0",
-      scale = "1",
-    })
+  hjem.users."${username}" = {
+    packages = with pkgs; [
 
-    hl.monitor({
-      output = "DP-2",
-      mode = "highrr",
-      position = "2560x-300",
-      scale = "1",
-      transform = 1,
-    })
+      # -- Desktop apps --
+      inputs.helium.packages.${system}.default
+      firefox
+      google-chrome
+      vesktop
+      zoom-us
+      qbittorrent
+      onlyoffice-desktopeditors
 
-    hl.monitor({
-      output = "DP-3",
-      mode = "highrr",
-      position = "-1080x-300",
-      scale = "1",
-      transform = 3,
-    })
-  '';
-   home.file.".config/hypr/lua/devices.lua".text = ''
-   -- no per-device config
-  '';
+      # -- cli/tui tools --
+      zip
+      unzip
+      glow
+      btop
+      timg
+      cameractrls
 
-  # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    cameractrls
-    inputs.helium.packages.${system}.default
-    onlyoffice-desktopeditors
-    nix-output-monitor
-    waybar
-    zip
-    unzip
-    jq
-    glow
-    btop
-    firefox
-    google-chrome
-    ghostty
-    fuzzel
-    vesktop
-    cava
-    yazi
-    timg
-    cliphist
-    wl-clipboard
-    bemoji
-    zoom-us
-    quickshell
-    qbittorrent
-  ];
-
-  services.playerctld.enable = true;
-
-  # safe to ignore
-  home.stateVersion = "26.05";
+      # -- misc --
+      quickshell
+      python3
+    ];
+  };
 }

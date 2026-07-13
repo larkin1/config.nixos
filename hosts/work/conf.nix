@@ -5,15 +5,15 @@
     [
       ./hardware.nix
       ./home.nix
-      ../../lib/system/bluetooth.nix
-      ../../lib/system/bootloader.nix
-      ../../lib/system/disk-optimisations.nix
-      ../../lib/system/locale.nix
-      ../../lib/system/network.nix
-      ../../lib/system/pipewire.nix
-      ../../lib/system/nvim.nix
-      ../../lib/system/fonts.nix
-      ../../lib/system/nvidia.nix
+      ../../lib/system/core/disk-optimisations.nix
+      ../../lib/system/core/locale.nix
+      ../../lib/system/hardware/bootloader.nix
+      ../../lib/system/hardware/nvidia.nix
+      ../../lib/system/services/bluetooth.nix
+      ../../lib/system/services/network.nix
+      ../../lib/system/services/pipewire.nix
+      ../../lib/system/desktop/fonts.nix
+      ../../lib/system/dev/nvim.nix
     ];
 
   nixpkgs.config.permittedInsecurePackages = [ # TEMPORARY UNTIL SPICETIFY BUMPS TO A LATER PNPM VER

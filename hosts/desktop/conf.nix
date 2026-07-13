@@ -1,25 +1,26 @@
-{ config, pkgs, ... }:
+{ pkgs, hostname, ... }:
 
 {
   imports =
     [
       ./hardware.nix
-      ../../lib/system/base-user.nix
-      ../../lib/system/bluetooth.nix
-      ../../lib/system/bootloader.nix
-      ../../lib/system/disk-optimisations.nix
-      ../../lib/system/hypr.nix
-      ../../lib/system/locale.nix
-      ../../lib/system/network.nix
-      ../../lib/system/pipewire.nix
-      ../../lib/system/nvim.nix
+      ./home.nix
+      ../../lib/system/core/disk-optimisations.nix
+      ../../lib/system/core/locale.nix
+      ../../lib/system/hardware/bootloader.nix
+      ../../lib/system/hardware/nvidia.nix
+      ../../lib/system/services/bluetooth.nix
+      ../../lib/system/services/network.nix
+      ../../lib/system/services/pipewire.nix
+      ../../lib/system/desktop/fonts.nix
+      ../../lib/system/dev/nvim.nix
     ];
 
   nixpkgs.config.permittedInsecurePackages = [ # TEMPORARY UNTIL SPICETIFY BUMPS TO A LATER PNPM VER
     "pnpm-10.29.2"
   ];
 
-  networking.hostName = "desktop";
+  networking.hostName = hostname;
 
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
 
