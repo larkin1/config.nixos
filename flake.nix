@@ -46,7 +46,7 @@
           };
           modules = [
             { nixpkgs.hostPlatform = system; }
-            ./hosts/${hostname}/configuration.nix
+            ./hosts/${hostname}/conf.nix
             inputs.hjem.nixosModules.default
             # home-manager.nixosModules.home-manager
             # {
@@ -59,10 +59,9 @@
         };
     in {
       nixosConfigurations = {
-        laptop = mkHost { hostname = "laptop"; };
-        desktop = mkHost { hostname = "desktop"; };
-        work = mkHost { hostname = "work"; };
-        hjem-test = mkHost { hostname = "hjem-test"; username = "larkin"; };
+        laptop = mkHost { hostname = "laptop"; }; # uses home manager
+        desktop = mkHost { hostname = "desktop"; }; # uses home manager
+        work = mkHost { hostname = "work"; }; # working
     };
   };
 }

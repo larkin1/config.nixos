@@ -3,7 +3,7 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
+      ./hardwarenix
       ../../lib/system/nvim.nix
     ];
 

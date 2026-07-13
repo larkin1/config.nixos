@@ -3,8 +3,8 @@
 {
   imports =
     [
-      ./hardware-configuration.nix
-      ./hjem.nix
+      ./hardware.nix
+      ./home.nix
       ../../lib/system/bluetooth.nix
       ../../lib/system/bootloader.nix
       ../../lib/system/disk-optimisations.nix
