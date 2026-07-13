@@ -1,4 +1,4 @@
-# Desktop
+# Laptop
 my laptop for going places and doing things idk
 
 ## Use case:
