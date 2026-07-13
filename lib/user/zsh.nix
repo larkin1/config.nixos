@@ -59,6 +59,7 @@
         mkdir -p "$(dirname "$HISTFILE")"
 
         alias -- :q=exit
+        alias -- :w='git add -A'
         alias -- cat='bat -n --paging=never'
         alias -- la='eza -la --icons'
         alias -- less='bat -n --paging=always'
