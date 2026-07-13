@@ -8,7 +8,7 @@ My personal NixOS config.
 │
 ├──  hosts         # all machines are kept here
 │   ├──  desktop   # home tower
-│   ├──  laptop    # home laptop - needs to be converted to hjem still
+│   ├──  laptop    # home laptop - needs to be converted to Hjem still
 │   └──  work      # work tower
 │
 ├──  lib           # library of common components
@@ -25,7 +25,7 @@ My personal NixOS config.
  - [laptop](./hosts/laptop)
 
 ## Todo:
- - [ ] switch to HJEM
+ - [ ] switch to Hjem
    - [x] work
    - [x] desktop
    - [ ] laptop
