@@ -1,11 +1,22 @@
 { pkgs, username, ... }:
 
+let
+  orca-slicer-wrapped = pkgs.symlinkJoin {
+    name = "orca-slicer";
+    paths = [ pkgs.orca-slicer ];
+    buildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/orca-slicer \
+        --prefix XDG_DATA_DIRS : "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+    '';
+  };
+in
 {
   programs.dconf.enable = true;
 
   hjem.users."${username}" = {
-    packages = with pkgs; [
-      orca-slicer
+    packages = [
+      orca-slicer-wrapped
     ];
   };
 
