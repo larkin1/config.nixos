@@ -23,6 +23,7 @@
       zoom-us
       qbittorrent
       onlyoffice-desktopeditors
+      obs-studio
 
       # -- cli/tui tools --
       zip
