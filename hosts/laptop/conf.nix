@@ -1,184 +1,42 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
     [
-      ./hardwarenix
-      ../../lib/system/nvim.nix
+      ./hardware.nix
+      ./home.nix
+
+      ../../lib/system/core/locale.nix
+      ../../lib/system/core/bootloader.nix
+      ../../lib/system/core/base.nix
+
+      ../../lib/system/hardware/nvidia.nix
+      ../../lib/system/hardware/disk-optimisations.nix
+      ../../lib/system/hardware/power_management.nix
+      ../../lib/system/hardware/power_triggers.nix
+
+      ../../lib/system/services/bluetooth.nix
+      ../../lib/system/services/pipewire.nix
+      ../../lib/system/services/network.nix
+
+      ../../lib/system/desktop/fonts.nix
+      ../../lib/system/desktop/desktop.nix
+
+      ../../lib/system/dev/nvim.nix
     ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Disk usage optimisation
-  boot.loader.systemd-boot.configurationLimit = 3;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
-  nix.settings.auto-optimise-store = true;
-
-  boot.tmp.useTmpfs = true;
-
-  networking.hostName = "laptop"; # Define your hostname.
 
   nixpkgs.config.permittedInsecurePackages = [ # TEMPORARY UNTIL SPICETIFY BUMPS TO A LATER PNPM VER
     "pnpm-10.29.2"
   ];
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-  networking.wireless.iwd.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
-
-  # Set your time zone.
-  time.timeZone = "Australia/Sydney";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_AU.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_AU.UTF-8";
-    LC_IDENTIFICATION = "en_AU.UTF-8";
-    LC_MEASUREMENT = "en_AU.UTF-8";
-    LC_MONETARY = "en_AU.UTF-8";
-    LC_NAME = "en_AU.UTF-8";
-    LC_NUMERIC = "en_AU.UTF-8";
-    LC_PAPER = "en_AU.UTF-8";
-    LC_TELEPHONE = "en_AU.UTF-8";
-    LC_TIME = "en_AU.UTF-8";
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
-  # Power management
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-
-      # Disable turbo on battery
-      CPU_BOOST_ON_AC = 1;
-      CPU_BOOST_ON_BAT = 0;
-
-      # Platform profiles (Intel Evo supports this)
-      PLATFORM_PROFILE_ON_AC = "performance";
-      PLATFORM_PROFILE_ON_BAT = "low-power";
-
-      # Aggressive PCI runtime PM
-      RUNTIME_PM_ON_AC = "on";
-      RUNTIME_PM_ON_BAT = "auto";
-
-      # WiFi power save
-      WIFI_PWR_ON_AC = "off";
-      WIFI_PWR_ON_BAT = "on";
-
-      # NVMe power management
-      DISK_IOSCHED = "none";
-      PCIE_ASPM_ON_BAT = "powersupersave";
-    };
-  };
-
-  # Handles lid close, power button etc.
-  services.logind.settings.Login = {
-    HandleLidSwitch = "suspend";
-    HandleLidSwitchExternalPower = "suspend";
-  };
-
-  # Power profiles daemon conflicts with TLP — disable it
-  services.power-profiles-daemon.enable = false;
-
-  # Enable thermald for Intel thermal management
-  services.thermald.enable = true;
-
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1002", ATTR{power/control}="auto"
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0x272b", ATTR{d3cold_allowed}="0"
-  '';
-
-  # Re-apply after every resume since s2idle can reset it
-  systemd.services.disable-wifi-d3cold = {
-    description = "Disable D3cold for Intel BE200 Wi-Fi";
-    wantedBy = [ "multi-user.target" "post-resume.target" ];
-    after = [ "systemd-udevd.service" "post-resume.target" ];
-    script = ''
-      echo 0 > /sys/bus/pci/devices/0000:55:00.0/d3cold_allowed
-    '';
-    serviceConfig.Type = "oneshot";
-  };
-
-  boot.kernelParams = [ "amd_iommu=pt" "iwlwifi.enable_ini=0" ];
-  hardware.amdgpu.opencl.enable = true;  # keep opencl available
+  boot.tmp.useTmpfs = true; # Use RAM for /tmp
 
   swapDevices = [{
     device = "/swapfile";
     size = 8192;
   }];
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."larkin" = {
-    isNormalUser = true;
-    description = "Larkin";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
-    shell = pkgs.zsh;
-  };
-
-  programs.zsh.enable = true;
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
   environment.systemPackages = with pkgs; [
-  wget
-  git
-  brightnessctl
+    brightnessctl
   ];
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  services.locate = {
-    enable = true;
-    package = pkgs.plocate;
-  };
-
-  environment.pathsToLink = [ "/share/applications" "/share/xdg-desktop-portal" ];
-
-  hardware.graphics.enable = true;
-
-  security.polkit.enable = true;
-
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
-  };
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  # leave this
-  system.stateVersion = "26.05";
-
 }
