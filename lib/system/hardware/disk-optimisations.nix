@@ -4,7 +4,8 @@
 
   # Nix optimisations:
   # Limit number of configs that can be in the bootloader
-  boot.loader.systemd-boot.configurationLimit = 3;
+  # boot.loader.systemd-boot.configurationLimit = 3;
+  boot.loader.grub.configurationLimit = 3;
   # Collect garbage weekly
   nix.gc = {
     automatic = true;

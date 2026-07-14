@@ -5,11 +5,11 @@
     [
       ./hardware.nix
       ./home.nix
-      ../../lib/system/core/disk-optimisations.nix
       ../../lib/system/core/locale.nix
+      ../../lib/system/core/bootloader.nix
       ../../lib/system/core/base.nix
 
-      ../../lib/system/hardware/bootloader.nix
+      ../../lib/system/hardware/disk-optimisations.nix
       ../../lib/system/hardware/nvidia.nix
 
       ../../lib/system/services/bluetooth.nix
