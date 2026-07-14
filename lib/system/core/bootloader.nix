@@ -2,6 +2,32 @@
 
 { # --- Bootloader config ---
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    plymouth = {
+      enable = true;
+      theme = "bgrt";
+    };
+
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "rd.udev.log_level=3"
+      "rd.systemd.show_status=auto"
+      "logo.nologo"
+    ];
+
+    loader = {
+      efi.canTouchEfiVariables = true;
+      timeout = 5;
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+        theme = ../../../configs/grub;
+        backgroundColor = "#1E1E2E";
+        gfxmodeEfi = "auto";
+      };
+    };
+  };
 }
