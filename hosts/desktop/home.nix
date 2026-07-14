@@ -33,7 +33,6 @@
 
       # -- misc --
       quickshell
-      python3
     ];
   };
 }
