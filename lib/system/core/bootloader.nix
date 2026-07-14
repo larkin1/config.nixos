@@ -14,7 +14,7 @@
 
     loader = {
       efi.canTouchEfiVariables = true;
-      timeout = 3;
+      timeout = 0;
       grub = {
         enable = true;
         device = "nodev";
