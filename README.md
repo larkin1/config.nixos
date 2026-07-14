@@ -8,11 +8,10 @@ My personal NixOS config.
 │
 ├──  hosts         # all machines are kept here
 │   ├──  desktop   # home tower
-│   ├──  laptop    # home laptop - needs to be converted to Hjem still
+│   ├──  laptop    # home laptop
 │   └──  work      # work tower
 │
 ├──  lib           # library of common components
-│   ├── 󱂵 home      # home-manager common components - TO BE REMOVED
 │   ├──  system    # common components that the system/root uses
 │   └──  user      # common components that the user uses
 │
@@ -25,9 +24,16 @@ My personal NixOS config.
  - [laptop](./hosts/laptop)
 
 ## Todo:
- - [ ] switch to Hjem
+ - [x] switch to Hjem
    - [x] work
    - [x] desktop
-   - [ ] laptop
+   - [x] laptop
  - [ ] get quickshell to at least a point where it can replace my waybar
  - [ ] switch my server infra to nixos
+
+
+ ## Thanks:
+ Thanks to the following:
+  - Catppuccin for the base of many of the config files
+  - [mechabar](https://github.com/sejjy/mechabar)
+  - members of the hyprland discord for helping out
