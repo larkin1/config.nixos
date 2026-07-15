@@ -16,11 +16,8 @@
 
       # -- Desktop apps --
       inputs.helium.packages.${system}.default
-      firefox
-      google-chrome
       vesktop
       zoom-us
-      qbittorrent
       onlyoffice-desktopeditors
 
       # -- cli/tui tools --
