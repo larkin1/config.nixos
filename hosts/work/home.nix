@@ -18,10 +18,8 @@
       # -- Desktop apps --
       inputs.helium.packages.${system}.default
       firefox
-      google-chrome
       vesktop
       zoom-us
-      qbittorrent
       onlyoffice-desktopeditors
       obs-studio
 
@@ -34,7 +32,6 @@
 
       # -- misc --
       quickshell
-      python3
     ];
   };
 }

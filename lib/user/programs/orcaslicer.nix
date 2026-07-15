@@ -17,6 +17,7 @@ in
   hjem.users."${username}" = {
     packages = [
       orca-slicer-wrapped
+      pkgs.python3 # Required to install the open source networking module.
     ];
   };
 
