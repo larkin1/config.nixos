@@ -14,7 +14,7 @@
     wireplumber.configPackages = [
       (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/51-no-bluetooth-sink.conf" ''
         monitor.bluez.properties = {
-          bluez5.roles = [ a2dp_source hfp_ag hsp_ag ]
+          bluez5.roles = [ a2dp_source hfp_ag hsp_ag bap_source bap_sink hfp_hf ]
         }
       '')
     ];
