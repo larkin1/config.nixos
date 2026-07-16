@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 { # --- Basic pipewire audio setup ---
 
@@ -11,5 +11,12 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+    wireplumber.configPackages = [
+      (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/51-no-bluetooth-sink.conf" ''
+        monitor.bluez.properties = {
+          bluez5.roles = [ a2dp_source hfp_ag hsp_ag ]
+        }
+      '')
+    ];
   };
 }
