@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 { # --- Bluetooth support ---
 
@@ -6,5 +6,8 @@
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
+
+    # allow JBL Partybox to connect because it rejects this role and kills everything for some reason idk ahhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+    settings.General.DisabledProfiles = "a2dp-sink";
   };
 }

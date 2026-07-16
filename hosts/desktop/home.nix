@@ -16,9 +16,11 @@
 
       # -- Desktop apps --
       inputs.helium.packages.${system}.default
+      firefox
       vesktop
       zoom-us
       onlyoffice-desktopeditors
+      syncthing
 
       # -- cli/tui tools --
       zip
