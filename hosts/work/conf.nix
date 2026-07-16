@@ -28,5 +28,11 @@
     "pnpm-10.29.2"
   ];
 
+  boot.loader.limine.extraEntries = ''
+    /Windows
+      protocol: efi
+      path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
+  '';
+
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
 }
