@@ -23,9 +23,9 @@
       ../../lib/system/dev/nvim.nix
     ];
 
-  # TEMPORARY UNTIL SPICETIFY BUMPS TO A LATER PNPM VER
   nixpkgs.config.permittedInsecurePackages = [
-    "pnpm-10.29.2"
+  # TEMPORARY UNTIL VESKTOP BUMPS TO A LATER ELECTRON VER
+    "electron-40.10.5"
   ];
 
   boot.loader.limine.extraEntries = ''
