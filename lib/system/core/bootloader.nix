@@ -13,16 +13,7 @@
 
     loader = {
       efi.canTouchEfiVariables = true;
-      timeout = 5;
-
-      # grub = {
-      #   enable = true;
-      #   device = "nodev";
-      #   efiSupport = true;
-      #   theme = ../../../configs/grub;
-      #   backgroundColor = "#1E1E2E";
-      #   gfxmodeEfi = "auto";
-      # };
+      timeout = 0;
 
       limine = {
         enable = true;
