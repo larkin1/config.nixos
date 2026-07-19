@@ -10,7 +10,6 @@
       ../../lib/system/core/bootloader.nix
       ../../lib/system/core/base.nix
 
-      ../../lib/system/hardware/nvidia.nix
       ../../lib/system/hardware/disk-optimisations.nix
       ../../lib/system/hardware/power_management.nix
       ../../lib/system/hardware/power_triggers.nix
