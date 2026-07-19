@@ -28,7 +28,4 @@
       timg
     ];
   };
-
-  # safe to ignore
-  home.stateVersion = "26.05";
 }
