@@ -26,6 +26,9 @@
       unzip
       btop
       timg
+
+      # -- misc --
+      quickshell
     ];
   };
 }
