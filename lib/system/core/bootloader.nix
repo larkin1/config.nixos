@@ -31,8 +31,8 @@
         style = {
           wallpapers = [
             (builtins.fetchurl {
-              url = "https://w.wallhaven.cc/full/dg/wallhaven-dg5kkm.jpg";
-              sha256 = "01lf4vs0pyn28z21jbjq0d8ylgc7j66vvl4c0p6ss14iqaana1n5";
+              url = "https://w.wallhaven.cc/full/x6/wallhaven-x6x3gz.png";
+              sha256 = "1cwr17505kfllz39bp1gzm0jkh1mamfjil25ablqbngpm32ngyv2";
             })
           ];
           backdrop = null;
