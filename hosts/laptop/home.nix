@@ -29,6 +29,7 @@
 
       # -- misc --
       quickshell
+      cloudflared
     ];
   };
 }

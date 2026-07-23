@@ -31,6 +31,8 @@
 
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
 
+  boot.loader.timeout = 5;
+
   swapDevices = [{
     device = "/swapfile";
     size = 8192;

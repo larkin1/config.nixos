@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 { # --- Bootloader config ---
 
@@ -13,7 +13,7 @@
 
     loader = {
       efi.canTouchEfiVariables = true;
-      timeout = 0;
+      timeout = lib.mkDefault 0;
 
       limine = {
         enable = true;
