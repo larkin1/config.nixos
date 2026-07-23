@@ -27,6 +27,12 @@ hl.window_rule({
   match = { class = "^(thunar)$" },
 })
 
+hl.layer_rule({
+  match = { namespace = "^quickshell-blur$" },
+  blur = true,
+  ignore_alpha = 0.1,
+})
+
 hl.window_rule({
   name = "ghostty-trans",
   opacity = 0.75,
