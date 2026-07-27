@@ -24,11 +24,6 @@
       ../../lib/system/dev/nvim.nix
     ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-  # TEMPORARY UNTIL VESKTOP BUMPS TO A LATER ELECTRON VER
-    "electron-40.10.5"
-  ];
-
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
 
   boot.loader.timeout = 5;

@@ -23,11 +23,6 @@
       ../../lib/system/dev/nvim.nix
     ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-  # TEMPORARY UNTIL VESKTOP BUMPS TO A LATER ELECTRON VER
-    "electron-40.10.5"
-  ];
-
   boot.loader.limine.extraEntries = ''
     /Windows
       protocol: efi
