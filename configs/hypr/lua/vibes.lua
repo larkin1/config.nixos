@@ -75,7 +75,7 @@ hl.animation({ leaf = "windowsIn",     enabled = true,  speed = 1.5, bezier = "a
 hl.animation({ leaf = "windowsOut",    enabled = true,  speed = 1.2, bezier = "almostLinear", style = "popin 80%" })
 
 hl.animation({ leaf = "fadeIn",        enabled = true,  speed = 2.5, bezier = "almostLinear" })
-hl.animation({ leaf = "fadeOut",       enabled = true,  speed = 2.5, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeOut",       enabled = true,  speed = 1.2, bezier = "almostLinear" })
 hl.animation({ leaf = "fade",          enabled = true,  speed = 2.5, bezier = "quick" })
 
 hl.animation({ leaf = "layers",        enabled = false, speed = 1,   bezier = "easeOutQuint" })
