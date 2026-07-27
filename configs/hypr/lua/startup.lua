@@ -2,7 +2,8 @@ hl.on("hyprland.start", function ()
   local cmds = {
     "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland HYPRLAND_INSTANCE_SIGNATURE",
     "hyprpaper",
-    "waybar",
+    -- "waybar",
+    "quickshell --path ~/.config/quickshell-nixed",
     "hypridle",
     "wl-paste --watch cliphist store",
   }

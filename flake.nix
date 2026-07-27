@@ -26,6 +26,11 @@
       flake = false;
     };
 
+    config-quickshell = { # quickshell is in active development, so it's in its own repo.
+      url = "git+https://github.com/larkin1/config.quickshell?shallow=1";
+      flake = false;
+    };
+
     config-walls = { # i keep my walls in a separate repo to keep the size of this repo lower
       url = "git+https://github.com/larkin1/config.walls?shallow=1";
       flake = false;

@@ -31,7 +31,6 @@
       cameractrls
 
       # -- misc --
-      quickshell
       cloudflared
     ];
   };
