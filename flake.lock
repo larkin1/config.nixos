@@ -17,6 +17,23 @@
         "url": "https://github.com/larkin1/config.nvim"
       }
     },
+    "config-quickshell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1785137272,
+        "narHash": "sha256-fxqyDUbywnZScRFW0I45kZuSIEzM2QoMahx9Q9d/sns=",
+        "ref": "refs/heads/main",
+        "rev": "d8d6ff5e055239df81f376caa786aef8f523a69b",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/larkin1/config.quickshell"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/larkin1/config.quickshell"
+      }
+    },
     "config-walls": {
       "flake": false,
       "locked": {
@@ -144,6 +161,7 @@
     "root": {
       "inputs": {
         "config-nvim": "config-nvim",
+        "config-quickshell": "config-quickshell",
         "config-walls": "config-walls",
         "helium": "helium",
         "hjem": "hjem",

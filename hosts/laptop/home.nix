@@ -28,7 +28,6 @@
       timg
 
       # -- misc --
-      quickshell
       cloudflared
     ];
   };
