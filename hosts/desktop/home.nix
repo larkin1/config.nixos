@@ -21,6 +21,7 @@
       zoom-us
       onlyoffice-desktopeditors
       syncthing
+      prusa-slicer
 
       # -- cli/tui tools --
       zip
