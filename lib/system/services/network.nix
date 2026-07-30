@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 
 { # --- Basic networking config to allow connection ---
 
