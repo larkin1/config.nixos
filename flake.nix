@@ -5,11 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # --- Special Apps ---
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     hjem = {
       url = "github:feel-co/hjem";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,20 +48,12 @@
             { nixpkgs.hostPlatform = system; }
             ./hosts/${hostname}/conf.nix
             inputs.hjem.nixosModules.default
-            # home-manager.nixosModules.home-manager
-            # {
-            #   home-manager.useGlobalPkgs = true;
-            #   home-manager.useUserPackages = true;
-            #   home-manager.extraSpecialArgs = { inherit inputs; };
-            #   home-manager.users.${username} = ./hosts/${hostname}/home.nix;
-            # }
           ];
         };
     in {
       nixosConfigurations = {
         laptop = mkHost { hostname = "laptop"; }; # uses home manager
         desktop = mkHost { hostname = "desktop"; }; # uses home manager
-        work = mkHost { hostname = "work"; }; # working
     };
   };
 }
