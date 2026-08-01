@@ -17,6 +17,7 @@
       ../../lib/system/services/bluetooth.nix
       ../../lib/system/services/pipewire.nix
       ../../lib/system/services/network.nix
+      ../../lib/system/services/nordvpn.nix
 
       ../../lib/system/desktop/fonts.nix
       ../../lib/system/desktop/desktop.nix
