@@ -8,6 +8,7 @@
     ../../lib/user/cli/nvim.nix
     ../../lib/user/desktop/dots.nix
     ../../lib/user/desktop/hypr.nix
+    ../../lib/user/desktop/quickshell.nix
     ../../lib/user/programs/spotify.nix
   ];
 
