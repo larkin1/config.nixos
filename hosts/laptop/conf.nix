@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports =
@@ -28,6 +28,9 @@
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
 
   boot.loader.timeout = 5;
+
+  boot.extraModulePackages = [ config.boot.kernelPackages.msi-ec ];
+  boot.kernelModules = [ "msi-ec" ];
 
   swapDevices = [{
     device = "/swapfile";
