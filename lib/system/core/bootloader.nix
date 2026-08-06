@@ -3,13 +3,13 @@
 { # --- Bootloader config ---
 
   boot = {
-    consoleLogLevel = 3;
-    initrd.verbose = false;
-    kernelParams = [
-      "quiet"
-      "rd.udev.log_level=3"
-      "rd.systemd.show_status=auto"
-    ];
+    # consoleLogLevel = 3;
+    # initrd.verbose = false;
+    # kernelParams = [
+    #   "quiet"
+    #   "rd.udev.log_level=3"
+    #   "rd.systemd.show_status=auto"
+    # ];
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -24,10 +24,6 @@
           interface_help_color: b4befe
           interface_help_color_bright: b4befe
         '';
-          # term_foreground: cdd6f4
-          # term_background_bright: 585b70
-          # term_foreground_bright: cdd6f4
-          # term_background: 1e1e2e
         style = {
           wallpapers = [
             (builtins.fetchurl {
