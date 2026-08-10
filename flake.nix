@@ -15,6 +15,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    ytm-player = {
+      url = "github:peternaame-boop/ytm-player";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # --- Configurations ---
     config-nvim = { # i keep my nvim config in a separate repo because i also want it elsewhere
       url = "git+https://github.com/larkin1/config.nvim?shallow=1";
