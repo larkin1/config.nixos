@@ -35,7 +35,7 @@
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, ... }:
+    inputs@{ nixpkgs, ... }:
     let
       mkHost = { hostname, system ? "x86_64-linux", username ? "larkin" }:
         nixpkgs.lib.nixosSystem {
@@ -52,8 +52,8 @@
         };
     in {
       nixosConfigurations = {
-        laptop = mkHost { hostname = "laptop"; }; # uses home manager
-        desktop = mkHost { hostname = "desktop"; }; # uses home manager
+        laptop = mkHost { hostname = "laptop"; };
+        desktop = mkHost { hostname = "desktop"; };
     };
   };
 }
