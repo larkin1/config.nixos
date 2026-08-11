@@ -61,12 +61,12 @@
         alias -- :q=exit
         alias -- :w='git add -A'
         alias -- cat='bat -n --paging=never'
-        alias -- la='eza -la --icons'
+        alias -- la='eza -la --icons=auto'
         alias -- less='bat -n --paging=always'
-        alias -- ll='eza -l --icons'
-        alias -- ls='eza --icons'
-        alias -- lt='eza --tree --icons'
-        alias -- lta='eza --tree --icons -a'
+        alias -- ll='eza -l --icons=auto'
+        alias -- ls='eza --icons=auto'
+        alias -- lt='eza --tree --icons=auto'
+        alias -- lta='eza --tree --icons=auto -a'
 
         source ${config.hjem.users."${username}".environment.loadEnv}
         source "${syntax}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
