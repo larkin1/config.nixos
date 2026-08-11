@@ -10,6 +10,7 @@
     ../../lib/user/desktop/hypr.nix
     ../../lib/user/desktop/quickshell.nix
     ../../lib/user/programs/spotify.nix
+    ../../lib/user/programs/defaults.nix
   ];
 
   hjem.users."${username}" = {
@@ -18,7 +19,6 @@
       # -- Desktop apps --
       inputs.helium.packages.${system}.default
       firefox
-      google-chrome
       vesktop
       onlyoffice-desktopeditors
 
