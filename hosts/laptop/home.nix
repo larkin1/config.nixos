@@ -17,7 +17,6 @@
 
       # -- Desktop apps --
       inputs.helium.packages.${system}.default
-      inputs.ytm-player.packages.${system}.default
       firefox
       google-chrome
       vesktop
