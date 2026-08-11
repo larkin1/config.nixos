@@ -4,36 +4,34 @@ My personal NixOS config.
 ## Structure:
 ```
  /
-├──  configs       # desktop configuration files are kept here... most of the stuff that goes in ~/.config
+├──  configs       # Desktop configuration files are kept here... most (except
+│                   # nvim & quickshell) of the stuff that goes in ~/.config.
 │
-├──  hosts         # all machines are kept here
-│   ├──  desktop   # home tower
-│   ├──  laptop    # home laptop
-│   └──  work      # work tower
+├──  hosts         # All machines are kept here.
+│   ├──  desktop   # Home tower.
+│   └──  laptop    # Work laptop.
 │
-├──  lib           # library of common components
-│   ├──  system    # common components that the system/root uses
-│   └──  user      # common components that the user uses
+├──  lib           # Library of common components.
+│   ├──  system    # Common components that the system/root uses.
+│   └──  user      # Common components that the user uses.
 │
-└──  flake.nix     # entry point
+└──  flake.nix     # Entry point.
 ```
 
 ## Machines:
- - [work](./hosts/work)
  - [desktop](./hosts/desktop)
  - [laptop](./hosts/laptop)
 
 ## Todo:
  - [x] switch to Hjem
-   - [x] work
    - [x] desktop
    - [x] laptop
- - [ ] get quickshell to at least a point where it can replace my waybar
+ - [x] get quickshell to at least a point where it can replace my waybar
  - [ ] switch my server infra to nixos
 
 
  ## Thanks:
  Thanks to the following:
   - Catppuccin for the base of many of the config files
-  - [mechabar](https://github.com/sejjy/mechabar)
+  - [mechabar](https://github.com/sejjy/mechabar) for inspiration for my quickshell bar etc
   - members of the hyprland discord for helping out
