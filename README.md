@@ -4,8 +4,8 @@ My personal NixOS config.
 ## Structure:
 ```
  /
-├──  configs       # Desktop configuration files are kept here... most (except
-│                   # nvim & quickshell) of the stuff that goes in ~/.config.
+├──  configs       # Desktop configuration files are kept here... most (except nvim,
+│                   # quickshell & wallpapers) of the stuff that goes in ~/.config.
 │
 ├──  hosts         # All machines are kept here.
 │   ├──  desktop   # Home tower.
