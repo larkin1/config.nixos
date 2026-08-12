@@ -5,6 +5,7 @@
     packages = with pkgs; [
       cava
       yazi
+      ripdrag
       dunst
       fuzzel
       ghostty
