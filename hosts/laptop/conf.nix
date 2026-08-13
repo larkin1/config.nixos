@@ -29,9 +29,6 @@
 
   boot.loader.timeout = 5;
 
-  boot.extraModulePackages = [ config.boot.kernelPackages.msi-ec ];
-  boot.kernelModules = [ "msi-ec" ];
-
   swapDevices = [{
     device = "/swapfile";
     size = 8192;
