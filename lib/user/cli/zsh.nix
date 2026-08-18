@@ -74,6 +74,7 @@
 
         eval "$(zoxide init zsh --cmd cd)"
         eval "$(starship init zsh)"
+        FZF_ALT_C_COMMAND= source <(fzf --zsh)
 
         bindkey -v
         bindkey "^[[A" history-substring-search-up
