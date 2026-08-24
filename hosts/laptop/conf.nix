@@ -23,6 +23,8 @@
       ../../lib/system/desktop/desktop.nix
 
       ../../lib/system/dev/nvim.nix
+
+      ../../lib/system/services/postgres.nix # temp for dev
     ];
 
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
