@@ -14,6 +14,7 @@
     ];
   };
 
+  # Trash, 0/10, shitass printer config that barely works and took 7000 years to work out (for the Sharp MX-2651 printer at work)
   hardware.printers.ensurePrinters = [{
     name = "SHARP_MX2651";
     deviceUri = "socket://192.168.0.116:9100";
