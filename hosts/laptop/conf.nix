@@ -13,6 +13,7 @@
       ../../lib/system/hardware/disk-optimisations.nix
       ../../lib/system/hardware/power_management.nix
       ../../lib/system/hardware/power_triggers.nix
+      ../../lib/system/hardware/printers.nix
 
       ../../lib/system/services/bluetooth.nix
       ../../lib/system/services/pipewire.nix
