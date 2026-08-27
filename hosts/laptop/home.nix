@@ -32,4 +32,24 @@
       cloudflared
     ];
   };
+
+  environment.variables = {
+    GTK_USE_PORTAL = "1";
+    GTK_DEBUG = "portals";
+  };
+
+  xdg = {
+    mime.enable = true;
+    portal =  {
+      enable = true;
+      config = {
+        common.default = [ "*" ];
+        common."org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
+      };
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-termfilechooser
+      ];
+    };
+  };
 }

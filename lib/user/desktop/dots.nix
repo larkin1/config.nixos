@@ -18,6 +18,7 @@
       ".config/fuzzel".source =   ../../../configs/fuzzel;
       ".config/ghostty".source =  ../../../configs/ghostty;
       ".config/starship".source = ../../../configs/starship;
+      ".config/xdg-desktop-portal-termfilechooser".source = ../../../configs/xdg-desktop-portal-termfilechooser;
     };
   };
 }
