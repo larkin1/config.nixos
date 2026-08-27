@@ -37,6 +37,7 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    withUWSM = true;
   };
 
   # -- required for function menu --
@@ -66,6 +67,6 @@
 
   environment.variables = {
     GTK_USE_PORTAL = "1";
-    GTK_DEBUG = "portals";
+    GDK_DEBUG = "portals";
   };
 }
