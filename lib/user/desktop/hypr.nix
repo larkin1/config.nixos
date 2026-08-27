@@ -51,14 +51,21 @@
     enable = true;
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-termfilechooser
     ];
     config = {
-      # common = {
-      #   default = ["gtk"];
-      # };
+      common = {
+        default = ["gtk"];
+      };
       hyprland = {
         default = [ "hyprland" "gtk" ];
+        "org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
       };
     };
+  };
+
+  environment.variables = {
+    GTK_USE_PORTAL = "1";
+    GTK_DEBUG = "portals";
   };
 }
