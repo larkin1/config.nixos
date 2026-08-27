@@ -84,6 +84,11 @@
         bindkey -M vicmd 'k' history-substring-search-up
         bindkey -M vicmd 'j' history-substring-search-down
       '';
+      ".zlogin".text = ''
+        if uwsm check may-start; then
+          exec uwsm start hyprland.desktop
+        fi
+      '';
     };
   };
 }
