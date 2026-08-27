@@ -30,6 +30,14 @@
       };
 
       ".config/wallpapers".source = "${inputs.config-walls}";
+
+      ".zlogin".text = ''
+        if uwsm check may-start; then
+          exec uwsm start hyprland.desktop
+        fi
+      '';
+
+      ".config/xdg-desktop-portal-termfilechooser".source = ../../../configs/xdg-desktop-portal-termfilechooser;
     };
   };
 
@@ -48,6 +56,7 @@
 
   services.playerctld.enable = true;
 
+  # xdg stuff
   xdg.portal = {
     enable = true;
     extraPortals = [
