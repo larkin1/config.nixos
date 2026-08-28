@@ -3,7 +3,6 @@
 {
   hjem.users."${username}" = {
     packages = with pkgs; [
-      cava
       yazi
       ripdrag
       dunst
