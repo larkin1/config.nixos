@@ -22,13 +22,11 @@
       vesktop
       zoom-us
       onlyoffice-desktopeditors
-      syncthing
       prusa-slicer
 
       # -- cli/tui tools --
       zip
       unzip
-      glow
       btop
       timg
       cameractrls
