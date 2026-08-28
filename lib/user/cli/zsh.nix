@@ -9,12 +9,15 @@
 
   hjem.users."${username}" = {
     packages = with pkgs; [
+      # Required/Aliased
       starship
-      ripgrep
       eza
-      zoxide
       bat
+      zoxide
       fzf
+
+      # Nice to have
+      ripgrep
       fd
     ];
 
