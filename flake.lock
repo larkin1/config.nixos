@@ -20,10 +20,10 @@
     "config-quickshell": {
       "flake": false,
       "locked": {
-        "lastModified": 1788683840,
-        "narHash": "sha256-SZyFuVZ+b50R3d+qpNPnrUiTR57oU1leHuqMhhq5qM4=",
+        "lastModified": 1788818040,
+        "narHash": "sha256-OW9L/GMieH41MUIdz+DE2zxDP72FUoiQVd94JAnIYQQ=",
         "ref": "refs/heads/main",
-        "rev": "2f2a700f4f72b9299f055565cfe211412f29a7a0",
+        "rev": "1b2541c6a32850065b34ec3d16afa766f0c8ad5f",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.quickshell"
@@ -95,11 +95,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1788614874,
-        "narHash": "sha256-7QYjT2vHLuX9Z1pdxHXDKCbh1CR3D/2rywB9Tx0MPRg=",
+        "lastModified": 1788752844,
+        "narHash": "sha256-VaWGJ6+cIYN2erfSecbRV+4ljI185Ty2wUrXyvQbgOw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c043004d1c6985732bcc1cbc5a9c9aecbbb4e0f0",
+        "rev": "dc5d91f840324650bac8c379428c7037a416959a",
         "type": "github"
       },
       "original": {
