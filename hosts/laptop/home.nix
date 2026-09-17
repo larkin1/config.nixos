@@ -27,6 +27,7 @@
       unzip
       btop
       timg
+      ffmpeg # mostly for ffplay
 
       # -- misc --
       cloudflared

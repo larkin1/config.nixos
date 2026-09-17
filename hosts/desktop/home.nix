@@ -30,6 +30,7 @@
       btop
       timg
       cameractrls
+      ffmpeg # mostly for ffplay
 
       # -- misc --
       cloudflared
