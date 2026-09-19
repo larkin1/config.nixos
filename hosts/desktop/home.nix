@@ -24,6 +24,8 @@
       onlyoffice-desktopeditors
       prusa-slicer
 
+      inputs.matugen.packages.${system}.default
+
       # -- cli/tui tools --
       zip
       unzip

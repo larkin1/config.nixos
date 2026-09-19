@@ -7,7 +7,7 @@
       wf-recorder # required for screen recording to work
     ];
     files = {
-      ".config/quickshell-nixed".source = "${inputs.config-quickshell}"; # since it's in development, use a custom path for the config temporarily.
+      ".config/quickshell".source = "${inputs.config-quickshell}";
     };
   };
   services.upower.enable = true; # for battery/power monitoring
