@@ -15,6 +15,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    matugen = {
+      url = "github:InioX/Matugen";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # --- Configurations ---
     config-nvim = { # i keep my nvim config in a separate repo because i also want it elsewhere
       url = "git+https://github.com/larkin1/config.nvim?shallow=1";
@@ -48,6 +53,7 @@
             { nixpkgs.hostPlatform = system; }
             ./hosts/${hostname}/conf.nix
             inputs.hjem.nixosModules.default
+            inputs.matugen.nixosModules.default
           ];
         };
     in {
