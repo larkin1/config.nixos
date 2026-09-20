@@ -3,10 +3,10 @@
     "config-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1785135969,
-        "narHash": "sha256-/rl/bgf+okFPvWIZCqiCGWdDJuxwzDnNCy+YlyPbf+0=",
+        "lastModified": 1789885328,
+        "narHash": "sha256-7wVMyt1bdtJdbL+ZaBTWaIq40kxfjChtmno9BXG2jZI=",
         "ref": "refs/heads/main",
-        "rev": "a75bd46ee022b339cf23e83f4ff0047cbb26ac9d",
+        "rev": "446784899ac8c455035e066cbb0dacaf4eee658b",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.nvim"
@@ -37,10 +37,10 @@
     "config-walls": {
       "flake": false,
       "locked": {
-        "lastModified": 1782371746,
-        "narHash": "sha256-E75MxooEr8bQVrabO5V1X1TNNB4uxzS5kSes25xJjqY=",
+        "lastModified": 1789867104,
+        "narHash": "sha256-H9PqqL1eM4+h+vIlia09gTaL5ZAIP5Z2s5ASgQ/9xBI=",
         "ref": "refs/heads/main",
-        "rev": "247979598e8447811b475a0e59ce2f64751b700c",
+        "rev": "3b8aa7429b18f315f79b2dfea8c6343e36d3f79d",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.walls"
