@@ -1,4 +1,4 @@
-local C = require("lua.mocha")
+local T = require("lua.theme")
 
 hl.config({
   general = {
@@ -6,8 +6,8 @@ hl.config({
     gaps_out = 10,
     border_size = 2,
     col = {
-      active_border = C.surface2,
-      inactive_border = C.crust,
+      active_border = T.outline,
+      inactive_border = T.outline_variant,
     }
   },
 
@@ -26,7 +26,7 @@ hl.config({
       enabled = true,
       range = 4,
       render_power = 3,
-      color = C.crust,
+      color = T.shadow,
     },
 
     blur = {

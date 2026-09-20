@@ -1,44 +1,55 @@
 { pkgs, config, username, ... }:
 
 let
-  c = config.programs.matugen.theme.colors;
+  name = "starship";
+  input = "${config.custom.theming.templatesDir}/${name}";
+  output = ".config/starship.toml";
 in {
-  hjem.users.${username} = {
-    packages = with pkgs; [
-      starship
-    ];
-    files = {
-      ".config/starship/starship.toml".text = ''
-        "$schema" = 'https://starship.rs/config-schema.json'
+  config = {
+    custom.theming.toml.${name} = ''
+      [templates.${name}]
+      input_path = "/home/${username}/${input}"
+      output_path = "/home/${username}/${output}"
+    '';
 
-        scan_timeout = 100
+    hjem.users.${username} = {
+      packages = with pkgs; [
+        starship
+      ];
 
-        palette = "colors"
+      files = {
+        "${input}".text = ''
+          "$schema" = 'https://starship.rs/config-schema.json'
 
-        # Starship modules
-        [character]
-        success_symbol = "[[󰄛](color9 bold) ❯](color8)"
-        error_symbol = "[[󰄛](@{error}) ❯](color8)"
-        vimcmd_symbol = "[󰄛 ❮](#f9e2af)"
+          scan_timeout = 100
 
-        [git_branch]
-        style = "bold color9"
+          palette = "colors"
 
-        [directory]
-        truncation_length = 4
-        style = "bold color8"
+          # Starship modules
+          [character]
+          success_symbol = "[[󰄛](color9 bold) ❯](color8)"
+          error_symbol = "[[󰄛]({{colors.error.default.hex}}) ❯](color8)"
+          vimcmd_symbol = "[󰄛 ❮](color2)"
 
-        [palettes.colors]
-        color1 = '${c.primary_fixed_dim.dark.color}'
-        color2 = '${c.on_primary.dark.color}'
-        color3 = '${c.on_surface_variant.dark.color}'
-        color4 = '${c.surface_container.dark.color}'
-        color5 = '${c.on_primary.dark.color}'
-        color6 = '${c.surface_dim.dark.color}'
-        color7 = '${c.surface.dark.color}'
-        color8 = '${c.primary.dark.color}'
-        color9 = '${c.tertiary.dark.color}'
-      '';
+          [git_branch]
+          style = "bold color9"
+
+          [directory]
+          truncation_length = 4
+          style = "bold color8"
+
+          [palettes.colors]
+          color1 = '{{colors.primary_fixed_dim.default.hex}}'
+          color2 = '{{colors.on_primary.default.hex}}'
+          color3 = '{{colors.on_surface_variant.default.hex}}'
+          color4 = '{{colors.surface_container.default.hex}}'
+          color5 = '{{colors.on_primary.default.hex}}'
+          color6 = '{{colors.surface_dim.default.hex}}'
+          color7 = '{{colors.surface.default.hex}}'
+          color8 = '{{colors.primary.default.hex}}'
+          color9 = '{{colors.tertiary.default.hex}}'
+        '';
+      };
     };
   };
 }

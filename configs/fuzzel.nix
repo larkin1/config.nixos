@@ -1,44 +1,54 @@
 { pkgs, config, username, ... }:
 
 let
-  c = config.programs.matugen.theme.colors;
-  stripped = v: builtins.replaceStrings [ "#" ] [ "" ] v;
+  name = "fuzzel";
+  input = "${config.custom.theming.templatesDir}/${name}";
+  output = ".config/${name}/fuzzel.ini";
 in {
-  hjem.users.${username} = {
-    packages = with pkgs; [
-      fuzzel
-    ];
-    files = {
-      ".config/fuzzel/fuzzel.ini".text = ''
-        font=JetBrainsMono Nerd Font:weight=medium:size=13
-        dpi-aware=auto
-        use-bold=yes
-        placeholder="Run a program..."
-        icons-enabled=no
-        sort-result=common
-        terminal=ghostty -e
-        lines=15
-        width=90
-        horizontal-pad=10
-        vertical-pad=10
-        inner-pad=5
+  config = {
+    custom.theming.toml.${name} = ''
+      [templates.${name}]
+      input_path = "/home/${username}/${input}"
+      output_path = "/home/${username}/${output}"
+    '';
 
-        [colors]
-        background=${stripped c.background.dark.color}aa
-        text=${stripped c.on_surface.dark.color}ff
-        prompt=${stripped c.secondary.dark.color}ff
-        placeholder=${stripped c.tertiary.dark.color}ff
-        input=${stripped c.primary.dark.color}ff
-        match=${stripped c.tertiary.dark.color}ff
-        selection=${stripped c.primary.dark.color}55
-        selection-text=${stripped c.on_surface.dark.color}ff
-        selection-match=${stripped c.on_primary.dark.color}ff
-        counter=${stripped c.secondary.dark.color}ff
-        border=${stripped c.primary.dark.color}ff
+    hjem.users.${username} = {
+      packages = with pkgs; [
+        fuzzel
+      ];
 
-        [border]
-        width=2
-      '';
+      files = {
+        "${input}".text = ''
+          font=JetBrainsMono Nerd Font:weight=medium:size=13
+          dpi-aware=auto
+          use-bold=yes
+          placeholder="Run a program..."
+          icons-enabled=no
+          sort-result=common
+          terminal=ghostty -e
+          lines=15
+          width=90
+          horizontal-pad=10
+          vertical-pad=10
+          inner-pad=5
+
+          [colors]
+          background={{colors.background.default.hex_stripped}}aa
+          text={{colors.on_surface.default.hex_stripped}}ff
+          prompt={{colors.secondary.default.hex_stripped}}ff
+          placeholder={{colors.tertiary.default.hex_stripped}}ff
+          input={{colors.primary.default.hex_stripped}}ff
+          match={{colors.tertiary.default.hex_stripped}}ff
+          selection={{colors.primary.default.hex_stripped}}55
+          selection-text={{colors.on_surface.default.hex_stripped}}ff
+          selection-match={{colors.on_primary.default.hex_stripped}}ff
+          counter={{colors.secondary.default.hex_stripped}}ff
+          border={{colors.primary.default.hex_stripped}}ff
+
+          [border]
+          width=2
+        '';
+      };
     };
   };
 }

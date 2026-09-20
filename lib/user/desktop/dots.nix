@@ -1,30 +1,33 @@
-{ pkgs, username, ... }:
+{ ... }:
 
 {
   imports = [
+    ./matugen.nix
     ../../../configs/cava.nix
     ../../../configs/dunst.nix
     ../../../configs/fuzzel.nix
     ../../../configs/ghostty.nix
+    ../../../configs/btop.nix
     ../../../configs/starship.nix
-    ./matugen.nix
+    ../../../configs/hypr.nix
+    ../../../configs/yazi.nix
   ];
-  hjem.users."${username}" = {
-    packages = with pkgs; [
-      yazi
-      ripdrag
+  # hjem.users."${username}" = {
+    # packages = with pkgs; [
+      # yazi
+      # ripdrag
       # fuzzel
       # ghostty
       # starship
-    ];
-    files = {
+    # ];
+    # files = {
       # ".config/cava".source =     ../../../configs/cava;
-      ".config/yazi".source =     ../../../configs/yazi;
+      # ".config/yazi".source =     ../../../configs/yazi;
       # ".config/dunst".source =    ../../../configs/dunst;
       # ".config/fuzzel".source =   ../../../configs/fuzzel;
       # ".config/ghostty".source =  ../../../configs/ghostty;
       # ".config/starship".source = ../../../configs/starship;
-    };
-  };
+    # };
+  # };
 }
 

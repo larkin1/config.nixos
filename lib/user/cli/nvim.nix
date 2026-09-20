@@ -1,25 +1,83 @@
-{ pkgs, inputs, username, ... }:
+{ pkgs, config, inputs, username, ... }:
 
-{
-  hjem.users."${username}" = {
-    packages = with pkgs; [
-      # -- base --
-      neovim
-      tree-sitter
-      gcc
-      ripgrep
+let
+  name = "nvim";
+  input = "${config.custom.theming.templatesDir}/nvim-colors.json";
+  output = ".cache/matugen/nvim-colors.json";
+in {
+  config = {
+    custom.theming.toml.${name} = ''
+      [templates.${name}]
+      input_path = "/home/${username}/${input}"
+      output_path = "/home/${username}/${output}"
+      post_hook = "pkill -SIGUSR1 nvim"
+    '';
 
-      # -- language servers --
-      lua-language-server
-      gopls
-      rust-analyzer
-      basedpyright
-      qt6.qtdeclarative # qmlls
-      nil
-    ];
+    hjem.users."${username}" = {
+      packages = with pkgs; [
+        # -- base --
+        neovim
+        tree-sitter
+        gcc
+        ripgrep
 
-    files = {
-      ".config/nvim".source = "${inputs.config-nvim}";
+        # -- language servers --
+        lua-language-server
+        gopls
+        rust-analyzer
+        basedpyright
+        qt6.qtdeclarative # qmlls
+        nil
+      ];
+
+      files = {
+        ".config/nvim".source = "${inputs.config-nvim}";
+        "${input}".text = ''
+          {
+            "surface": "{{colors.surface.default.hex}}",
+            "surface_low": "{{colors.surface_container_low.default.hex}}",
+            "surface_container": "{{colors.surface_container.default.hex}}",
+            "surface_high": "{{colors.surface_container_high.default.hex}}",
+            "surface_highest": "{{colors.surface_container_highest.default.hex}}",
+
+            "on_surface": "{{colors.on_surface.default.hex}}",
+            "on_surface_variant": "{{colors.on_surface_variant.default.hex}}",
+            "outline": "{{colors.outline.default.hex}}",
+            "outline_variant": "{{colors.outline_variant.default.hex}}",
+
+            "primary": "{{colors.primary.default.hex}}",
+            "on_primary": "{{colors.on_primary.default.hex}}",
+            "primary_container": "{{colors.primary_container.default.hex}}",
+            "on_primary_container": "{{colors.on_primary_container.default.hex}}",
+            "primary_fixed_dim": "{{colors.primary_fixed_dim.default.hex}}",
+            "inverse_primary": "{{colors.inverse_primary.default.hex | lighten: 20.0 }}",
+
+            "secondary": "{{colors.secondary.default.hex}}",
+            "secondary_container": "{{colors.secondary_container.default.hex}}",
+            "on_secondary_container": "{{colors.on_secondary_container.default.hex}}",
+            "secondary_fixed_dim": "{{colors.secondary_fixed_dim.default.hex}}",
+
+            "tertiary": "{{colors.tertiary.default.hex}}",
+            "tertiary_container": "{{colors.tertiary_container.default.hex}}",
+            "tertiary_fixed_dim": "{{colors.tertiary_fixed_dim.default.hex}}",
+
+            "error": "{{colors.error.default.hex}}",
+            "error_container": "{{colors.error_container.default.hex}}",
+
+            "selection_bg": "{{colors.primary.default.hex}}33",
+            "word_highlight": "{{colors.secondary.default.hex}}33",
+            "word_highlight_strong": "{{colors.tertiary.default.hex}}33",
+
+            "cursor_block": "{{colors.primary.default.hex}}",
+            "cursor_beam": "{{colors.tertiary.default.hex}}",
+            "cursor_underline": "{{colors.secondary.default.hex}}",
+
+            "git_added": "{{colors.primary.default.hex}}",
+            "git_modified": "{{colors.secondary.default.hex}}",
+            "git_deleted": "{{colors.error.default.hex}}"
+          }
+        '';
+      };
     };
   };
 }
