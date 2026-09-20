@@ -31,8 +31,13 @@ in {
       json_format = "hex"
     '';
 
-    hjem.users."${username}".files."${matugenDir}/matugen.toml".text =
-      lib.concatStringsSep "\n" (lib.attrValues cfg.toml);
+    hjem.users."${username}" = {
+      packages = with pkgs; [
+        inputs.matugen.packages.${system}.default
+      ];
+      files."${matugenDir}/matugen.toml".text =
+        lib.concatStringsSep "\n" (lib.attrValues cfg.toml);
+    };
 
     systemd.services.matugen-regen = {
       wantedBy = [ "hjem.target" ];
@@ -43,7 +48,7 @@ in {
         Environment = "HOME=/home/${username}";
       };
       script = ''
-        ${pkgs.matugen}/bin/matugen image "${cfg.wallpaperSource}" --config "/home/${username}/${matugenDir}/matugen.toml" --prefer=saturation
+        ${pkgs.matugen}/bin/matugen image "${cfg.wallpaperSource}" --config "/home/${username}/${matugenDir}/matugen.toml" --source-color-index=0 --type=scheme-content
       '';
     };
   };
