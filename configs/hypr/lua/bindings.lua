@@ -1,4 +1,5 @@
 local M = require("lua.vars")
+local T = require("lua.theme")
 
 -- program shortcuts
 hl.bind(M.mainMod .. " + Q", hl.dsp.exec_cmd(M.terminal))
@@ -9,7 +10,7 @@ hl.bind(M.mainMod .. " + GRAVE", hl.dsp.exec_cmd('qs ipc call screens toggleMult
 
 -- clipboard
 -- hl.bind(M.mainMod .. " + S", hl.dsp.exec_cmd("grim -g \"$(slurp -d)\" - | wl-copy -t image/png"))
-local cmd = [=[grim -g "$(slurp -d -b '#181825b3' -c '#cdd6f4ff')" - | wl-copy -t image/png && action=$(dunstify "Screenshot taken" "Click to edit" -t 10000 --action="edit,Edit") && [[ "$action" == "edit" ]] && wl-paste | satty --copy-command wl-copy --filename - --output-filename "$HOME/Pictures/Screenshots/$(date '+%Y%m%d-%H%M%S').png"]=]
+local cmd = string.format([=[grim -g "$(slurp -d -b '%s' -c '#ffffffff')" - | wl-copy -t image/png && action=$(dunstify "Screenshot taken" "Click to edit" -t 10000 --action="edit,Edit") && [[ "$action" == "edit" ]] && wl-paste | satty --copy-command wl-copy --filename - --output-filename "$HOME/Pictures/Screenshots/$(date '+%%Y%%m%%d-%%H%%M%%S').png"]=], "#" .. T.on_primary_fixed:sub(5,11) .. "b3")
 hl.bind(M.mainMod .. " + S", hl.dsp.exec_cmd(cmd))
 hl.bind(M.mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"))
 
