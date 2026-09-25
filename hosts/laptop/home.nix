@@ -21,6 +21,7 @@
       firefox
       vesktop
       onlyoffice-desktopeditors
+      zoom-us
 
       # -- cli/tui tools --
       zip
