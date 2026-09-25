@@ -8,7 +8,7 @@ in {
     wallpaperName = lib.mkOption {
       description = "any wallpaper name in config-walls";
       type = lib.types.str;
-      default = "rei.png";
+      default = "dark-waves.jpg";
     };
     wallpaperSource = lib.mkOption {
       type = lib.types.path;
