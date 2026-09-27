@@ -20,6 +20,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    booru-hs = {
+      url = "github:Rexcrazy804/booru.hs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # --- Configurations ---
     config-nvim = { # i keep my nvim config in a separate repo because i also want it elsewhere
       url = "git+https://github.com/larkin1/config.nvim?shallow=1";
@@ -30,11 +35,6 @@
       url = "git+https://github.com/larkin1/config.quickshell?shallow=1";
       flake = false;
     };
-
-    # config-walls = { # i keep my walls in a separate repo to keep the size of this repo lower
-    #   url = "git+https://github.com/larkin1/config.walls?shallow=1";
-    #   flake = false;
-    # };
 
     spicetify-nix.url = "git+https://github.com/Gerg-L/spicetify-nix";
   };

@@ -11,6 +11,8 @@
     ../../lib/user/programs/defaults.nix
   ];
 
+  # environment.systemPackages = [(inputs.booru-hs.packages.${pkgs.system}.default)];
+
   hjem.users."${username}" = {
     packages = with pkgs; [
 
@@ -23,6 +25,7 @@
       prusa-slicer
 
       inputs.matugen.packages.${system}.default
+      inputs.booru-hs.packages.${system}.default
 
       # -- cli/tui tools --
       zip

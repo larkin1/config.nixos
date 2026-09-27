@@ -1,23 +1,8 @@
 { pkgs, ... }:
-
 let
-  ids = [
-    "j5mz95"
-    "gpjm3d"
-    "57d827"
-    "49down"
-    "72j21e"
-  ];
-
-  pathOf = id:
-    (builtins.fromJSON
-      (builtins.readFile (builtins.fetchurl "https://wallhaven.cc/api/v1/w/${id}"))
-    ).data.path;
-
-  wall = id:
-    let url = pathOf id; in {
-      name = builtins.baseNameOf url;
-      path = builtins.fetchurl url;
-    };
+  manifest = builtins.fromJSON (builtins.readFile ./walls.json);
 in
-pkgs.linkFarm "wallhaven-walls" (map wall ids)
+pkgs.linkFarm "wallpapers" (map (e: {
+  name = e.name;
+  path = pkgs.fetchurl { url = e.url; sha256 = e.sha256; };
+}) manifest)
