@@ -1,4 +1,4 @@
-{ pkgs, config, hostname, inputs, username, ... }:
+{ pkgs, config, hostname, username, ... }:
 
 let
   name = "hypr";
@@ -30,13 +30,13 @@ in {
         bemoji
       ];
 
+        # ".config/wallpapers".source = "${inputs.config-walls}";
       files = let path = ".config/hypr"; in {
         ".zlogin".text = ''
           if uwsm check may-start; then
             exec uwsm start hyprland.desktop
           fi
         '';
-        ".config/wallpapers".source = "${inputs.config-walls}";
 
         "${input}".text = ''
           return {
@@ -47,12 +47,14 @@ in {
           }
         '';
 
-        "${path}/hyprpaper.conf".text = ''
+        ".config/hypr/hyprpaper.conf".text = ''
           wallpaper {
             monitor =
-            path = /home/${username}/.config/wallpapers/${config.custom.theming.wallpaperName}
+            path = /home/${username}/.config/walls/${config.custom.theming.wallpaperName}
           }
         '';
+
+        ".config/walls".source =pkgs.callPackage ./walls.nix { };
 
         "${path}/hypridle.conf".text = ''
           listener {

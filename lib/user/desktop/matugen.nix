@@ -8,12 +8,12 @@ in {
     wallpaperName = lib.mkOption {
       description = "any wallpaper name in config-walls";
       type = lib.types.str;
-      default = "dark-waves.jpg";
+      default = "wallhaven-j5mz95.png";
     };
-    wallpaperSource = lib.mkOption {
-      type = lib.types.path;
-      default = "${inputs.config-walls}/${config.custom.theming.wallpaperName}";
-    };
+    # wallpaperSource = lib.mkOption {
+    #   type = lib.types.path;
+    #   default = "${inputs.config-walls}/${config.custom.theming.wallpaperName}";
+    # };
     toml = lib.mkOption {
       type = with lib.types; attrsOf str;
       default = { };
@@ -48,7 +48,7 @@ in {
         Environment = "HOME=/home/${username}";
       };
       script = ''
-        ${pkgs.matugen}/bin/matugen image "${cfg.wallpaperSource}" --config "/home/${username}/${matugenDir}/matugen.toml" --source-color-index=0 --type=scheme-content
+        ${pkgs.matugen}/bin/matugen image "/home/${username}/.config/walls/${cfg.wallpaperName}" --config "/home/${username}/${matugenDir}/matugen.toml" --source-color-index=0 --type=scheme-content
       '';
     };
   };
