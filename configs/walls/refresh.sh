@@ -3,7 +3,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 ids_txt="ids.txt" # one entry per line: source:id (or url:https://...)
-manifest="walls.json"
+manifest="walls.lock"
 
 # metadata/API fetch: curl's native retry — transient errors only,
 # exponential by default, honors Retry-After; 404s fail fast

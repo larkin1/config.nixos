@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  manifest = builtins.fromJSON (builtins.readFile ./walls.json);
+  manifest = builtins.fromJSON (builtins.readFile ./walls.lock);
 in
 pkgs.linkFarm "wallpapers" (map (e: {
   name = e.name;
