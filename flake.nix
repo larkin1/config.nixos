@@ -31,10 +31,10 @@
       flake = false;
     };
 
-    config-walls = { # i keep my walls in a separate repo to keep the size of this repo lower
-      url = "git+https://github.com/larkin1/config.walls?shallow=1";
-      flake = false;
-    };
+    # config-walls = { # i keep my walls in a separate repo to keep the size of this repo lower
+    #   url = "git+https://github.com/larkin1/config.walls?shallow=1";
+    #   flake = false;
+    # };
 
     spicetify-nix.url = "git+https://github.com/Gerg-L/spicetify-nix";
   };

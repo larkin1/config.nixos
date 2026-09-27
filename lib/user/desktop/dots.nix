@@ -11,23 +11,6 @@
     ../../../configs/starship.nix
     ../../../configs/hypr.nix
     ../../../configs/yazi.nix
+    ../../../configs/quickshell.nix
   ];
-  # hjem.users."${username}" = {
-    # packages = with pkgs; [
-      # yazi
-      # ripdrag
-      # fuzzel
-      # ghostty
-      # starship
-    # ];
-    # files = {
-      # ".config/cava".source =     ../../../configs/cava;
-      # ".config/yazi".source =     ../../../configs/yazi;
-      # ".config/dunst".source =    ../../../configs/dunst;
-      # ".config/fuzzel".source =   ../../../configs/fuzzel;
-      # ".config/ghostty".source =  ../../../configs/ghostty;
-      # ".config/starship".source = ../../../configs/starship;
-    # };
-  # };
 }
-

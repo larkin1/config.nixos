@@ -20,10 +20,10 @@
     "config-quickshell": {
       "flake": false,
       "locked": {
-        "lastModified": 1790242825,
-        "narHash": "sha256-bQVyHsO5guMUL7e0fwaU8rDHai4e/FWXRIWUOrgmo/0=",
+        "lastModified": 1790384254,
+        "narHash": "sha256-R/GLV2iCmWhwUMpqo5qp19OM5FW7CShXjAb/mDHYEmw=",
         "ref": "refs/heads/main",
-        "rev": "677c20f8f9e25c9a444139337600872c8c68badd",
+        "rev": "4fef490389abf66be384181206b0a65153d8c5a0",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.quickshell"
@@ -32,23 +32,6 @@
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.quickshell"
-      }
-    },
-    "config-walls": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1789867104,
-        "narHash": "sha256-H9PqqL1eM4+h+vIlia09gTaL5ZAIP5Z2s5ASgQ/9xBI=",
-        "ref": "refs/heads/main",
-        "rev": "3b8aa7429b18f315f79b2dfea8c6343e36d3f79d",
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.walls"
-      },
-      "original": {
-        "shallow": true,
-        "type": "git",
-        "url": "https://github.com/larkin1/config.walls"
       }
     },
     "helium": {
@@ -116,11 +99,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1790185690,
-        "narHash": "sha256-xJ+X4hBtOcAFGBOe5nAMyMUeF9foJBmIOu3NjBqBycU=",
+        "lastModified": 1790323409,
+        "narHash": "sha256-VVTPf+Hyd5ebpjBMHmrLMSBIeW6ls48Bqtosj7CNKLA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "4975466d324710c576dc11ad614684e6bd8cad8e",
+        "rev": "e94cb152ed51bd6e24eb4a41f1460252beb52cd2",
         "type": "github"
       },
       "original": {
@@ -163,7 +146,6 @@
       "inputs": {
         "config-nvim": "config-nvim",
         "config-quickshell": "config-quickshell",
-        "config-walls": "config-walls",
         "helium": "helium",
         "hjem": "hjem",
         "matugen": "matugen",
