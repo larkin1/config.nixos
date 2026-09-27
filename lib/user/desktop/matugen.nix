@@ -6,14 +6,9 @@ let
 in {
   options.custom.theming = {
     wallpaperName = lib.mkOption {
-      description = "any wallpaper name in config-walls";
       type = lib.types.str;
       default = "wallhaven-j5mz95.png";
     };
-    # wallpaperSource = lib.mkOption {
-    #   type = lib.types.path;
-    #   default = "${inputs.config-walls}/${config.custom.theming.wallpaperName}";
-    # };
     toml = lib.mkOption {
       type = with lib.types; attrsOf str;
       default = { };

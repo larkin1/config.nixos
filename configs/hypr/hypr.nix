@@ -54,7 +54,7 @@ in {
           }
         '';
 
-        ".config/walls".source =pkgs.callPackage ./walls.nix { };
+        ".config/walls".source =pkgs.callPackage ../walls/walls.nix { };
 
         "${path}/hypridle.conf".text = ''
           listener {
@@ -64,55 +64,32 @@ in {
           }
         '';
 
-        "${path}/lua/devices.lua".source = ../hosts/${hostname}/home/devices.lua;
-        "${path}/lua/monitors.lua".source = ../hosts/${hostname}/home/monitors.lua;
-        "${path}/lua/env.lua".source = ./hypr/lua/env.lua;
-        "${path}/lua/bindings.lua".source = ./hypr/lua/bindings.lua;
-        "${path}/lua/rules.lua".source = ./hypr/lua/rules.lua;
-        "${path}/lua/startup.lua".source = ./hypr/lua/startup.lua;
-        "${path}/lua/vars.lua".source = ./hypr/lua/vars.lua;
-        "${path}/lua/vibes.lua".source = ./hypr/lua/vibes.lua;
-        "${path}/hyprland.lua".source = ./hypr/hyprland.lua;
-        "${path}/scripts/fuzzel-emoji-picker.sh".source = ./hypr/scripts/fuzzel-emoji-picker.sh;
+        "${path}/lua/devices.lua".source = ../../hosts/${hostname}/home/devices.lua;
+        "${path}/lua/monitors.lua".source = ../../hosts/${hostname}/home/monitors.lua;
+        "${path}/lua/env.lua".source = ./lua/env.lua;
+        "${path}/lua/bindings.lua".source = ./lua/bindings.lua;
+        "${path}/lua/rules.lua".source = ./lua/rules.lua;
+        "${path}/lua/startup.lua".source = ./lua/startup.lua;
+        "${path}/lua/vars.lua".source = ./lua/vars.lua;
+        "${path}/lua/vibes.lua".source = ./lua/vibes.lua;
+        "${path}/hyprland.lua".source = ./hyprland.lua;
+        "${path}/scripts/fuzzel-emoji-picker.sh".source = ./scripts/fuzzel-emoji-picker.sh;
       };
     };
 
-  # Enable hyprland and let x11 apps run
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    withUWSM = true;
-  };
-
-  # -- required for function menu --
-  services.locate = {
-    enable = true;
-    package = pkgs.plocate;
-  };
-
-  services.playerctld.enable = true;
-
-  # xdg stuff
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-termfilechooser
-    ];
-    config = {
-      common = {
-        default = ["gtk"];
-      };
-      hyprland = {
-        default = [ "hyprland" "gtk" ];
-        "org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
-      };
+    # Enable hyprland and let x11 apps run
+    programs.hyprland = {
+      enable = true;
+      xwayland.enable = true;
+      withUWSM = true;
     };
-  };
 
-  environment.variables = {
-    GTK_USE_PORTAL = "1";
-    GDK_DEBUG = "portals";
-  };
+    # -- required for function menu --
+    services.locate = {
+      enable = true;
+      package = pkgs.plocate;
+    };
+
+    services.playerctld.enable = true;
   };
 }
