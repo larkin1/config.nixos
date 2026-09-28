@@ -16,7 +16,7 @@
 
       # -- Desktop apps --
       inputs.helium.packages.${system}.default
-      firefox
+      librewolf
       vesktop
       onlyoffice-desktopeditors
       zoom-us
