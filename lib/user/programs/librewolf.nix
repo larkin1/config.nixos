@@ -36,6 +36,7 @@ let
       };
     };
   });
+
 in {
   hjem.users.${username} = {
     packages = [
@@ -54,6 +55,7 @@ in {
         defaultPref("sidebar.verticalTabs", true);
         defaultPref("sidebar.visibility", "expand-on-hover");
         defaultPref("browser.toolbars.bookmarks.visibility", "newtab");
+        defaultPref("browser.uiCustomization.state", '{"placements":{"widget-overflow-fixed-list":[],"unified-extensions-area":["canvasblocker_kkapsner_de-browser-action"],"nav-bar":["sidebar-button","back-button","forward-button","stop-reload-button","smartwindow-group-tabs-button","ai-window-toggle","reset-pbm-toolbar-button","vertical-spacer","urlbar-container","ublock0_raymondhill_net-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","unified-extensions-button","downloads-button","fxa-toolbar-menu-button"],"toolbar-menubar":["menubar-items"],"TabsToolbar":[],"vertical-tabs":["tabbrowser-tabs"],"PersonalToolbar":["personal-bookmarks"]},"seen":["reset-pbm-toolbar-button","canvasblocker_kkapsner_de-browser-action","ublock0_raymondhill_net-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","developer-button","screenshot-button"],"dirtyAreaCache":["unified-extensions-area","nav-bar","toolbar-menubar","TabsToolbar","vertical-tabs","PersonalToolbar"],"currentVersion":26,"newElementCount":3}');
       '';
     };
   };
