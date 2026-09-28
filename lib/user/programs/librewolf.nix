@@ -1,0 +1,60 @@
+{ username, pkgs, ... }:
+
+let
+  policiesJson = pkgs.writeText "librewolf-policies.json" (builtins.toJSON {
+    policies = {
+      ExtensionSettings = {
+        "{446900e4-71c2-419f-a6a7-df9c091e268b}" = {
+          installation_mode = "normal_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
+          default_area = "navbar";
+          private_browsing = true;
+        };
+        "CanvasBlocker@kkapsner.de" = {
+          installation_mode = "normal_installed";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/canvasblocker/latest.xpi";
+          private_browsing = true;
+        };
+      };
+      Bookmarks = [
+        {
+          Title = "Onshape";
+          URL = "https://cad.onshape.com";
+        }
+      ];
+      SearchEngines = {
+        Add = [
+          {
+            Name = "DuckDuckGo";
+            URLTemplate = "https://duckduckgo.com/?q={searchTerms}";
+            IconURL = "https://duckduckgo.com/favicon.ico";
+            SuggestURLTemplate = "https://duckduckgo.com/ac/?q={searchTerms}&type=list";
+          }
+        ];
+        Default = "DuckDuckGo";
+        SkipTermsOfUse = true;
+      };
+    };
+  });
+in {
+  hjem.users.${username} = {
+    packages = [
+      (pkgs.librewolf.override {
+        extraPoliciesFiles =
+          pkgs.librewolf-unwrapped.extraPoliciesFiles ++ [ policiesJson ];
+      })
+    ];
+
+    files = {
+      ".config/librewolf/librewolf/librewolf.overrides.cfg".text = ''
+        defaultPref("privacy.resistFingerprinting", false);
+        defaultPref("layout.css.prefers-color-scheme.content-override", 0);
+        defaultPref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");
+        defaultPref("ui.systemUsesDarkTheme", 1);
+        defaultPref("sidebar.verticalTabs", true);
+        defaultPref("sidebar.visibility", "expand-on-hover");
+        defaultPref("browser.toolbars.bookmarks.visibility", "newtab");
+      '';
+    };
+  };
+}

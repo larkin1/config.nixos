@@ -9,16 +9,14 @@
     ../../lib/user/desktop/dots.nix
     ../../lib/user/programs/spotify.nix
     ../../lib/user/programs/defaults.nix
+    ../../lib/user/programs/librewolf.nix
   ];
-
-  # environment.systemPackages = [(inputs.booru-hs.packages.${pkgs.system}.default)];
 
   hjem.users."${username}" = {
     packages = with pkgs; [
 
       # -- Desktop apps --
       inputs.helium.packages.${system}.default
-      librewolf
       vesktop
       zoom-us
       onlyoffice-desktopeditors
