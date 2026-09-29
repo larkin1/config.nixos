@@ -45,15 +45,16 @@
       "locked": {
         "lastModified": 1790410773,
         "narHash": "sha256-PT3bAvBoht8N9MUj9zUuA1HgSbzlDI+KqDmXStMeiq0=",
-        "owner": "schembriaiden",
-        "repo": "helium-browser-nix-flake",
+        "ref": "refs/heads/main",
         "rev": "2f6586322d82beb2a50b01b129dea7dd7895d925",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/schembriaiden/helium-browser-nix-flake"
       },
       "original": {
-        "owner": "schembriaiden",
-        "repo": "helium-browser-nix-flake",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/schembriaiden/helium-browser-nix-flake"
       }
     },
     "hjem": {
@@ -65,15 +66,16 @@
       "locked": {
         "lastModified": 1790081753,
         "narHash": "sha256-tycoVCB2KSVdy9ERT1lJGHdP9Hf4FHanaEY25hUxylw=",
-        "owner": "feel-co",
-        "repo": "hjem",
+        "ref": "refs/heads/main",
         "rev": "cef02450f2c18a7e2b9297ea8d366f9a597254f7",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/feel-co/hjem"
       },
       "original": {
-        "owner": "feel-co",
-        "repo": "hjem",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/feel-co/hjem"
       }
     },
     "matugen": {
@@ -86,31 +88,33 @@
       "locked": {
         "lastModified": 1789910191,
         "narHash": "sha256-xt16rUkAM4NztPn+eihGB0k1mChcq729jwK/0zler3c=",
-        "owner": "InioX",
-        "repo": "Matugen",
+        "ref": "refs/heads/main",
         "rev": "ca94b8b03c26199158a187f3388a0c61f8802b0e",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/InioX/Matugen"
       },
       "original": {
-        "owner": "InioX",
-        "repo": "Matugen",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/InioX/Matugen"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1790463110,
-        "narHash": "sha256-hKlVl12B1dF0Q5vd9dY3lIJM5mFGWYSlXwSLAqHZ1+s=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "e158d9ed9b51c98974c5e66e1ba1c9e0255fecaa",
-        "type": "github"
+        "lastModified": 1790578696,
+        "narHash": "sha256-ZoxIApko70jCdbH3l20HWXOBaT2HZd87orzd2yJ9dVE=",
+        "ref": "nixos-unstable",
+        "rev": "7a0f122f5090cf4c2ade2a13a0e229d4e19ba71f",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/nixos/nixpkgs"
       },
       "original": {
-        "owner": "nixos",
         "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/nixos/nixpkgs"
       }
     },
     "nixpkgs-darwin": {
