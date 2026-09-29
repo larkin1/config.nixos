@@ -2,21 +2,22 @@
   description = "NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "git+https://github.com/nixos/nixpkgs?ref=nixos-unstable&shallow=1";
 
     # --- Special Apps ---
     hjem = {
-      url = "github:feel-co/hjem";
+      url = "git+https://github.com/feel-co/hjem?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     helium = {
-      url = "github:schembriaiden/helium-browser-nix-flake";
+      url = "git+https://github.com/schembriaiden/helium-browser-nix-flake?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     matugen = {
-      url = "github:InioX/Matugen";
+      url = "git+https://github.com/InioX/Matugen?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
