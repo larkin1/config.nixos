@@ -4,7 +4,7 @@
   users.users."${username}" = {
     isNormalUser = true;
     description = "Main user";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
     initialPassword = "nix";
   };
 
