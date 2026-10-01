@@ -6,7 +6,7 @@ directory="$2"
 save="$3"
 path="$4"
 out="$5"
-cmd="$(command -v yazi || echo '/etc/profiles/per-user/larkin/bin/yazi')"
+cmd="$(command -v yazi || echo '/etc/profiles/per-user/$USER/bin/yazi')"
 termcmd="${TERMCMD:-ghostty -e}"
 
 if [ "$save" = "1" ]; then
