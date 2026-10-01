@@ -10,13 +10,14 @@
     ../../lib/user/programs/spotify.nix
     ../../lib/user/programs/defaults.nix
     ../../lib/user/programs/librewolf.nix
+    ../../lib/user/programs/librewolf.nix
+    ../../lib/user/programs/helium.nix
   ];
 
   hjem.users."${username}" = {
     packages = with pkgs; [
 
       # -- Desktop apps --
-      inputs.helium.packages.${system}.default
       vesktop
       onlyoffice-desktopeditors
       zoom-us
