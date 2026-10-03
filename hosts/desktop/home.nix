@@ -1,4 +1,4 @@
-{ pkgs, inputs, username, ... }:
+{ pkgs, username, ... }:
 
 {
   imports = [
@@ -9,7 +9,6 @@
     ../../lib/user/desktop/dots.nix
     ../../lib/user/programs/spotify.nix
     ../../lib/user/programs/defaults.nix
-    ../../lib/user/programs/librewolf.nix
     ../../lib/user/programs/helium.nix
   ];
 
