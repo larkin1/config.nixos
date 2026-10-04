@@ -11,7 +11,11 @@
   hjem.users."${username}" = {
     clobberFiles = true;
     user = "${username}";
-    # enable = true; # true by default.
     directory = "/home/${username}";
+  };
+  
+  services.getty = {
+    loginOptions = "-- ${username}";
+    extraArgs = [ "--skip-login" ];
   };
 }
