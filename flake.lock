@@ -20,10 +20,10 @@
     "config-quickshell": {
       "flake": false,
       "locked": {
-        "lastModified": 1790384254,
-        "narHash": "sha256-R/GLV2iCmWhwUMpqo5qp19OM5FW7CShXjAb/mDHYEmw=",
+        "lastModified": 1791354052,
+        "narHash": "sha256-PXc55oiyje+sd0heKMgfB189CyZENRhA8/vT6ZKKNvQ=",
         "ref": "refs/heads/main",
-        "rev": "4fef490389abf66be384181206b0a65153d8c5a0",
+        "rev": "1b298f93aff2a2aa47eb830f6ac6e96b37487b85",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.quickshell"
@@ -64,10 +64,10 @@
         ]
       },
       "locked": {
-        "lastModified": 1790081753,
-        "narHash": "sha256-tycoVCB2KSVdy9ERT1lJGHdP9Hf4FHanaEY25hUxylw=",
+        "lastModified": 1791289048,
+        "narHash": "sha256-JdmZVrzGDRRcOAwsYujnE7f/d1YZ9Xtk4z/1MWmQXxM=",
         "ref": "refs/heads/main",
-        "rev": "cef02450f2c18a7e2b9297ea8d366f9a597254f7",
+        "rev": "2b155694ce412300f240de06735c93779f9e19a4",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/feel-co/hjem"
@@ -86,10 +86,10 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1791193102,
-        "narHash": "sha256-Bm489bhiygbVxWaqgfoukbjpl+dSk3zB8ADMFrt8gTU=",
+        "lastModified": 1791295595,
+        "narHash": "sha256-TbsqgTemqxWzQQ91a/vLNKGOmSCADdSrE+WUFX8np2k=",
         "ref": "refs/heads/main",
-        "rev": "18679d8c88897ce310ccd346e5e1718e618b9e8e",
+        "rev": "d7a40deee8082e10cecf8b21fe524bf0ef008eb6",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/InioX/Matugen"
