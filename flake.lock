@@ -20,10 +20,10 @@
     "config-quickshell": {
       "flake": false,
       "locked": {
-        "lastModified": 1791970389,
-        "narHash": "sha256-BST0nWIRVJg4nxGcUlJc+6zVCBoP1IThO9SmNF2nXEM=",
+        "lastModified": 1792033913,
+        "narHash": "sha256-wzsyl5YGZWCarVnDeuV3/C5dGN1hXgXEIZ73vKn62og=",
         "ref": "refs/heads/main",
-        "rev": "e07d26ef8641389d869ea558fc838c8dab5f6b97",
+        "rev": "5fd134f0d4d229cd7ebc1475ceb7f9b14b87a5ed",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.quickshell"
