@@ -4,7 +4,8 @@ local T = require("lua.theme")
 -- program shortcuts
 hl.bind(M.mainMod .. " + Q", hl.dsp.exec_cmd(M.terminal))
 hl.bind(M.mainMod .. " + E", hl.dsp.exec_cmd(M.fileManager))
-hl.bind(M.mainMod .. " + R", hl.dsp.exec_cmd(M.runMenu))
+-- hl.bind(M.mainMod .. " + R", hl.dsp.exec_cmd(M.runMenu))
+hl.bind(M.mainMod .. " + R", hl.dsp.exec_cmd('qs ipc call screens openMulti launcher'))
 hl.bind(M.mainMod .. " + SEMICOLON", hl.dsp.exec_cmd('BEMOJI_PICKER_CMD="$HOME/.config/hypr/scripts/fuzzel-emoji-picker.sh" bemoji'))
 hl.bind(M.mainMod .. " + GRAVE", hl.dsp.exec_cmd('qs ipc call screens toggleMulti'))
 
