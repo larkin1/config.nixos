@@ -7,7 +7,7 @@ in {
   options.custom.theming = {
     wallpaperName = lib.mkOption {
       type = lib.types.str;
-      default = "wh-j5mz95.png";
+      default = "wh-m9md18.jpg";
     };
     toml = lib.mkOption {
       type = with lib.types; attrsOf str;
