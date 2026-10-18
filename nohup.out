@@ -1,0 +1,10 @@
+[32m  INFO[0m: Launching config: "/home/larkin/.config/quickshell/shell.qml"
+[32m  INFO[0m: Shell ID: "fa73f098541b56ff7f12ae74ec597284" Path ID "fa73f098541b56ff7f12ae74ec597284"
+[32m  INFO[0m: Saving logs to "/run/user/1000/quickshell/by-id/x7k2p1i4nt/log.qslog"
+[31m ERROR[97m quickshell.tooling[0m: Failed to create qmlls config symlink
+[32m  INFO[0m: Configuration Loaded
+[32m  INFO[0m: Launching config: "/home/larkin/.config/quickshell/shell.qml"
+[32m  INFO[0m: Shell ID: "fa73f098541b56ff7f12ae74ec597284" Path ID "fa73f098541b56ff7f12ae74ec597284"
+[32m  INFO[0m: Saving logs to "/run/user/1000/quickshell/by-id/2gk2t1i4nt/log.qslog"
+[31m ERROR[97m quickshell.tooling[0m: Failed to create qmlls config symlink
+[32m  INFO[0m: Configuration Loaded
