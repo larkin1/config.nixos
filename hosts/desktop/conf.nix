@@ -19,6 +19,8 @@
     ../../lib/system/desktop/fonts.nix
     ../../lib/system/desktop/desktop.nix
 
+    ../../lib/system/security/global.nix
+
     ../../lib/system/dev/nvim.nix
   ];
 
