@@ -20,8 +20,10 @@ in {
 
       files = {
         ".config/quickshell".source = "${inputs.config-quickshell}";
-      };
-      files = {
+        ".config/QtProject/qtlogging.ini".text = ''
+          [Rules]
+          qt.qpa.wayland.textinput.warning=false
+        '';
         "${input}".text = ''
           {
             "md3": {<* for name, color in colors *>
