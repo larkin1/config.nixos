@@ -10,6 +10,7 @@ let
     postBuild = ''
       rm "$out/bin/helium"
       makeWrapper ${helium}/bin/helium "$out/bin/helium" \
+        --prefix LD_LIBRARY_PATH : "${pkgs.gtk3}/lib" \
         --add-flags "--disable-print-preview"
     '';
   };
