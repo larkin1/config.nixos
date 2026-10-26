@@ -7,6 +7,7 @@
     ../../../configs/cava.nix
     ../../../configs/dunst.nix
     ../../../configs/fuzzel.nix
+    ../../../configs/gtk/gtk.nix
     ../../../configs/starship.nix
     ../../../configs/spicetify.nix
     ../../../configs/hypr/hypr.nix

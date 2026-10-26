@@ -66,7 +66,6 @@ in {
 
         "${path}/lua/devices.lua".source = ../../hosts/${hostname}/home/devices.lua;
         "${path}/lua/monitors.lua".source = ../../hosts/${hostname}/home/monitors.lua;
-        "${path}/lua/env.lua".source = ./lua/env.lua;
         "${path}/lua/bindings.lua".source = ./lua/bindings.lua;
         "${path}/lua/rules.lua".source = ./lua/rules.lua;
         "${path}/lua/startup.lua".source = ./lua/startup.lua;
@@ -91,5 +90,11 @@ in {
     };
 
     services.playerctld.enable = true;
+
+    environment.sessionVariables = {
+      ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+      GTK_USE_PORTAL = "1";
+      HYPRCURSOR_THEME = "rose-pine-hyprcursor";
+    };
   };
 }
