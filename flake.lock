@@ -20,10 +20,10 @@
     "config-quickshell": {
       "flake": false,
       "locked": {
-        "lastModified": 1792810146,
-        "narHash": "sha256-OiVjP9z3XwuhbQWhGroF1lxinu8jnHjUf/t0z1MNbhQ=",
+        "lastModified": 1793090928,
+        "narHash": "sha256-53oop0pf1eWW6vsQ+OqQBtJClxRi8MOlnxggYXGS33I=",
         "ref": "refs/heads/main",
-        "rev": "60d5665e5a46f27e7532f77b60316b3f7234ba31",
+        "rev": "acae253230695daa10ff0e7dc223f85ea3b94c88",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.quickshell"
@@ -102,10 +102,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1792773339,
-        "narHash": "sha256-rZLrzrC6i+jnTAlvPZHogKDulY7WWDEv9hJeHieO7Zw=",
+        "lastModified": 1793110635,
+        "narHash": "sha256-dhoW6VgFWlaodSY5jrBn+CF2FLmaUvDVgM7+C7T2+NM=",
         "ref": "nixos-unstable",
-        "rev": "3ec636362e1816bc2f0888fa0fa2c69f1bc9e504",
+        "rev": "31ecbaca1bdefa45dffc409f0250bd8039ea0010",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/nixos/nixpkgs"
