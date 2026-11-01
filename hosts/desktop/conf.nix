@@ -10,6 +10,7 @@
 
     ../../lib/system/hardware/disk-optimisations.nix
     ../../lib/system/hardware/nvidia.nix
+    ../../lib/system/hardware/logi.nix
 
     ../../lib/system/services/bluetooth.nix
     ../../lib/system/services/network.nix
