@@ -22,27 +22,9 @@ hl.window_rule({
 
 -- make some windows transparent
 hl.window_rule({
-  name = "thunar-trans",
-  opacity = 0.75,
-  match = { class = "^(thunar)$" },
-})
-
-hl.layer_rule({
-  match = { namespace = "^quickshell-blur$" },
-  blur = true,
-  ignore_alpha = 0.1,
-})
-
-hl.window_rule({
   name = "ghostty-trans",
-  opacity = 0.75,
+  opacity = "0.75 override",
   match = { class = "^(com.mitchellh.ghostty)$" },
-})
-
-hl.window_rule({
-  name = "rofi-trans",
-  opacity = 0.75,
-  match = { class = "^(Rofi)$" },
 })
 
 -- make some layers transparent
@@ -53,6 +35,12 @@ hl.layer_rule({
   match = {
     namespace = "launcher",
   }
+})
+
+hl.layer_rule({
+  match = { namespace = "^quickshell-blur$" },
+  blur = true,
+  ignore_alpha = 0.1,
 })
 
 -- i hate microsoft

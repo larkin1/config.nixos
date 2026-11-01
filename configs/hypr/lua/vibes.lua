@@ -17,26 +17,25 @@ hl.config({
 
   decoration = {
     rounding = 8,
-    rounding_power = 2.0,
-    active_opacity = 1.0,
-    inactive_opacity = 1.0,
-    fullscreen_opacity = 1.0,
 
     shadow = {
-      enabled = true,
       range = 4,
       render_power = 3,
       color = T.shadow,
     },
 
     blur = {
-      enabled = true,
-      size = 6,
-      passes = 2,
-      vibrancy = 0.1696,
       brightness = 1.2,
+      passes = 2,
       popups = true,
       popups_ignorealpha = 1,
+      size = 6,
+    },
+
+    wobble = {
+      enabled = true,
+      stiffness = 500,
+      damping = 28,
     },
   },
 
@@ -89,10 +88,3 @@ hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.2, bezier = "a
 hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.2, bezier = "almostLinear", style = "slidefadevert" })
 
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 2,   bezier = "quick" })
-
-
-
-
-
-
-
