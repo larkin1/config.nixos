@@ -21,6 +21,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "git+https://github.com/Mic92/sops-nix?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # --- Configurations ---
     config-nvim = { # i keep my nvim config in a separate repo because i also want it elsewhere
       url = "git+https://github.com/larkin1/config.nvim?shallow=1";
@@ -32,30 +37,46 @@
       flake = false;
     };
 
-    spicetify-nix.url = "git+https://github.com/Gerg-L/spicetify-nix";
+    spicetify-nix.url = "git+https://github.com/Gerg-L/spicetify-nix?shallow=1";
+
+    # --- Server ---
+    microvm = {
+      url = "git+https://github.com/astro/microvm.nix?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    inputs@{ nixpkgs, ... }:
+    inputs@{ self, nixpkgs, microvm, ... }:
     let
       mkHost = { hostname, system ? "x86_64-linux", username ? "larkin" }:
         nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit username;
-            inherit hostname;
-          };
+          specialArgs = { inherit inputs username hostname; };
           modules = [
             { nixpkgs.hostPlatform = system; }
             ./hosts/${hostname}/conf.nix
             inputs.hjem.nixosModules.default
             inputs.matugen.nixosModules.default
+            inputs.sops-nix.nixosModules.default
+          ];
+        };
+
+      mkServer = { hostname, username ? "larkin"}:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs hostname username; };
+          modules = [
+            { nixpkgs.hostPlatform = "x86_64-linux"; }
+            ./hosts/${hostname}/conf.nix
+            microvm.nixosModules.microvm
+            inputs.sops-nix.nixosModules.default
           ];
         };
     in {
       nixosConfigurations = {
         laptop = mkHost { hostname = "laptop"; };
         desktop = mkHost { hostname = "desktop"; };
+
+        pegasus = mkServer { hostname = "pegasus"; };
     };
   };
 }

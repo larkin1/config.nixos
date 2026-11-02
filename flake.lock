@@ -100,6 +100,28 @@
         "url": "https://github.com/InioX/Matugen"
       }
     },
+    "microvm": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "spectrum": "spectrum"
+      },
+      "locked": {
+        "lastModified": 1793281488,
+        "narHash": "sha256-ErGIqtoWEX9KKC8NFtJDx2pGGG02Cr6LGxrvzLd2sqA=",
+        "ref": "refs/heads/main",
+        "rev": "b7bd556974fa8a171b5b639200e81d52244dfde4",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/astro/microvm.nix"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/astro/microvm.nix"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1793341285,
@@ -153,8 +175,47 @@
         "helium": "helium",
         "hjem": "hjem",
         "matugen": "matugen",
+        "microvm": "microvm",
         "nixpkgs": "nixpkgs",
+        "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix"
+      }
+    },
+    "sops-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793052255,
+        "narHash": "sha256-Y/JIHTnMlOabDfyaSBubWGLDIVGihLEUuoMhFvQKaDo=",
+        "ref": "refs/heads/master",
+        "rev": "60182817ee048ac94b4c68ea76d5ef2e8aac730d",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/Mic92/sops-nix"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/Mic92/sops-nix"
+      }
+    },
+    "spectrum": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786032750,
+        "narHash": "sha256-+Ba/kIn5BjvV7PN8bWOo7RoqgTY/Yv2M7qeMf3wS2Ag=",
+        "ref": "refs/heads/main",
+        "rev": "77d2389874bb092b8dbf05ecc5b1030372e80e98",
+        "revCount": 1417,
+        "type": "git",
+        "url": "https://spectrum-os.org/git/spectrum"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://spectrum-os.org/git/spectrum"
       }
     },
     "spicetify-nix": {
@@ -167,11 +228,12 @@
         "narHash": "sha256-rbmfLn4/UWs1mrMJgMEJXMfdhN7o7i++c5jPtUdlP+8=",
         "ref": "refs/heads/master",
         "rev": "d818ab64010272bc0072d0c325838a63038796e9",
-        "revCount": 1034,
+        "shallow": true,
         "type": "git",
         "url": "https://github.com/Gerg-L/spicetify-nix"
       },
       "original": {
+        "shallow": true,
         "type": "git",
         "url": "https://github.com/Gerg-L/spicetify-nix"
       }
