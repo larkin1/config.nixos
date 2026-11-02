@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -28,6 +28,8 @@
     ../../lib/system/security/global.nix
 
     ../../lib/system/services/postgres.nix # temp for dev
+
+    inputs.microvm.nixosModules.host
   ];
 
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
@@ -42,4 +44,15 @@
   environment.systemPackages = with pkgs; [
     brightnessctl
   ];
+
+  # --- Typhon Clone ---
+  microvm.vms.pegasus.flake = inputs.self;
+  microvm.autostart = [ "pegasus" ];
+
+  systemd.tmpfiles.rules = [
+    "d /var/lib/microvms/shared/backup 0755 root root -"
+    "d /var/lib/microvms/shared/sops   0700 root root -"
+  ];
+
+  sops.secrets.test = { };
 }

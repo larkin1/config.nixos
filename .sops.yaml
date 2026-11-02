@@ -1,0 +1,12 @@
+keys:
+ - &admin age13zkuc08k4jqx6lsggw9yalkqnm4tyexdfuywwuxq657hllarye0sp8s937
+ - &lab   age1ww0svw4lly53xtgpxm46ajrh5yks927r8p28qd0zsfpsyy3e2c2q79a3tv
+
+creation_rules:
+  - path_regex: secrets/pegasus\.yaml$
+    key_groups:
+      - age: [*admin, *lab]
+
+  - path_regex: secrets/(laptop|desktop)\.yaml$
+    key_groups:
+    - age: [*admin]
