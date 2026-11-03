@@ -1,4 +1,4 @@
-{ pkgs, hostname, ... }:
+{ hostname, ... }:
 
 { # Things that are included on every host by default
   networking.hostName = hostname;
@@ -6,11 +6,6 @@
   nixpkgs.config.allowUnfree = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes"];
-
-  environment.systemPackages = with pkgs; [
-    wget
-    git
-  ];
 
   sops.defaultSopsFile = "${../../../secrets}/${hostname}.yaml";
   sops.age.keyFile = "/var/lib/sops-nix/key.txt";

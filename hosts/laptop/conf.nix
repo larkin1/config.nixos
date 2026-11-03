@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, config, ... }:
 
 {
   imports = [
@@ -27,9 +27,8 @@
 
     ../../lib/system/security/global.nix
 
-    ../../lib/system/services/postgres.nix # temp for dev
-
-    inputs.microvm.nixosModules.host
+    ../../lib/system/server/vms.nix  # TEMP server testing
+    inputs.microvm.nixosModules.host # TEMP server testing
   ];
 
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
@@ -45,14 +44,24 @@
     brightnessctl
   ];
 
-  # --- Typhon Clone ---
+  # --- TEMP Typhon Dev ---
+
+  # TEMP until all hosts are created for vms
   microvm.vms.pegasus.flake = inputs.self;
+  microvm.vms.pegasus.restartIfChanged = true;
   microvm.autostart = [ "pegasus" ];
 
-  systemd.tmpfiles.rules = [
-    "d /var/lib/microvms/shared/backup 0755 root root -"
-    "d /var/lib/microvms/shared/sops   0700 root root -"
-  ];
+  # microvm = { # when all hosts are created for vms
+  #   vms = lib.mapAttrs (name: _: {
+  #     flake = inputs.self;
+  #     restartIfChanged = true;
+  #   }) config.server.vms;
+  #
+  #   autostart = lib.attrNames config.server.vms;
+  # };
 
-  sops.secrets.test = { };
+  systemd.tmpfiles.rules = lib.concatMap (vm: [
+    "d /var/lib/microvms/shared/sops/${vm} 0700 microvm microvm -"
+    "d /var/backup/${vm} 0700 microvm microvm -"
+  ]) (lib.attrNames config.server.vms);
 }
