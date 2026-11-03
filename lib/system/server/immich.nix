@@ -2,8 +2,7 @@
 
 let
   data = "/var/lib/immich";
-  mount = "/var/lib/microvms/immich";
-  port = 2283;
+  mount = "/var/lib/microvms/${hostname}";
 in
 {
   microvm = {
@@ -19,15 +18,12 @@ in
       mountPoint = "/var/cache/immich";
     }
     ];
-    forwardPorts = [
-      { from = "host"; host.port = port; guest.port = port; }
-    ];
   };
 
   services.postgresqlBackup = {
     enable = true;
     startAt = "*-*-* 03:15:00";
-    location = "/var/backup/${hostname}/postgresql";
+    location = "/var/backup/postgresql";
   };
 
   systemd.services.postgresqlBackup.unitConfig.RequiresMountsFor = "/var/backup";
@@ -36,7 +32,7 @@ in
     enable = true;
 
     host = "0.0.0.0";
-    port = port;
+    port = 2283;
     openFirewall = true;
 
     mediaLocation = data;

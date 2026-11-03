@@ -1,19 +1,29 @@
 { username, hostname, lib, ... }:
 
 let
-  data = "/var/lib/microvms";
+  state = "/var/lib/microvms/${hostname}";
+  backup = "/var/backup/${hostname}";
 in
 {
   microvm = {
     hypervisor = lib.mkDefault "qemu";
-    socket = "${data}/${hostname}/${hostname}.sock";
+    socket = "${state}/${hostname}.sock";
 
-    shares = [{
-      tag = "backup";
-      source = "${data}/shared/backup";
-      mountPoint = "/var/backup";
-      proto = "virtiofs";
-    }];
+    shares = [
+      {
+        tag = "sops";
+        source = "/var/lib/microvms/shared/sops/${hostname}";
+        mountPoint = "/var/lib/sops-nix";
+        proto = "virtiofs";
+        readOnly = true;
+      }
+      {
+        tag = "backup";
+        source = backup;
+        mountPoint = "/var/backup";
+        proto = "virtiofs";
+      }
+    ];
   };
 
   users.users.${username} = {
@@ -22,14 +32,15 @@ in
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHl/mea3a7cPnEYRbW446cLjBfC/zJZL6lLQrNMP4omN larkin@laptop" ];
   };
 
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  security.sudo.wheelNeedsPassword = lib.mkDefault false;
 
-  security.sudo.wheelNeedsPassword = false;
-
-  services.openssh.enable = true;
-  services.openssh.settings = {
-    PasswordAuthentication = false;
-    KbdInteractiveAuthentication = false;
-    PermitRootLogin = "no";
+  services.openssh = {
+    enable = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+    };
   };
+  networking.firewall.allowedTCPPorts = [ 22 ];
 }
