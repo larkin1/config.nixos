@@ -2,12 +2,24 @@
 
 {
   imports = [
+    ./hardware.nix
     ../../lib/system/core/base.nix
+    ../../lib/system/core/locale.nix
     ../../lib/server/vms.nix
+    ../../lib/server/access.nix
     inputs.microvm.nixosModules.host
 
     ../../lib/system/dev/nvim.nix
   ];
+
+  boot.loader = {
+    grub = {
+      enable = true;
+      device = "nodev";
+      efiSupport = true;
+    };
+    efi.canTouchEfiVariables = true;
+  };
 
   microvm = {
     vms = lib.mapAttrs (name: _: {

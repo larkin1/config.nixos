@@ -6,7 +6,8 @@
 {
   imports = [
     ../../lib/system/core/base.nix
-    ../../lib/server/base.nix
+    ../../lib/server/access.nix
+    ../../lib/server/guest-base.nix
     ../../lib/server/guest-net.nix
   ];
 

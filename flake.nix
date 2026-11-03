@@ -71,12 +71,26 @@
             inputs.sops-nix.nixosModules.default
           ];
         };
+
+      mkHypervisor = { hostname, username ? "larkin"}:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs hostname username; };
+          modules = [
+            { nixpkgs.hostPlatform = "x86_64-linux"; }
+            ./hosts/${hostname}/conf.nix
+            inputs.sops-nix.nixosModules.default
+          ];
+        };
     in {
       nixosConfigurations = {
         laptop = mkHost { hostname = "laptop"; };
         desktop = mkHost { hostname = "desktop"; };
 
+        typhon = mkHypervisor { hostname = "typhon"; };
+
         pegasus = mkServer { hostname = "pegasus"; };
+        chiron = mkServer { hostname = "chiron"; };
+        tartarus = mkServer { hostname = "tartarus"; };
     };
   };
 }
