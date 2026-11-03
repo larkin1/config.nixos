@@ -24,7 +24,7 @@
 
     ../../lib/system/dev/nvim.nix
 
-    ../../lib/system/server/vms.nix  # TEMP server testing
+    ../../lib/server/vms.nix         # TEMP server testing
     inputs.microvm.nixosModules.host # TEMP server testing
   ];
 

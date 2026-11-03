@@ -6,10 +6,10 @@ in
 {
   imports = [
     ../../lib/system/core/base.nix
-    ../../lib/system/server/base.nix
-    ../../lib/system/server/guest-net.nix
+    ../../lib/server/base.nix
+    ../../lib/server/guest-net.nix
 
-    ../../lib/system/server/immich.nix
+    ../../lib/server/services/immich.nix
   ];
 
   microvm = {

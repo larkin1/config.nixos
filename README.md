@@ -9,18 +9,27 @@ My personal NixOS config.
 │
 ├──  hosts         # All machines are kept here.
 │   ├──  desktop   # Home tower.
-│   └──  laptop    # Work laptop.
+│   ├──  laptop    # Work laptop.
+│   ├──  typhon    # Server Host.
+│   ├──  tartarus  # Secure VM.
+│   ├──  chiron    # Stable VM.
+│   └──  pegasus   # Dev VM.
 │
 ├──  lib           # Library of common components.
 │   ├──  system    # Common components that the system/root uses.
-│   └──  user      # Common components that the user uses.
+│   ├──  user      # Common components that the user uses.
+│   └──  server    # Common components that the server uses.
 │
 └──  flake.nix     # Entry point.
 ```
 
-## Machines:
+## Hosts:
  - [desktop](./hosts/desktop)
  - [laptop](./hosts/laptop)
+ - [typhon](./hosts/typhon)
+ - [tartarus](./hosts/tartarus)
+ - [chiron](./hosts/chiron)
+ - [pegasus](./hosts/pegasus)
 
 ## Todo:
  - [x] switch to Hjem

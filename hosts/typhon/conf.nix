@@ -3,7 +3,7 @@
 {
   imports = [
     ../../lib/system/core/base.nix
-    ../../lib/system/server/vms.nix
+    ../../lib/server/vms.nix
     inputs.microvm.nixosModules.host
 
     ../../lib/system/dev/nvim.nix
