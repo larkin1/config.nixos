@@ -3,7 +3,7 @@ keys:
  - &lab   age1ww0svw4lly53xtgpxm46ajrh5yks927r8p28qd0zsfpsyy3e2c2q79a3tv
 
 creation_rules:
-  - path_regex: secrets/pegasus\.yaml$
+  - path_regex: secrets/(pegasus|chiron|tartarus|typhon)\.yaml$
     key_groups:
       - age: [*admin, *lab]
 
