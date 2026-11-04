@@ -1,7 +1,7 @@
 { username, pkgs, inputs, ... }:
 
 let
-  helium = inputs.helium.packages.${pkgs.system}.default;
+  helium = inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default;
 
   helium-print = pkgs.symlinkJoin {
     name = "helium-print";
