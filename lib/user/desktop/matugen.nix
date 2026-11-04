@@ -2,6 +2,7 @@
 
 let
   cfg = config.custom.theming;
+  matugen = inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default;
   matugenDir = ".config/matugen"; # We don't use global paths, as hjem doesn't support them. instead if we need a global path, we prepend /home/${username}/
 in {
   options.custom.theming = {
@@ -27,8 +28,9 @@ in {
     '';
 
     hjem.users."${username}" = {
-      packages = with pkgs; [
-        inputs.matugen.packages.${system}.default
+      packages = [
+        # inputs.matugen.packages.${system}.default
+        matugen
       ];
       files."${matugenDir}/matugen.toml".text =
         lib.concatStringsSep "\n" (lib.attrValues cfg.toml);
@@ -43,7 +45,7 @@ in {
         Environment = "HOME=/home/${username}";
       };
       script = ''
-        ${pkgs.matugen}/bin/matugen image "/home/${username}/.config/walls/${cfg.wallpaperName}" --config "/home/${username}/${matugenDir}/matugen.toml" --source-color-index=0 --type=scheme-content
+        ${matugen}/bin/matugen image "/home/${username}/.config/walls/${cfg.wallpaperName}" --config "/home/${username}/${matugenDir}/matugen.toml" --source-color-index=0 --type=scheme-content
       '';
     };
   };

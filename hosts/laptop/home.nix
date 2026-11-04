@@ -7,7 +7,6 @@
     ../../lib/user/cli/zsh.nix
     ../../lib/user/cli/nvim.nix
     ../../lib/user/desktop/dots.nix
-    # ../../lib/user/programs/spotify.nix
     ../../lib/user/programs/defaults.nix
     ../../lib/user/programs/helium.nix
   ];
@@ -31,4 +30,6 @@
       cloudflared
     ];
   };
+
+  nixpkgs.config.problems.handlers."gtk+".broken = "warn"; # TEMP until onlyoffice is updated
 }

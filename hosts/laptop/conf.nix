@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, config, ... }:
+{ pkgs, inputs, lib, config, username, ... }:
 
 {
   imports = [
@@ -27,8 +27,8 @@
 
     ../../lib/system/security/global.nix
 
-    ../../lib/server/vms.nix         # TEMP server testing
-    inputs.microvm.nixosModules.host # TEMP server testing
+    # ../../lib/system/server/vms.nix  # TEMP server testing
+    # inputs.microvm.nixosModules.host # TEMP server testing
   ];
 
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
@@ -40,16 +40,14 @@
     size = 8192;
   }];
 
-  environment.systemPackages = with pkgs; [
-    brightnessctl
-  ];
+  environment.systemPackages = with pkgs; [ brightnessctl ];
 
   # --- TEMP Typhon Dev ---
 
   # TEMP until all hosts are created for vms
-  microvm.vms.pegasus.flake = inputs.self;
-  microvm.vms.pegasus.restartIfChanged = true;
-  microvm.autostart = [ "pegasus" ];
+  # microvm.vms.pegasus.flake = inputs.self;
+  # microvm.vms.pegasus.restartIfChanged = true;
+  # microvm.autostart = [ "pegasus" ];
 
   # microvm = { # when all hosts are created for vms
   #   vms = lib.mapAttrs (name: _: {
@@ -60,8 +58,8 @@
   #   autostart = lib.attrNames config.server.vms;
   # };
 
-  systemd.tmpfiles.rules = lib.concatMap (vm: [
-    "d /var/lib/microvms/shared/sops/${vm} 0700 microvm microvm -"
-    "d /var/backup/${vm} 0700 microvm microvm -"
-  ]) (lib.attrNames config.server.vms);
+  # systemd.tmpfiles.rules = lib.concatMap (vm: [
+  #   "d /var/lib/microvms/shared/sops/${vm} 0700 microvm microvm -"
+  #   "d /var/backup/${vm} 0700 microvm microvm -"
+  # ]) (lib.attrNames config.server.vms);
 }
