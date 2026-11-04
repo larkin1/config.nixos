@@ -77,3 +77,14 @@ hl.window_rule({
     title = "annotate_toolbar",
   },
 })
+
+-- i like bitwarden, but it's popup doesn't work
+hl.window_rule({
+  name = "fix Bitwarden popup",
+  float = true,
+  dim_around = true,
+  stay_focused = true,
+  match = {
+    title = "^(Bitwarden|_crx_nngceckbapebfimnlniiiahkandclblb)$",
+  },
+})
