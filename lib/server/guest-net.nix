@@ -26,7 +26,7 @@ in
       type = "tap";
       id = vm.tap;
       inherit (vm) mac;
-      tap.vhost = true;
+      tap.vhost = config.microvm.hypervisor == "qemu";
     }];
 
     networking.useNetworkd = true;

@@ -6,7 +6,7 @@ let
 in
 {
   microvm = {
-    hypervisor = lib.mkDefault "qemu";
+    hypervisor = lib.mkDefault "cloud-hypervisor";
     socket = "${state}/${hostname}.sock";
 
     shares = [
