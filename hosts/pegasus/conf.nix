@@ -10,6 +10,9 @@ in
     ../../lib/server/guest-base.nix
     ../../lib/server/guest-net.nix
 
+    ../../lib/system/dev/git.nix
+    ../../lib/system/dev/nvim.nix
+
     ../../lib/server/services/immich.nix
   ];
 
@@ -28,6 +31,11 @@ in
         size = 10240;
         mountPoint = "/var/lib/postgresql";
       }
+      { # make nix store writeable from in the vm
+        image = "/var/lib/microvms/${hostname}/nix-store-overlay.img";
+        mountPoint = config.microvm.writableStoreOverlay;
+        size = 40960;
+      }
     ];
   };
 
@@ -36,7 +44,13 @@ in
     "z /var/lib/postgresql 0700 postgres postgres -"
   ];
 
+  # allow rebuilding from inside the machine
+  system.switch.enable = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  microvm.writableStoreOverlay = "/nix/.rwstore";
+
   # TEMP for laptop dev
+  microvm.hypervisor = "qemu";
   server.net.enable = false;
   microvm.interfaces = [{
     type = "user";

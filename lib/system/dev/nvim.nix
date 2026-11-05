@@ -1,8 +1,8 @@
-{ config, pkgs, inputs, ... }:
+{ ... }:
 
 {
-  environment.variables.EDITOR = "nvim";
-  environment.systemPackages = with pkgs; [
-    neovim
-  ];
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 }
