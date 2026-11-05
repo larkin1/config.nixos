@@ -16,6 +16,7 @@ in
       certs."sprk.foo" = {
         domain = "*.sprk.foo";
         dnsProvider = "cloudflare";
+        dnsResolver = "1.1.1.1:53";
         environmentFile = config.sops.secrets.cloudflare-acme.path;
         group = "caddy";
       };

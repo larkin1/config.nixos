@@ -16,7 +16,7 @@
 
   config = {
     server.sites = {
-      "photos.sprk.foo" = { vm = "pegasus"; port = 2283; };
+      "photos.sprk.foo" = { vm = "chiron"; port = 2283; };
     };
 
     assertions = lib.mapAttrsToList (host: site: {

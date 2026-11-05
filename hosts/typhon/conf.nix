@@ -25,6 +25,7 @@
   };
 
   microvm = {
+    host.useNotifySockets = true;
     vms = lib.mapAttrs (name: _: {
       flake = inputs.self;
       restartIfChanged = true;
@@ -33,10 +34,11 @@
     autostart = lib.attrNames config.server.vms;
   };
 
-  server.net.externalInterface = "eno1"; # update once deployed
+  server.net.externalInterface = "eth0"; # update once deployed
 
-  systemd.tmpfiles.rules = lib.concatMap (vm: [
-    "d /var/lib/microvms/shared/sops/${vm} 0700 microvm microvm -"
-    "d /var/backup/${vm} 0700 microvm microvm -"
-  ]) (lib.attrNames config.server.vms);
+  systemd.tmpfiles.rules = [ "d /var/lib/microvm-keys 0700 root root -" ]
+    ++ lib.concatMap (vm: [
+      "d /var/lib/microvm-keys/${vm} 0700 root root -"
+      "d /var/backup/${vm} 0700 microvm kvm -"
+    ]) (lib.attrNames config.server.vms);
 }
