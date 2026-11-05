@@ -1,8 +1,5 @@
 { hostname, config, ... }:
 
-let
-  vm = config.server.vms.${hostname};
-in
 {
   imports = [
     ../../lib/system/core/base.nix
@@ -12,8 +9,6 @@ in
 
     ../../lib/system/dev/git.nix
     ../../lib/system/dev/nvim.nix
-
-    ../../lib/server/services/immich.nix
   ];
 
   microvm = {
@@ -48,17 +43,4 @@ in
   system.switch.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   microvm.writableStoreOverlay = "/nix/.rwstore";
-
-  # TEMP for laptop dev
-  microvm.hypervisor = "qemu";
-  server.net.enable = false;
-  microvm.interfaces = [{
-    type = "user";
-    id = vm.tap;
-    inherit (vm) mac;
-  }];
-  microvm.forwardPorts = [
-    { from = "host"; host.port = 2200+vm.index ; guest.port = 22; } # allow me to ssh into the vm
-    { from = "host"; host.port = 2283; guest.port = 2283; } # allow me to test immich on localhost
-  ];
 }

@@ -1,4 +1,4 @@
-{ hostname, lib, ... }:
+{ hostname, lib, config, ... }:
 
 let
   state = "/var/lib/microvms/${hostname}";
@@ -6,13 +6,14 @@ let
 in
 {
   microvm = {
+    vsock.cid = config.server.vms.${hostname}.index;
     hypervisor = lib.mkDefault "cloud-hypervisor";
     socket = "${state}/${hostname}.sock";
 
     shares = [
       {
         tag = "sops";
-        source = "/var/lib/microvms/shared/sops/${hostname}";
+        source = "/var/lib/microvm-keys/${hostname}";
         mountPoint = "/var/lib/sops-nix";
         proto = "virtiofs";
         readOnly = true;
