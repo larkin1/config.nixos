@@ -26,9 +26,6 @@
     ../../lib/system/dev/nvim.nix
 
     ../../lib/system/security/global.nix
-
-    ../../lib/server/vms.nix         # TEMP server testing
-    inputs.microvm.nixosModules.host # TEMP server testing
   ];
 
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
@@ -41,14 +38,4 @@
   }];
 
   environment.systemPackages = with pkgs; [ brightnessctl ];
-
-  # --- TEMP Typhon Dev ---
-  microvm.vms.pegasus.flake = inputs.self;
-  microvm.vms.pegasus.restartIfChanged = true;
-  microvm.autostart = [ "pegasus" ];
-
-  systemd.tmpfiles.rules = lib.concatMap (vm: [
-    "d /var/lib/microvms/shared/sops/${vm} 0700 microvm microvm -"
-    "d /var/backup/${vm} 0700 microvm microvm -"
-  ]) (lib.attrNames config.server.vms);
 }
