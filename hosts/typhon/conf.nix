@@ -13,6 +13,8 @@
     ../../lib/server/proxy.nix
 
     ../../lib/system/dev/nvim.nix
+
+    ./vm-test.nix
   ];
 
   boot.loader = {
