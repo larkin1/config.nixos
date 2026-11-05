@@ -7,6 +7,7 @@
     ../../lib/system/core/locale.nix
     ../../lib/server/vms.nix
     ../../lib/server/access.nix
+    ../../lib/server/net-host.nix
     inputs.microvm.nixosModules.host
 
     ../../lib/system/dev/nvim.nix
@@ -29,6 +30,8 @@
 
     autostart = lib.attrNames config.server.vms;
   };
+
+  server.net.externalInterface = "eno1"; # update once deployed
 
   systemd.tmpfiles.rules = lib.concatMap (vm: [
     "d /var/lib/microvms/shared/sops/${vm} 0700 microvm microvm -"
