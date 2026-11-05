@@ -32,4 +32,6 @@
       cloudflared
     ];
   };
+
+  nixpkgs.config.problems.handlers."gtk+".broken = "warn"; # TEMP until onlyoffice is updated
 }
