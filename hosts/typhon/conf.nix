@@ -10,6 +10,8 @@
     ../../lib/server/net-host.nix
     inputs.microvm.nixosModules.host
 
+    ../../lib/server/proxy.nix
+
     ../../lib/system/dev/nvim.nix
   ];
 
