@@ -43,10 +43,10 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1793422734,
-        "narHash": "sha256-CbPo0m3g+mrsx0XMgtqmlRTaxVSASjOhvjgttBnrirI=",
+        "lastModified": 1793895218,
+        "narHash": "sha256-Ca0He88cg3qSX7MVTcwbgw74RuwmcA+ZwzVjqX72JAs=",
         "ref": "refs/heads/main",
-        "rev": "7945a36a1ef9a47cc3c3c094a16692b4beb8d59a",
+        "rev": "ef91010a4fcc551b5cb24f52608dc8d45c527d9d",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/schembriaiden/helium-browser-nix-flake"
@@ -86,10 +86,10 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1793551589,
-        "narHash": "sha256-Tzx2PvzacBBxS07oBd3Dz3apIwn8tvX8wt1IK9efrwA=",
+        "lastModified": 1793907773,
+        "narHash": "sha256-5sWBQ4dkprnS+BMxlj1jYbfEEeln6wObA7KRlW26woo=",
         "ref": "refs/heads/main",
-        "rev": "788f38e4622b4b041bd85e58330087566d715d22",
+        "rev": "e36299652716b1ccf2836a29ad7beb3c0854c502",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/InioX/Matugen"
@@ -124,10 +124,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1793540411,
-        "narHash": "sha256-fiPJ88izTVucjeo2EQ3jk4aWmLg03I1D4vxnX2QjEgE=",
+        "lastModified": 1793726008,
+        "narHash": "sha256-jQp1wKvbwWdLBASTXkSi/VYmDJ5AbBi1WvcMt9HWJC8=",
         "ref": "nixos-unstable",
-        "rev": "0bb2eedc20e4739f29e8045034f2828ad7054f8f",
+        "rev": "1d060086d60cb76a40cf37109f979d88a5bd6396",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/nixos/nixpkgs"
@@ -141,11 +141,11 @@
     },
     "nixpkgs-darwin": {
       "locked": {
-        "lastModified": 1793147889,
-        "narHash": "sha256-+//qXhkXCKTFoVCHAYhoEP1ZnPSx/b4IHdLI1ZMz3UU=",
+        "lastModified": 1793671242,
+        "narHash": "sha256-FXXhGUZDRvPAdKFx/eF4E/WG3BnzvkCW2V/Qzs4KBoA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "36173dbc6ff2b383c4d03b002fd1ea58e2e4dbcd",
+        "rev": "4ad2eda5f89410d94c57449a70d08935d9bbb4f6",
         "type": "github"
       },
       "original": {
