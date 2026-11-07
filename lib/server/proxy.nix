@@ -15,6 +15,7 @@ in
       defaults.email = "88820972+larkin1@users.noreply.github.com";
       certs."sprk.foo" = {
         domain = "*.sprk.foo";
+        extraDomainNames = [ "sprk.foo" ];
         dnsProvider = "cloudflare";
         dnsResolver = "1.1.1.1:53";
         environmentFile = config.sops.secrets.cloudflare-acme.path;

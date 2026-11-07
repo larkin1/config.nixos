@@ -5,6 +5,8 @@ let
   backup = "/var/backup/${hostname}";
 in
 {
+  imports = [ ../system/core/locale.nix ];
+
   microvm = {
     vsock.cid = config.server.vms.${hostname}.index;
     hypervisor = lib.mkDefault "cloud-hypervisor";
