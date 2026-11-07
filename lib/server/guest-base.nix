@@ -7,6 +7,18 @@ in
 {
   imports = [ ../system/core/locale.nix ];
 
+  services.openssh.hostKeys = [
+    {
+      bits = 4096;
+      path = "/var/lib/data/ssh-hostkeys/ssh_host_rsa_key";
+      type = "rsa";
+    }
+    {
+      path = "/var/lib/data/ssh-hostkeys/ssh_host_ed25519_key";
+      type = "ed25519";
+    }
+  ];
+
   microvm = {
     vsock.cid = config.server.vms.${hostname}.index;
     hypervisor = lib.mkDefault "cloud-hypervisor";
