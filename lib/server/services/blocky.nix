@@ -1,9 +1,9 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 let
   serverIP = "192.168.0.236";
 in
-{ # This is meant to run on typhon, not a guest vm.
+{ # This is meant to run on typhon, not a guest vm. It is both an ad blocker, and a custom DNS resolver for split horizon dns
   imports = [ ../sites.nix ];
 
   boot.kernel.sysctl."net.ipv4.ip_nonlocal_bind" = 1;
@@ -19,7 +19,10 @@ in
 
       customDNS = {
         customTTL = "1m"; # change this to 1h once config is sorted out.
-        mapping = builtins.mapAttrs (_name: _value: serverIP) config.server.sites;
+        mapping = lib.genAttrs (
+          builtins.attrNames config.server.sites
+          ++ builtins.attrNames (lib.filterAttrs (_name: fwd: fwd.dns) config.server.forwards)
+        ) (_name: serverIP);
       };
 
       upstreams.groups.default = [

@@ -4,9 +4,16 @@ let
   net = config.server.net;
   vms = lib.attrValues config.server.vms;
   gw = "10.0.0.0";
+  forwardPorts = lib.concatLists (lib.mapAttrsToList (_name: fwd:
+    lib.concatMap (port: map (proto: {
+      sourcePort = port;
+      inherit proto;
+      destination = "${config.server.vms.${fwd.vm}.ip}:${toString port}";
+    }) fwd.protos) fwd.ports
+  ) config.server.forwards);
 in
 {
-  imports = [ ./vms.nix ];
+  imports = [ ./vms.nix ./sites.nix ];
 
   options.server.net.externalInterface = lib.mkOption {
     type = lib.types.str;
@@ -41,6 +48,7 @@ in
       enable = true;
       externalInterface = net.externalInterface;
       internalInterfaces = map (vm: vm.tap) vms;
+      inherit forwardPorts;
     };
 
     networking.nftables.enable = true;
