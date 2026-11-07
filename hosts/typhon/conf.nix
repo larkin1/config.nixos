@@ -11,6 +11,7 @@
     inputs.microvm.nixosModules.host
 
     ../../lib/server/proxy.nix
+    ../../lib/server/services/blocky.nix
 
     ../../lib/system/dev/nvim.nix
 
@@ -36,7 +37,7 @@
     autostart = lib.attrNames config.server.vms;
   };
 
-  server.net.externalInterface = "eth0"; # update once deployed
+  server.net.externalInterface = "eno1"; # update once deployed
 
   systemd.tmpfiles.rules = [ "d /var/lib/microvm-keys 0700 root root -" ]
     ++ lib.concatMap (vm: [

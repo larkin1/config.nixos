@@ -16,8 +16,8 @@ in
     };
     dnsServers = lib.mkOption {
       type = lib.types.listOf lib.types.str;
-      default = [ "9.9.9.9" "1.1.1.1" ];
-      description = "10.0.0.0 once typhon runs a DNS resolver.";
+      default = [ "10.0.0.0" ];
+      description = "Address of the dns resolver. Local since blocky is active on Typon.";
     };
   };
 
