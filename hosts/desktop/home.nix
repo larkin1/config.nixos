@@ -9,6 +9,7 @@
     ../../lib/user/desktop/dots.nix
     ../../lib/user/programs/defaults.nix
     ../../lib/user/programs/helium.nix
+    ../../lib/user/programs/gaming.nix
   ];
 
   hjem.users."${username}" = {
