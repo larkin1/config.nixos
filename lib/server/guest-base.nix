@@ -1,4 +1,9 @@
-{ hostname, lib, config, ... }:
+{
+  hostname,
+  lib,
+  config,
+  ...
+}:
 
 let
   state = "/var/lib/microvms/${hostname}";

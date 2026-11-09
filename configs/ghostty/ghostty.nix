@@ -1,10 +1,16 @@
-{ pkgs, config, username, ... }:
+{
+  pkgs,
+  config,
+  username,
+  ...
+}:
 
 let
   name = "ghostty";
   input = "${config.custom.theming.templatesDir}/${name}";
   output = ".config/${name}/config";
-in {
+in
+{
   config = {
     custom.theming.toml.${name} = ''
       [templates.${name}]

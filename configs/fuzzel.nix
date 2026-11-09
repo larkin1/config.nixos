@@ -1,10 +1,16 @@
-{ pkgs, config, username, ... }:
+{
+  pkgs,
+  config,
+  username,
+  ...
+}:
 
 let
   name = "fuzzel";
   input = "${config.custom.theming.templatesDir}/${name}";
   output = ".config/${name}/fuzzel.ini";
-in {
+in
+{
   config = {
     custom.theming.toml.${name} = ''
       [templates.${name}]

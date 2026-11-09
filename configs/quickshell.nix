@@ -1,10 +1,17 @@
-{ pkgs, config, username, inputs, ... }:
+{
+  pkgs,
+  config,
+  username,
+  inputs,
+  ...
+}:
 
 let
   name = "quickshell";
   input = "${config.custom.theming.templatesDir}/${name}";
   output = ".local/state/quickshell/generated/colors.json";
-in {
+in
+{
   config = {
     custom.theming.toml.${name} = ''
       [templates.${name}]

@@ -1,10 +1,16 @@
-{ pkgs, config, username, ... }:
+{
+  pkgs,
+  config,
+  username,
+  ...
+}:
 
 let
   name = "vesktop";
   input = "${config.custom.theming.templatesDir}/${name}";
   output = ".config/${name}/themes/midnight-discord.css";
-in {
+in
+{
   config = {
     custom.theming.toml.${name} = ''
       [templates.${name}]

@@ -16,12 +16,14 @@
     mem = 4096;
 
     volumes = [
-      { # generic data dir
+      {
+        # generic data dir
         image = "/var/lib/microvms/${hostname}/data.img";
         size = 10240;
         mountPoint = "/var/lib/data";
       }
-      { # postgres dir, so dbs aren't killed between vm restarts
+      {
+        # postgres dir, so dbs aren't killed between vm restarts
         image = "/var/lib/microvms/${hostname}/postgres.img";
         size = 10240;
         mountPoint = "/var/lib/postgresql";

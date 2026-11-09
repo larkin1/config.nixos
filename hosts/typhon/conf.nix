@@ -1,4 +1,9 @@
-{ inputs, lib, config, ... }:
+{
+  inputs,
+  lib,
+  config,
+  ...
+}:
 
 {
   imports = [
@@ -39,9 +44,11 @@
 
   server.net.externalInterface = "eno1"; # update once deployed
 
-  systemd.tmpfiles.rules = [ "d /var/lib/microvm-keys 0700 root root -" ]
-    ++ lib.concatMap (vm: [
-      "d /var/lib/microvm-keys/${vm} 0700 root root -"
-      "d /var/backup/${vm} 0700 microvm kvm -"
-    ]) (lib.attrNames config.server.vms);
+  systemd.tmpfiles.rules = [
+    "d /var/lib/microvm-keys 0700 root root -"
+  ]
+  ++ lib.concatMap (vm: [
+    "d /var/lib/microvm-keys/${vm} 0700 root root -"
+    "d /var/backup/${vm} 0700 microvm kvm -"
+  ]) (lib.attrNames config.server.vms);
 }

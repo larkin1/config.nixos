@@ -1,10 +1,17 @@
-{ inputs, pkgs, config, username, ... }:
+{
+  inputs,
+  pkgs,
+  config,
+  username,
+  ...
+}:
 
 let
   name = "spicetify";
   input = "${config.custom.theming.templatesDir}/${name}";
   output = ".config/${name}/Themes/Sleek/color.ini";
-in {
+in
+{
   config = {
     hjem.extraModules = [ inputs.spicetify-nix.hjemModules.default ];
 
@@ -47,47 +54,47 @@ in {
       };
 
       programs.spicetify =
-      let
-        spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-      in
-      {
-        enable = true;
+        let
+          spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+        in
+        {
+          enable = true;
 
-        spicetifyPackage = pkgs.spicetify-cli;
+          spicetifyPackage = pkgs.spicetify-cli;
 
-        enabledExtensions = with spicePkgs.extensions; [
-          adblockify
-          skipStats
-          sortPlay
-        ];
+          enabledExtensions = with spicePkgs.extensions; [
+            adblockify
+            skipStats
+            sortPlay
+          ];
 
-        theme = spicePkgs.themes.sleek;
-        colorScheme = "custom";
-        
-        customColorScheme = {
-          main               = "111111";
-          main-secondary     = "1c1c1c";
-          accent             = "89b4fa";
-          button             = "89b4fa";
-          button-secondary   = "89b4fa";
-          button-active      = "89b4fa";
-          button-disabled    = "313244";
-          misc               = "313244";
-          subtext            = "cdd6f4";
-          text               = "ffffff";
-          sidebar            = "111111";
-          player             = "111111";
-          card               = "1c1c1c";
-          notification       = "111111";
-          notification-error = "f38ba8";
-          shadow             = "000000";
-          nav-active-text    = "89b4fa";
-          nav-active         = "89b4fa";
-          tab-active         = "111111";
-          play-button        = "89b4fa";
-          playback-bar       = "89b4fa";
+          theme = spicePkgs.themes.sleek;
+          colorScheme = "custom";
+
+          customColorScheme = {
+            main = "111111";
+            main-secondary = "1c1c1c";
+            accent = "89b4fa";
+            button = "89b4fa";
+            button-secondary = "89b4fa";
+            button-active = "89b4fa";
+            button-disabled = "313244";
+            misc = "313244";
+            subtext = "cdd6f4";
+            text = "ffffff";
+            sidebar = "111111";
+            player = "111111";
+            card = "1c1c1c";
+            notification = "111111";
+            notification-error = "f38ba8";
+            shadow = "000000";
+            nav-active-text = "89b4fa";
+            nav-active = "89b4fa";
+            tab-active = "111111";
+            play-button = "89b4fa";
+            playback-bar = "89b4fa";
+          };
         };
-      };
     };
   };
 }

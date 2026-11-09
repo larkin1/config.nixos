@@ -16,17 +16,20 @@
     mem = 4096;
 
     volumes = [
-      { # generic data dir
+      {
+        # generic data dir
         image = "/var/lib/microvms/${hostname}/data.img";
         size = 10240;
         mountPoint = "/var/lib/data";
       }
-      { # postgres dir, so dbs aren't killed between vm restarts
+      {
+        # postgres dir, so dbs aren't killed between vm restarts
         image = "/var/lib/microvms/${hostname}/postgres.img";
         size = 10240;
         mountPoint = "/var/lib/postgresql";
       }
-      { # make nix store writeable from in the vm
+      {
+        # make nix store writeable from in the vm
         image = "/var/lib/microvms/${hostname}/nix-store-overlay.img";
         mountPoint = config.microvm.writableStoreOverlay;
         size = 40960;
@@ -41,6 +44,9 @@
 
   # allow rebuilding from inside the machine
   system.switch.enable = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   microvm.writableStoreOverlay = "/nix/.rwstore";
 }

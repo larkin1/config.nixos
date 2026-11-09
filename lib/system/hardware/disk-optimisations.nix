@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
-{ # --- optimise some things about the disk ---
+{
+  # --- optimise some things about the disk ---
 
   # Nix optimisations:
   # Limit number of configs that can be in the bootloader

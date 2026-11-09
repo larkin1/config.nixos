@@ -1,10 +1,17 @@
-{ pkgs, config, inputs, username, ... }:
+{
+  pkgs,
+  config,
+  inputs,
+  username,
+  ...
+}:
 
 let
   name = "nvim";
   input = "${config.custom.theming.templatesDir}/nvim-colors.json";
   output = ".cache/matugen/nvim-colors.json";
-in {
+in
+{
   config = {
     custom.theming.toml.${name} = ''
       [templates.${name}]

@@ -1,11 +1,17 @@
-{ pkgs, config, username, ... }:
+{
+  pkgs,
+  config,
+  username,
+  ...
+}:
 
 let
   name = "gtk";
   input = "${config.custom.theming.templatesDir}/${name}";
   output3 = ".config/${name}-3.0";
   output4 = ".config/${name}-4.0";
-in {
+in
+{
   config = {
     custom.theming.toml.${name} = ''
       [templates.${name}3]
@@ -21,7 +27,7 @@ in {
 
     hjem.users.${username} = {
       packages = with pkgs; [
-        adw-gtk3 
+        adw-gtk3
         glib
       ];
 
@@ -29,7 +35,8 @@ in {
         "${input}".source = ./colors.css;
         "${output3}/gtk.css".source = ./gtk3.css;
         "${output4}/gtk.css".source = ./gtk4.css;
-        ".local/share/glib-2.0/schemas".source = "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.pname}-${pkgs.gsettings-desktop-schemas.version}/glib-2.0/schemas";
+        ".local/share/glib-2.0/schemas".source =
+          "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.pname}-${pkgs.gsettings-desktop-schemas.version}/glib-2.0/schemas";
         # "${output3}/settings.ini".text = ''
         #   [Settings]
         #   gtk-theme-name=adw-gtk3

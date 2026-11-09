@@ -1,4 +1,10 @@
-{ pkgs, inputs, lib, config, ... }:
+{
+  pkgs,
+  inputs,
+  lib,
+  config,
+  ...
+}:
 
 {
   imports = [
@@ -28,7 +34,7 @@
   ];
 
   services.udev.packages = [
-    (pkgs.runCommand "hidraw-uaccess" {} ''
+    (pkgs.runCommand "hidraw-uaccess" { } ''
       mkdir -p $out/lib/udev/rules.d
       echo 'KERNEL=="hidraw*", SUBSYSTEM=="hidraw", TAG+="uaccess"' > $out/lib/udev/rules.d/70-hidraw.rules
     '')

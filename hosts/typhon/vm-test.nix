@@ -6,13 +6,21 @@
   virtualisation.vmVariant = {
     virtualisation = {
       cores = 6;
-      memorySize = 12288;  # MiB: typhon plus all three guests
-      diskSize = 61440;    # MiB: guest volumes, including pegasus's 40 GiB store overlay
-      qemu.options = [ "-cpu host" ];  # pass virtualisation extensions through for nested KVM
+      memorySize = 12288; # MiB: typhon plus all three guests
+      diskSize = 61440; # MiB: guest volumes, including pegasus's 40 GiB store overlay
+      qemu.options = [ "-cpu host" ]; # pass virtualisation extensions through for nested KVM
 
       forwardPorts = [
-        { from = "host"; host.port = 2222; guest.port = 22; }   # ssh -p 2222 larkin@localhost
-        { from = "host"; host.port = 8443; guest.port = 443; }  # Caddy
+        {
+          from = "host";
+          host.port = 2222;
+          guest.port = 22;
+        } # ssh -p 2222 larkin@localhost
+        {
+          from = "host";
+          host.port = 8443;
+          guest.port = 443;
+        } # Caddy
       ];
 
       # Your PC's sops key, so typhon's secrets decrypt inside the test VM.
