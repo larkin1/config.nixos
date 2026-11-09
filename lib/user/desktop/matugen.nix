@@ -1,10 +1,18 @@
-{ pkgs, lib, config, username, inputs, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  username,
+  inputs,
+  ...
+}:
 
 let
   cfg = config.custom.theming;
   matugen = inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default;
   matugenDir = ".config/matugen"; # We don't use global paths, as hjem doesn't support them. instead if we need a global path, we prepend /home/${username}/
-in {
+in
+{
   options.custom.theming = {
     wallpaperName = lib.mkOption {
       type = lib.types.str;
@@ -32,8 +40,7 @@ in {
         # inputs.matugen.packages.${system}.default
         matugen
       ];
-      files."${matugenDir}/matugen.toml".text =
-        lib.concatStringsSep "\n" (lib.attrValues cfg.toml);
+      files."${matugenDir}/matugen.toml".text = lib.concatStringsSep "\n" (lib.attrValues cfg.toml);
     };
 
     systemd.services.matugen-regen = {

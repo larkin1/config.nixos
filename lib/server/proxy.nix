@@ -5,7 +5,10 @@ let
   sites = config.server.sites;
 in
 {
-  imports = [ ./vms.nix ./sites.nix ];
+  imports = [
+    ./vms.nix
+    ./sites.nix
+  ];
 
   config = {
     sops.secrets.cloudflare-acme = { };
@@ -31,6 +34,9 @@ in
       }) sites;
     };
 
-    networking.firewall.interfaces.${config.server.net.externalInterface}.allowedTCPPorts = [ 80 443 ];
+    networking.firewall.interfaces.${config.server.net.externalInterface}.allowedTCPPorts = [
+      80
+      443
+    ];
   };
 }

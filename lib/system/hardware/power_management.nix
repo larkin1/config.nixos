@@ -1,6 +1,7 @@
 { ... }:
 
-{ # --- Power management (LLM Code) ---
+{
+  # --- Power management (LLM Code) ---
 
   # TLP
   services.tlp = {
@@ -47,14 +48,23 @@
   # Re-apply after every resume since s2idle can reset it
   systemd.services.disable-wifi-d3cold = {
     description = "Disable D3cold for Intel BE200 Wi-Fi";
-    wantedBy = [ "multi-user.target" "post-resume.target" ];
-    after = [ "systemd-udevd.service" "post-resume.target" ];
+    wantedBy = [
+      "multi-user.target"
+      "post-resume.target"
+    ];
+    after = [
+      "systemd-udevd.service"
+      "post-resume.target"
+    ];
     script = ''
       echo 0 > /sys/bus/pci/devices/0000:55:00.0/d3cold_allowed
     '';
     serviceConfig.Type = "oneshot";
   };
 
-  boot.kernelParams = [ "amd_iommu=pt" "iwlwifi.enable_ini=0" ];
-  hardware.amdgpu.opencl.enable = true;  # keep opencl available
+  boot.kernelParams = [
+    "amd_iommu=pt"
+    "iwlwifi.enable_ini=0"
+  ];
+  hardware.amdgpu.opencl.enable = true; # keep opencl available
 }

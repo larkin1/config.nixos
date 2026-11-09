@@ -27,12 +27,14 @@
     };
 
     # --- Configurations ---
-    config-nvim = { # i keep my nvim config in a separate repo because i also want it elsewhere
+    config-nvim = {
+      # i keep my nvim config in a separate repo because i also want it elsewhere
       url = "git+https://github.com/larkin1/config.nvim?shallow=1";
       flake = false;
     };
 
-    config-quickshell = { # quickshell is in active development, so it's in its own repo.
+    config-quickshell = {
+      # quickshell is in active development, so it's in its own repo.
       url = "git+https://github.com/larkin1/config.quickshell?shallow=1";
       flake = false;
     };
@@ -47,9 +49,19 @@
   };
 
   outputs =
-    inputs@{ self, nixpkgs, microvm, ... }:
+    inputs@{
+      self,
+      nixpkgs,
+      microvm,
+      ...
+    }:
     let
-      mkHost = { hostname, system ? "x86_64-linux", username ? "larkin" }:
+      mkHost =
+        {
+          hostname,
+          system ? "x86_64-linux",
+          username ? "larkin",
+        }:
         nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs username hostname; };
           modules = [
@@ -61,7 +73,11 @@
           ];
         };
 
-      mkServer = { hostname, username ? "larkin"}:
+      mkServer =
+        {
+          hostname,
+          username ? "larkin",
+        }:
         nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs hostname username; };
           modules = [
@@ -72,7 +88,11 @@
           ];
         };
 
-      mkHypervisor = { hostname, username ? "larkin"}:
+      mkHypervisor =
+        {
+          hostname,
+          username ? "larkin",
+        }:
         nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs hostname username; };
           modules = [
@@ -81,7 +101,8 @@
             inputs.sops-nix.nixosModules.default
           ];
         };
-    in {
+    in
+    {
       nixosConfigurations = {
         laptop = mkHost { hostname = "laptop"; };
         desktop = mkHost { hostname = "desktop"; };
@@ -91,6 +112,6 @@
         pegasus = mkServer { hostname = "pegasus"; };
         chiron = mkServer { hostname = "chiron"; };
         tartarus = mkServer { hostname = "tartarus"; };
+      };
     };
-  };
 }

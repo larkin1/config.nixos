@@ -1,6 +1,7 @@
 { lib, ... }:
 
-{ # --- Bootloader config ---
+{
+  # --- Bootloader config ---
 
   boot = {
     loader = {

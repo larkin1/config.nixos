@@ -7,16 +7,16 @@ in
 {
   microvm = {
     volumes = [
-    {
-      image = "${mount}/immich.img";
-      size = 10240;
-      mountPoint = data;
-    }
-    {
-      image = "${mount}/cache.img";
-      size = 4096;
-      mountPoint = "/var/cache/immich";
-    }
+      {
+        image = "${mount}/immich.img";
+        size = 10240;
+        mountPoint = data;
+      }
+      {
+        image = "${mount}/cache.img";
+        size = 4096;
+        mountPoint = "/var/cache/immich";
+      }
     ];
   };
 

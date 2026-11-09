@@ -1,4 +1,9 @@
-{ username, pkgs, inputs, ... }:
+{
+  username,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   helium = inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default;
@@ -14,6 +19,7 @@ let
         --add-flags "--disable-print-preview"
     '';
   };
-in {
+in
+{
   hjem.users.${username}.packages = [ helium-print ];
 }

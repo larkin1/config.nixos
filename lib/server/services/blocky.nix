@@ -3,7 +3,8 @@
 let
   serverIP = "192.168.0.236";
 in
-{ # This is meant to run on typhon, not a guest vm. It is both an ad blocker, and a custom DNS resolver for split horizon dns
+{
+  # This is meant to run on typhon, not a guest vm. It is both an ad blocker, and a custom DNS resolver for split horizon dns
   imports = [ ../sites.nix ];
 
   boot.kernel.sysctl."net.ipv4.ip_nonlocal_bind" = 1;
@@ -14,7 +15,10 @@ in
     enable = true;
     settings = {
 
-      ports.dns = [ "${serverIP}:53" "10.0.0.0:53" ];
+      ports.dns = [
+        "${serverIP}:53"
+        "10.0.0.0:53"
+      ];
       ports.http = "127.0.0.1:4000";
 
       customDNS = {
@@ -30,7 +34,10 @@ in
       ];
       bootstrapDns = {
         upstream = "https://one.one.one.one/dns-query";
-        ips = [ "1.1.1.1" "1.0.0.1" ];
+        ips = [
+          "1.1.1.1"
+          "1.0.0.1"
+        ];
       };
 
       blocking = {
@@ -40,7 +47,10 @@ in
         };
 
         denylists = {
-          ads = [ "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts" "https://small.oisd.nl" ];
+          ads = [
+            "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+            "https://small.oisd.nl"
+          ];
           custom = [ "https://raw.githubusercontent.com/larkin1/blocky-list/master/block" ];
         };
         allowlists = {
@@ -48,7 +58,10 @@ in
         };
 
         clientGroupsBlock = {
-          default = [ "ads" "custom" ];
+          default = [
+            "ads"
+            "custom"
+          ];
         };
       };
     };

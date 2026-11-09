@@ -34,10 +34,12 @@
 
   boot.loader.timeout = 5;
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 8192;
-  }];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 8192;
+    }
+  ];
 
   environment.systemPackages = with pkgs; [ brightnessctl ];
 }

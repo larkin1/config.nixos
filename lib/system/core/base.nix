@@ -1,13 +1,17 @@
 { hostname, ... }:
 
-{ # Things that are included on every host by default
+{
+  # Things that are included on every host by default
   networking.hostName = hostname;
 
   hardware.enableRedistributableFirmware = true;
 
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   sops.defaultSopsFile = "${../../../secrets}/${hostname}.yaml";
   sops.age.keyFile = "/var/lib/sops-nix/key.txt";

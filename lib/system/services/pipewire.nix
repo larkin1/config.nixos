@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
-{ # --- Basic pipewire audio setup ---
+{
+  # --- Basic pipewire audio setup ---
 
   # Enable "real-time scheduling support"
   security.rtkit.enable = true;

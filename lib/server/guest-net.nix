@@ -1,4 +1,9 @@
-{ config, lib, hostname, ... }:
+{
+  config,
+  lib,
+  hostname,
+  ...
+}:
 
 let
   vm = config.server.vms.${hostname};
@@ -22,12 +27,14 @@ in
   };
 
   config = lib.mkIf net.enable {
-    microvm.interfaces = [{
-      type = "tap";
-      id = vm.tap;
-      inherit (vm) mac;
-      tap.vhost = config.microvm.hypervisor == "qemu";
-    }];
+    microvm.interfaces = [
+      {
+        type = "tap";
+        id = vm.tap;
+        inherit (vm) mac;
+        tap.vhost = config.microvm.hypervisor == "qemu";
+      }
+    ];
 
     networking.useNetworkd = true;
     networking.useDHCP = false;
@@ -36,8 +43,15 @@ in
       matchConfig.MACAddress = vm.mac;
       address = [ "${vm.ip}/32" ];
       routes = [
-        { Destination = "${gw}/32"; Scope = "link"; }
-        { Destination = "0.0.0.0/0"; Gateway = gw; GatewayOnLink = true; }
+        {
+          Destination = "${gw}/32";
+          Scope = "link";
+        }
+        {
+          Destination = "0.0.0.0/0";
+          Gateway = gw;
+          GatewayOnLink = true;
+        }
       ];
       networkConfig.DNS = net.dnsServers;
     };

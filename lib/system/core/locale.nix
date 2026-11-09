@@ -1,6 +1,7 @@
 { ... }:
 
-{ # --- Locale Settings ---
+{
+  # --- Locale Settings ---
 
   # Time zone.
   time.timeZone = "Australia/Sydney";

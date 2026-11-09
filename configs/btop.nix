@@ -1,10 +1,16 @@
-{ pkgs, config, username, ... }:
+{
+  pkgs,
+  config,
+  username,
+  ...
+}:
 
 let
   name = "btop";
   input = "${config.custom.theming.templatesDir}/${name}";
   output = ".config/${name}/themes/matugen.theme";
-in {
+in
+{
   config = {
     custom.theming.toml.${name} = ''
       [templates.${name}]
@@ -63,4 +69,3 @@ in {
     };
   };
 }
-

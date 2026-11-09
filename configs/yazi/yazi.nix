@@ -1,10 +1,16 @@
-{ pkgs, config, username, ... }:
+{
+  pkgs,
+  config,
+  username,
+  ...
+}:
 
 let
   name = "yazi";
   input = "${config.custom.theming.templatesDir}/${name}";
   output = ".config/${name}";
-in {
+in
+{
   config = {
     custom.theming.toml.${name} = ''
       [templates.${name}]
@@ -18,7 +24,8 @@ in {
         ripdrag
       ];
 
-      files = { # these are large files (200+ lines), so they are given their own files and read from those.
+      files = {
+        # these are large files (200+ lines), so they are given their own files and read from those.
         "${input}".source = ./theme.toml;
         "${output}/keymap.toml".source = ./keymap.toml;
         "${output}/yazi.toml".source = ./yazi.toml;
@@ -34,10 +41,13 @@ in {
       ];
       config = {
         common = {
-          default = ["gtk"];
+          default = [ "gtk" ];
         };
         hyprland = {
-          default = [ "hyprland" "gtk" ];
+          default = [
+            "hyprland"
+            "gtk"
+          ];
           "org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
         };
       };

@@ -1,6 +1,7 @@
 { ... }:
 
-{ # --- Basic networking config to allow connection ---
+{
+  # --- Basic networking config to allow connection ---
 
   # Enable networking
   networking.networkmanager.enable = true;
