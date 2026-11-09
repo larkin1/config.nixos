@@ -20,6 +20,8 @@ in {
         tree-sitter
         gcc
         ripgrep
+        fd
+        wl-clipboard
 
         # -- language servers --
         lua-language-server
@@ -28,6 +30,10 @@ in {
         basedpyright
         qt6.qtdeclarative # qmlls
         nil
+        nixfmt
+        bash-language-server
+        shellcheck
+        shfmt
       ];
 
       files = {
@@ -74,7 +80,15 @@ in {
 
             "git_added": "{{colors.primary.default.hex}}",
             "git_modified": "{{colors.secondary.default.hex}}",
-            "git_deleted": "{{colors.error.default.hex}}"
+            "git_deleted": "{{colors.error.default.hex}}",
+
+            "syn_purple": "{{ "#cba6f7" | to_color | harmonize: {{ colors.source_color.default.hex | to_color }} }}",
+            "syn_cyan": "{{ "#89b4fa" | to_color | harmonize: {{ colors.source_color.default.hex | to_color }} }}",
+            "syn_blue": "{{ "#b4befe" | to_color | harmonize: {{ colors.source_color.default.hex | to_color }} }}",
+            "syn_yellow": "{{ "#f9e2af" | to_color | harmonize: {{ colors.source_color.default.hex | to_color }} }}",
+            "syn_green": "{{ "#a6e3a1" | to_color | harmonize: {{ colors.source_color.default.hex | to_color }} }}",
+            "syn_orange": "{{ "#fab387" | to_color | harmonize: {{ colors.source_color.default.hex | to_color }} }}",
+            "syn_pink": "{{ "#f5c2e7" | to_color | harmonize: {{ colors.source_color.default.hex | to_color }} }}"
           }
         '';
       };
