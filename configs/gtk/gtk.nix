@@ -10,6 +10,17 @@ let
   input = "${config.custom.theming.templatesDir}/${name}";
   output3 = ".config/${name}-3.0";
   output4 = ".config/${name}-4.0";
+
+  selectionCss = ''
+    textview.view text selection,
+    textview.view text selection:focus,
+    textview.view text selection:backdrop,
+    .view text selection,
+    .view text selection:focus {
+      background-color: @matugen_selection_bg;
+      color: @matugen_selection_fg;
+    }
+  '';
 in
 {
   config = {
@@ -33,15 +44,23 @@ in
 
       files = {
         "${input}".source = ./colors.css;
-        "${output3}/gtk.css".source = ./gtk3.css;
         "${output4}/gtk.css".source = ./gtk4.css;
+
+        ".local/share/themes/adw-gtk3-matugen-dark/gtk-3.0/gtk.css".text = ''
+          @import url("file://${pkgs.adw-gtk3}/share/themes/adw-gtk3-dark/gtk-3.0/gtk.css");
+          @import url("file:///home/${username}/${output3}/colors.css");
+
+          ${selectionCss}
+        '';
+        ".local/share/themes/adw-gtk3-matugen/gtk-3.0/gtk.css".text = ''
+          @import url("file://${pkgs.adw-gtk3}/share/themes/adw-gtk3/gtk-3.0/gtk.css");
+          @import url("file:///home/${username}/${output3}/colors.css");
+
+          ${selectionCss}
+        '';
+
         ".local/share/glib-2.0/schemas".source =
           "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.pname}-${pkgs.gsettings-desktop-schemas.version}/glib-2.0/schemas";
-        # "${output3}/settings.ini".text = ''
-        #   [Settings]
-        #   gtk-theme-name=adw-gtk3
-        #   gtk-application-prefer-dark-theme=true
-        # '';
         ".config/matugen/post-hook-scripts/gtk-themes-reload.sh".source = ./gtk-themes-reload.sh;
       };
     };

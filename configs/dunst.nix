@@ -16,7 +16,7 @@ in
       [templates.${name}]
       input_path = "/home/${username}/${input}"
       output_path = "/home/${username}/${output}"
-      post_hook = "dunstctl reload"
+      post_hook = "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus ${pkgs.dunst}/bin/dunstctl reload"
     '';
 
     hjem.users.${username} = {
@@ -46,6 +46,9 @@ in
           frame_color = "{{colors.primary.default.hex}}"
           highlight = "{{colors.primary.default.hex}}"
           separator_color= "{{colors.outline.default.hex}}"
+          mouse_left_click = do_action, close_current
+          mouse_middle_click = close_current
+          mouse_right_click = close_all
 
           [urgency_low]
           timeout = 5

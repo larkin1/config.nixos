@@ -14,6 +14,7 @@
     ../../lib/system/hardware/power_triggers.nix
     ../../lib/system/hardware/printers.nix
     ../../lib/system/hardware/logi.nix
+    ../../lib/system/hardware/intel.nix
 
     ../../lib/system/services/bluetooth.nix
     ../../lib/system/services/pipewire.nix
