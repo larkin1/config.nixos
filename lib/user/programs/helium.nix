@@ -22,4 +22,20 @@ let
 in
 {
   hjem.users.${username}.packages = [ helium-print ];
+
+  environment.etc."chromium/policies/managed/color-scheme.json".source =
+    "/home/${username}/.cache/helium/color-scheme.json";
+
+  environment.etc."chromium/policies/managed/extensions.json".text = builtins.toJSON {
+    ExtensionSettings = {
+      "nngceckbapebfimnlniiiahkandclblb" = {
+        installation_mode = "force_installed";
+        update_url = "https://update-url-to-be-replaced.qjz9zk";
+      };
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" = {
+        installation_mode = "force_installed";
+        update_url = "https://update-url-to-be-replaced.qjz9zk";
+      };
+    };
+  };
 }

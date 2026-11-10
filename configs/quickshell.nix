@@ -22,7 +22,7 @@ in
     hjem.users.${username} = {
       packages = with pkgs; [
         quickshell
-        wf-recorder # required for screen recording to work
+        wl-screenrec
       ];
 
       files = {

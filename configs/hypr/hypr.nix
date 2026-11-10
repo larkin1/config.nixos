@@ -84,6 +84,7 @@ in
           "${path}/lua/vibes.lua".source = ./lua/vibes.lua;
           "${path}/hyprland.lua".source = ./hyprland.lua;
           "${path}/scripts/fuzzel-emoji-picker.sh".source = ./scripts/fuzzel-emoji-picker.sh;
+          "${path}/scripts/screenshot.sh".source = ./scripts/screenshot.sh;
         };
     };
 
