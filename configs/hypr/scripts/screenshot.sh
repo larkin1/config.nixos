@@ -4,7 +4,7 @@ set -euo pipefail
 
 scrim="#${1}52"
 outline="#${2}ff"
-dir="$HOME/Pictures/Screenshots"
+dir="$HOME"
 tmp=$(mktemp --suffix .png)
 trap 'rm -f "$tmp"' EXIT
 
