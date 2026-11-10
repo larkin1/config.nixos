@@ -25,4 +25,4 @@ action=$(dunstify "Screenshot taken" "Click to edit" -i "$tmp" -t 10000 --action
 
 mkdir -p "$dir"
 satty --filename "$tmp" --copy-command wl-copy \
-  --output-filename "$dir/$(date +%Y%m%d-%H%M%S).png"
+  --output-filename "$dir/img-$(date +%F_%H-%M-%S).png"
