@@ -23,4 +23,12 @@
   };
   environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
   services.thermald.enable = true;
+
+  security.wrappers.btop = {
+    # allow btop to see the igpu
+    owner = "root";
+    group = "root";
+    capabilities = "cap_perfmon+ep";
+    source = "${pkgs.btop}/bin/btop";
+  };
 }
