@@ -7,6 +7,7 @@
 
 {
   programs.zsh.enable = true;
+  programs.zsh.enableGlobalCompInit = false;
 
   users.users."${username}" = {
     shell = pkgs.zsh;

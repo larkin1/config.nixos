@@ -5,10 +5,12 @@ window-decoration = none
 font-size = 12
 font-family = "JetBrainsMono Nerd Font"
 background-blur = true
+gtk-single-instance = true
+quit-after-last-window-closed = false
 
 # custom-shader = shaders/cursor_warp.glsl
 custom-shader = shaders/cursor_lightning.glsl
-custom-shader-animation = always
+custom-shader-animation = true
 
 keybind = ctrl+backspace=text:\x17
 

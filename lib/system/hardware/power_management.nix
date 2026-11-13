@@ -37,11 +37,7 @@
   # Power profiles daemon conflicts with TLP — disable it
   services.power-profiles-daemon.enable = false;
 
-  # Enable thermald for Intel thermal management
-  services.thermald.enable = true;
-
   services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x1002", ATTR{power/control}="auto"
     ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0x272b", ATTR{d3cold_allowed}="0"
   '';
 
@@ -63,7 +59,6 @@
   };
 
   boot.kernelParams = [
-    "amd_iommu=pt"
     "iwlwifi.enable_ini=0"
   ];
   hardware.amdgpu.opencl.enable = true; # keep opencl available
