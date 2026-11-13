@@ -24,7 +24,7 @@
       # -- cli/tui tools --
       zip
       unzip
-      btop
+      (btop.override { cudaSupport = true; })
       timg
       cameractrls
       ffmpeg # mostly for ffplay
