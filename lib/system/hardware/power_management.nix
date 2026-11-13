@@ -61,5 +61,4 @@
   boot.kernelParams = [
     "iwlwifi.enable_ini=0"
   ];
-  hardware.amdgpu.opencl.enable = true; # keep opencl available
 }
