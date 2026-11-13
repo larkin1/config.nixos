@@ -11,6 +11,16 @@ let
   cfg = config.custom.theming;
   matugen = inputs.matugen.packages.${pkgs.stdenv.hostPlatform.system}.default;
   matugenDir = ".config/matugen"; # We don't use global paths, as hjem doesn't support them. instead if we need a global path, we prepend /home/${username}/
+
+  wallScript = pkgs.writeShellApplication {
+    name = "setwall";
+    runtimeInputs = [
+      matugen
+      config.programs.hyprland.package
+      pkgs.procps
+    ];
+    text = builtins.readFile ../../../configs/walls/wall.sh;
+  };
 in
 {
   options.custom.theming = {
@@ -37,8 +47,8 @@ in
 
     hjem.users."${username}" = {
       packages = [
-        # inputs.matugen.packages.${system}.default
         matugen
+        wallScript
       ];
       files."${matugenDir}/matugen.toml".text = lib.concatStringsSep "\n" (lib.attrValues cfg.toml);
     };
@@ -46,13 +56,15 @@ in
     systemd.services.matugen-regen = {
       wantedBy = [ "hjem.target" ];
       after = [ "hjem-activate@${username}.service" ];
+      partOf = [ "hjem-activate@${username}.service" ];
       serviceConfig = {
         Type = "oneshot";
+        RemainAfterExit = true;
         User = username;
         Environment = "HOME=/home/${username}";
       };
       script = ''
-        ${matugen}/bin/matugen image "/home/${username}/.config/walls/${cfg.wallpaperName}" --config "/home/${username}/${matugenDir}/matugen.toml" --source-color-index=0 --type=scheme-content
+        ${lib.getExe wallScript} "/home/${username}/.config/walls/${cfg.wallpaperName}" scheme-tonal-spot
       '';
     };
   };
