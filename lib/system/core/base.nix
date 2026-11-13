@@ -1,4 +1,4 @@
-{ hostname, ... }:
+{ hostname, username, ... }:
 
 {
   # Things that are included on every host by default
@@ -12,6 +12,15 @@
     "nix-command"
     "flakes"
   ];
+
+  programs.nh = {
+    enable = true;
+    flake = "/etc/nixos";
+    clean = {
+      enable = true;
+      extraArgs = "--keep-since 7d --keep 5";
+    };
+  };
 
   sops.defaultSopsFile = "${../../../secrets}/${hostname}.yaml";
   sops.age.keyFile = "/var/lib/sops-nix/key.txt";

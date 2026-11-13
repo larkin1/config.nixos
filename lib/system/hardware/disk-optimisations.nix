@@ -10,7 +10,6 @@
   boot.loader.limine.maxGenerations = 3;
   # Collect garbage weekly
   nix.gc = {
-    automatic = true;
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
