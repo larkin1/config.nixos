@@ -11,6 +11,8 @@
 
   hardware.graphics.extraPackages = [ pkgs.nvidia-vaapi-driver ];
 
+  boot.extraModprobeConfig = "options nvidia NVreg_TemporaryFilePath=/var/tmp";
+
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
     NVD_BACKEND = "direct";
