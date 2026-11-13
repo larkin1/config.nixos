@@ -1,4 +1,4 @@
-{ hostname, username, ... }:
+{ hostname, ... }:
 
 {
   # Things that are included on every host by default
