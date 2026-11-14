@@ -7,7 +7,6 @@
 let
   domain = "vault.sprk.foo";
   site = config.server.sites."${domain}";
-  # vm = config.server.vms."${site.vm}";
   data = "/var/lib/vaultwarden";
 in
 {
@@ -22,6 +21,7 @@ in
         image = "/var/lib/microvms/${hostname}/vaultwarden.img";
         size = 10240;
         mountPoint = data;
+        label = "vaultwarden";
       }
     ];
   };
@@ -42,7 +42,6 @@ in
     config = {
       SIGNUPS_ALLOWED = false;
 
-      # ROCKET_ADDRESS = vm.ip;
       ROCKET_ADDRESS = "0.0.0.0";
       ROCKET_PORT = site.port;
       ROCKET_LOG = "critical";

@@ -11,11 +11,13 @@ in
         image = "${mount}/immich.img";
         size = 10240;
         mountPoint = data;
+        label = "immich";
       }
       {
         image = "${mount}/cache.img";
         size = 4096;
         mountPoint = "/var/cache/immich";
+        label = "immich-cache";
       }
     ];
   };
