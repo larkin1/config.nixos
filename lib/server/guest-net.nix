@@ -11,7 +11,10 @@ let
   gw = "10.0.0.0";
 in
 {
-  imports = [ ./vms.nix ];
+  imports = [
+    ./vms.nix
+    ./sites.nix
+  ];
 
   options.server.net = {
     enable = lib.mkOption {
@@ -26,34 +29,54 @@ in
     };
   };
 
-  config = lib.mkIf net.enable {
-    microvm.interfaces = [
-      {
-        type = "tap";
-        id = vm.tap;
-        inherit (vm) mac;
-        tap.vhost = config.microvm.hypervisor == "qemu";
-      }
-    ];
+  config = lib.mkMerge [
+    {
+      networking.firewall.allowedTCPPorts =
+        lib.concatMap (f: f.ports) (
+          builtins.attrValues (
+            lib.filterAttrs (_: v: v.vm == hostname && lib.elem "tcp" v.protos) config.server.forwards
+          )
+        )
+        ++ map (s: s.port) (
+          builtins.attrValues (lib.filterAttrs (_: v: v.vm == hostname) config.server.sites)
+        );
 
-    networking.useNetworkd = true;
-    networking.useDHCP = false;
+      networking.firewall.allowedUDPPorts = lib.concatMap (f: f.ports) (
+        builtins.attrValues (
+          lib.filterAttrs (_: v: v.vm == hostname && lib.elem "udp" v.protos) config.server.forwards
+        )
+      );
+    }
 
-    systemd.network.networks."10-eth" = {
-      matchConfig.MACAddress = vm.mac;
-      address = [ "${vm.ip}/32" ];
-      routes = [
+    (lib.mkIf net.enable {
+      microvm.interfaces = [
         {
-          Destination = "${gw}/32";
-          Scope = "link";
-        }
-        {
-          Destination = "0.0.0.0/0";
-          Gateway = gw;
-          GatewayOnLink = true;
+          type = "tap";
+          id = vm.tap;
+          inherit (vm) mac;
+          tap.vhost = config.microvm.hypervisor == "qemu";
         }
       ];
-      networkConfig.DNS = net.dnsServers;
-    };
-  };
+
+      networking.useNetworkd = true;
+      networking.useDHCP = false;
+
+      systemd.network.networks."10-eth" = {
+        matchConfig.MACAddress = vm.mac;
+        address = [ "${vm.ip}/32" ];
+        routes = [
+          {
+            Destination = "${gw}/32";
+            Scope = "link";
+          }
+          {
+            Destination = "0.0.0.0/0";
+            Gateway = gw;
+            GatewayOnLink = true;
+          }
+        ];
+        networkConfig.DNS = net.dnsServers;
+      };
+    })
+  ];
 }

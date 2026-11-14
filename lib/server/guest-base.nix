@@ -24,6 +24,8 @@ in
     }
   ];
 
+  sops.useSystemdActivation = true;
+
   microvm = {
     vsock.cid = config.server.vms.${hostname}.index;
     hypervisor = lib.mkDefault "cloud-hypervisor";

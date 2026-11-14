@@ -1,14 +1,12 @@
 { hostname, ... }:
 
-# let
-#   vm = config.server.vms.${hostname};
-# in
 {
   imports = [
     ../../lib/system/core/base.nix
     ../../lib/server/access.nix
     ../../lib/server/guest-base.nix
     ../../lib/server/guest-net.nix
+    ../../lib/server/services/vaultwarden.nix
   ];
 
   microvm = {
@@ -35,16 +33,4 @@
     "d /var/lib/postgresql 0700 postgres postgres -"
     "z /var/lib/postgresql 0700 postgres postgres -"
   ];
-
-  # # TEMP for laptop dev
-  # server.net.enable = false;
-  # microvm.interfaces = [{
-  #   type = "user";
-  #   id = vm.tap;
-  #   inherit (vm) mac;
-  # }];
-  # microvm.forwardPorts = [
-  #   { from = "host"; host.port = 2200+vm.index ; guest.port = 22; } # allow me to ssh into the vm
-  #   { from = "host"; host.port = 2283; guest.port = 2283; } # allow me to test immich on localhost
-  # ];
 }
