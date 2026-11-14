@@ -2,4 +2,5 @@ result
 result-*
 .direnv/
 *.img
+*.qcow2
 key.txt
