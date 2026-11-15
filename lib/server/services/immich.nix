@@ -5,6 +5,8 @@ let
   mount = "/var/lib/microvms/${hostname}";
 in
 {
+  imports = [ ./postgresql.nix ];
+
   microvm = {
     volumes = [
       {
@@ -21,14 +23,6 @@ in
       }
     ];
   };
-
-  services.postgresqlBackup = {
-    enable = true;
-    startAt = "*-*-* 03:15:00";
-    location = "/var/backup/postgresql";
-  };
-
-  systemd.services.postgresqlBackup.unitConfig.RequiresMountsFor = "/var/backup";
 
   services.immich = {
     enable = true;
