@@ -15,6 +15,7 @@ in
     ../sites.nix
     ../vms.nix
     ./postgresql.nix
+    ./backups.nix
   ];
 
   microvm = {
@@ -28,25 +29,15 @@ in
     ];
   };
 
-  systemd.services."vaultwarden-backup" = {
-    serviceConfig = {
-      Type = "oneshot";
-      User = "vaultwarden";
-      path = [ pkgs.rsync ];
-      script = ''
-        rsync -a --delete --exclude=lost+found --exclude=icon_cache/ --exclude=tmp/ \
-          /var/lib/vaultwarden/ /var/backup/vaultwarden/
-      '';
-      startAt = "*-*-* 01:00:00";
-    };
-  };
-
-  systemd.tmpfiles.settings = {
-    "vaultwarden-backup"."/var/backup/vaultwarden".d = {
-      mode = "0700";
-      user = "vaultwarden";
-      group = "vaultwarden";
-    };
+  config.server.backup."vaultwarden" = {
+    user = "vaultwarden";
+    group = "vaultwarden";
+    inPath = "/var/lib/vaultwarden";
+    extraArgs = [
+      "--exclude=lost+found"
+      "--exclude=icon_cache/"
+      "--exclude=tmp/"
+    ];
   };
 
   sops.secrets.vaultwarden-env = {
