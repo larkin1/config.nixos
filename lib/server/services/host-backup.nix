@@ -19,9 +19,9 @@
         dir=/var/backup
         threshold_minutes=$((26*60))
         if find "$dir" -type f -mmin "+$threshold_minutes" -print -quit | grep -q .; then
-          exit 0
-        else
           exit 1
+        else
+          exit 0
         fi
       '';
 
