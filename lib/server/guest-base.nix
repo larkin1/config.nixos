@@ -10,7 +10,10 @@ let
   backup = "/var/backup/${hostname}";
 in
 {
-  imports = [ ../system/core/locale.nix ];
+  imports = [
+    ../system/core/locale.nix
+    ./services/backups.nix
+  ];
 
   services.openssh.hostKeys = [
     {
