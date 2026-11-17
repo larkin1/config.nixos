@@ -14,7 +14,7 @@ in
     ../sites.nix
     ../vms.nix
     ./postgresql.nix
-    ./backups.nix
+    ./guest-backup.nix
   ];
 
   microvm = {

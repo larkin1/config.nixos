@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, username, ... }:
 
 # Only applies to `nixos-rebuild build-vm --flake .#typhon`.
 # The real typhon system is unaffected.
@@ -25,7 +25,7 @@
 
       # Your PC's sops key, so typhon's secrets decrypt inside the test VM.
       sharedDirectories.sops = {
-        source = "/var/lib/sops-nix";
+        source = "/home/${username}/.local/share/typhon-vm";
         target = "/var/lib/sops-nix";
       };
     };
