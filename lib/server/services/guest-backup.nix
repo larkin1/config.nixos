@@ -60,7 +60,7 @@
         script = ''
           rsync -a --delete --exclude="**/.backup-stamp" ${lib.escapeShellArgs val.extraArgs} \
             ${lib.escapeShellArg val.inPath}/ ${lib.escapeShellArg val.outPath}/
-          touch "${lib.escapeShellArg val.outPath}/.backup-stamp"
+          touch "${lib.escapeShellArg "${val.outPath}/.backup-stamp"}
         '';
         startAt = val.time;
         unitConfig.RequiresMountsFor = val.outPath;
