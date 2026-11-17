@@ -20,6 +20,7 @@
       zoom-us
       onlyoffice-desktopeditors
       prusa-slicer
+      mpv
 
       # -- cli/tui tools --
       zip

@@ -3,6 +3,14 @@
 {
   hjem.users.${username}.files.".config/mimeapps.list".text = ''
     [Default Applications]
+    video/mp4=mpv.desktop
+    video/webm=mpv.desktop
+    video/quicktime=mpv.desktop
+    video/x-matroska=mpv.desktop
+    video/3gpp=mpv.desktop
+    video/x-msvideo=mpv.desktop
+    video/mpeg=mpv.desktop
+    video/ogg=mpv.desktop
     text/html=helium.desktop
     application/pdf=helium.desktop
     x-scheme-handler/http=helium.desktop
