@@ -17,6 +17,7 @@
 
     ../../lib/server/proxy.nix
     ../../lib/server/services/blocky.nix
+    ../../lib/server/services/host-backup.nix
 
     ../../lib/system/dev/nvim.nix
 

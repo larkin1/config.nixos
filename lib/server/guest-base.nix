@@ -12,7 +12,7 @@ in
 {
   imports = [
     ../system/core/locale.nix
-    ./services/backups.nix
+    ./services/guest-backup.nix
   ];
 
   services.openssh.hostKeys = [
