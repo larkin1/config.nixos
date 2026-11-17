@@ -49,6 +49,6 @@
   ]
   ++ lib.concatMap (vm: [
     "d /var/lib/microvm-keys/${vm} 0700 root root -"
-    "d /var/backup/${vm} 0700 microvm kvm -"
+    "d /var/backup/${vm} 0755 microvm kvm -"
   ]) (lib.attrNames config.server.vms);
 }

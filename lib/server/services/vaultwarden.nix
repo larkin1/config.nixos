@@ -1,7 +1,6 @@
 {
   config,
   hostname,
-  pkgs,
   ...
 }:
 
@@ -29,7 +28,7 @@ in
     ];
   };
 
-  config.server.backup."vaultwarden" = {
+  server.backup.vaultwarden = {
     user = "vaultwarden";
     group = "vaultwarden";
     inPath = "/var/lib/vaultwarden";
