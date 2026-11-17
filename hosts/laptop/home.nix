@@ -18,6 +18,7 @@
       vesktop
       onlyoffice-desktopeditors
       zoom-us
+      mpv
 
       # -- cli/tui tools --
       zip
