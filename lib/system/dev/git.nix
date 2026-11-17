@@ -9,7 +9,7 @@
           defaultBranch = "main";
         };
         user = {
-          email = "88820972+larkin1@users.noreply.github.com";
+          email = "git@sprk.foo";
           name = "larkin1";
         };
       }
