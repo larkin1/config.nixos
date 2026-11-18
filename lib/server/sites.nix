@@ -51,8 +51,11 @@
           vm = "chiron";
           port = 2283;
         };
+        "alerts.sprk.foo" = {
+          vm = "chiron";
+          port = 2586;
+        };
         "vault.sprk.foo" = {
-          # domain also defined in ./services/vaultwarden.nix
           vm = "tartarus";
           port = 8222;
         };

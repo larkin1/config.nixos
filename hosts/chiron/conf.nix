@@ -11,6 +11,7 @@
     ../../lib/server/guest-net.nix
 
     ../../lib/server/services/immich.nix
+    ../../lib/server/services/ntfy-server.nix
   ];
 
   microvm = {
