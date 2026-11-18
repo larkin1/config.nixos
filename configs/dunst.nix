@@ -12,11 +12,26 @@ let
 
   notifySound = pkgs.writeShellScript "dunst-sound" ''
     dir=${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo
-    snd="''${DUNST_CATEGORY#sound}"
-    snd="''${snd#.}"
-    f="$dir/''${snd:-message}.oga"
+    case "$DUNST_CATEGORY" in
+      sound|sound.) snd=message ;;
+      sound.*) snd="''${DUNST_CATEGORY#sound.}" ;;
+      im.received) snd=message-new-instant ;;
+      email.arrived) snd=message ;;
+      device.added) snd=device-added ;;
+      device.removed) snd=device-removed ;;
+      network.connected) snd=network-connectivity-established ;;
+      transfer.complete) snd=complete ;;
+      *)
+        case "$DUNST_URGENCY" in
+          CRITICAL) snd=dialog-warning ;;
+          *) exit 0 ;;
+        esac
+        ;;
+    esac
+    f="$dir/$snd.oga"
     [ -f "$f" ] || f="$dir/message.oga"
-    exec ${pkgs.pipewire}/bin/pw-play "$f"
+    exec ${pkgs.util-linux}/bin/flock -n "''${XDG_RUNTIME_DIR:-/tmp}/dunst-sound.lock" \
+      ${pkgs.pipewire}/bin/pw-play "$f"
   '';
 in
 {
@@ -78,7 +93,7 @@ in
           highlight = "{{colors.error.default.hex}}"
 
           [play_sound]
-          category = "sound*"
+          summary = "*"
           script = ${notifySound}
         '';
       };
