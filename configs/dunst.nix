@@ -10,7 +10,7 @@ let
   input = "${config.custom.theming.templatesDir}/${name}";
   output = ".config/${name}/dunstrc";
 
-  notifySound = pkgs.writeShellScript = "dunst-sound" ''
+  notifySound = pkgs.writeShellScript "dunst-sound" ''
     dir=${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo
     snd="''${DUNST_CATEGORY#sound}"
     snd="''${snd#.}"
