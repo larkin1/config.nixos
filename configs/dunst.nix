@@ -9,6 +9,15 @@ let
   name = "dunst";
   input = "${config.custom.theming.templatesDir}/${name}";
   output = ".config/${name}/dunstrc";
+
+  notifySound = pkgs.writeShellScript = "dunst-sound" ''
+    dir=${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo
+    snd="''${DUNST_CATEGORY#sound}"
+    snd="''${snd#.}"
+    f="$dir/''${snd:-message}.oga"
+    [ -f "$f" ] || f="$dir/message.oga"
+    exec ${pkgs.pipewire}/bin/pw-play "$f"
+  '';
 in
 {
   config = {
@@ -67,6 +76,10 @@ in
           background = "{{colors.surface.default.hex}}"
           foreground = "{{colors.on_surface.default.hex}}"
           highlight = "{{colors.error.default.hex}}"
+
+          [play_sound]
+          category = "sound*"
+          script = ${notifySound}
         '';
       };
     };
