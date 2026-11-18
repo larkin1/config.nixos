@@ -1,11 +1,15 @@
-{ hostname, ... }:
+{ hostname, config, ... }:
 
 let
   data = "/var/lib/immich";
   mount = "/var/lib/microvms/${hostname}";
+  url = "photos.sprk.foo";
 in
 {
-  imports = [ ./postgresql.nix ];
+  imports = [
+    ./postgresql.nix
+    ../sites.nix
+  ];
 
   microvm = {
     volumes = [
@@ -28,7 +32,7 @@ in
     enable = true;
 
     host = "0.0.0.0";
-    port = 2283;
+    port = config.server.sites.${url}.port;
 
     mediaLocation = data;
 
