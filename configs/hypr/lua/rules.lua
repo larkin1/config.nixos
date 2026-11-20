@@ -1,9 +1,9 @@
 -- ignore maximize requests
 hl.window_rule({
-    name  = "suppress-maximize-events",
-    match = { class = ".*" },
+  name           = "suppress-maximize-events",
+  match          = { class = ".*" },
 
-    suppress_event = "maximize",
+  suppress_event = "maximize",
 })
 
 -- fix some dragging issues with XWayland
@@ -54,9 +54,11 @@ hl.window_rule({
   }
 })
 
-hl.on("window.open", function (w)
+hl.on("window.open", function(w)
   local f = io.open("/proc/" .. w.pid .. "/comm", "r")
-  if not f then; return; end
+  if not f then
+    ; return;
+  end
   local name = f:read("*l")
   f:close()
   if name == "msedge" and w.class == "" and w.title == "" then
