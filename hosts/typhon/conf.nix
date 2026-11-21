@@ -16,6 +16,7 @@
     inputs.microvm.nixosModules.host
 
     ../../lib/server/proxy.nix
+    ../../lib/server/services/ddns.nix
     ../../lib/server/services/blocky.nix
     ../../lib/server/services/host-backup.nix
 

@@ -38,6 +38,7 @@ in
       "10-wan" = {
         matchConfig.Name = net.externalInterface;
         networkConfig.DHCP = "yes";
+        networkConfig.IPv6PrivacyExtensions = "no";
       };
     }
     // lib.listToAttrs (
