@@ -62,14 +62,14 @@
       };
 
       forwards = {
-        "t.sprk.foo" = {
-          vm = "pegasus";
-          ports = [ 7777 ];
-          protos = [
-            "tcp"
-            "udp"
-          ];
-        };
+        # "t.sprk.foo" = {
+        #   vm = "pegasus";
+        #   ports = [ 7777 ];
+        #   protos = [
+        #     "tcp"
+        #     "udp"
+        #   ];
+        # };
       };
     };
 
