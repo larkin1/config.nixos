@@ -30,6 +30,8 @@
       };
     };
 
+    services.ddclient.enable = lib.mkForce false; # don't accidentally overwrite dns.
+
     # build-vm gives typhon QEMU's user-mode network on eth0, not the real NIC.
     server.net.externalInterface = lib.mkForce "eth0";
 
