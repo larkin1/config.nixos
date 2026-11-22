@@ -1,9 +1,16 @@
 { config, ... }:
 
 {
+  imports = [ ./alerts.nix ];
+
   sops.secrets."restic-r2-env" = { };
 
   # TODO: set up ntfy and add error reporting.
+
+  server.alerts.units = [
+    "restic-backups-typhon-backup"
+    "restic-backups-typhon-prune"
+  ];
 
   services.restic.backups = {
     "typhon-backup" = {
