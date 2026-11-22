@@ -10,6 +10,7 @@
     # hardware
     ./hardware.nix
     ../../lib/server/disko.nix
+    inputs.disko.nixosModules.disko
 
     # system-critical
     ../../lib/system/core/base.nix
