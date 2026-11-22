@@ -9,7 +9,7 @@
   imports = [
     # hardware
     ./hardware.nix
-    ../../lib/server/disko.nix
+    ./disko.nix
     inputs.disko.nixosModules.disko
 
     # system-critical
@@ -30,7 +30,7 @@
     ../../lib/system/dev/nvim.nix
 
     # for testing
-    # ./vm-test.nix
+    ./vm-test.nix
   ];
 
   boot.loader.grub = {
