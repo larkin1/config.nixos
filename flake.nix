@@ -46,6 +46,11 @@
       url = "git+https://github.com/astro/microvm.nix?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "git+https://github.com/nix-community/disko?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -113,5 +118,6 @@
         chiron = mkServer { hostname = "chiron"; };
         tartarus = mkServer { hostname = "tartarus"; };
       };
+
     };
 }

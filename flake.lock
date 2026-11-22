@@ -34,6 +34,27 @@
         "url": "https://github.com/larkin1/config.quickshell"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795168368,
+        "narHash": "sha256-D35n2Q2v1KrlF9LS/pFl8Z3EBMJW6qvPw5q4HMbXXLg=",
+        "ref": "refs/heads/master",
+        "rev": "44761d4f745b95e037458a0e57133c5700c8e320",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/nix-community/disko"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/nix-community/disko"
+      }
+    },
     "helium": {
       "inputs": {
         "nixpkgs": [
@@ -155,6 +176,7 @@
       "inputs": {
         "config-nvim": "config-nvim",
         "config-quickshell": "config-quickshell",
+        "disko": "disko",
         "helium": "helium",
         "hjem": "hjem",
         "matugen": "matugen",
