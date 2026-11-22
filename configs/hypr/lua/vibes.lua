@@ -46,7 +46,7 @@ hl.config({
   misc = {
     disable_hyprland_logo = true,
     font_family = "JetBrains Mono Nerd Font",
-    vrr = 1,
+    vrr = 3,
   },
 
   animations = {
