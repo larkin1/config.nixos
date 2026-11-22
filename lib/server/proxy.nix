@@ -8,9 +8,15 @@ in
   imports = [
     ./vms.nix
     ./sites.nix
+    ./services/alerts.nix
   ];
 
   config = {
+    server.alerts.units = [
+      "acme-order-renew-sprk.foo"
+      "acme-sprk.foo"
+    ];
+
     sops.secrets.cloudflare-acme = { };
 
     security.acme = {

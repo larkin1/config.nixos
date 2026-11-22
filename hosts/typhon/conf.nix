@@ -25,6 +25,7 @@
     ../../lib/server/services/ddns.nix
     ../../lib/server/services/blocky.nix
     ../../lib/server/services/host-backup.nix
+    ../../lib/server/services/disk-health.nix
 
     # superfluous
     ../../lib/system/dev/nvim.nix

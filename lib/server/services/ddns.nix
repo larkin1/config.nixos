@@ -1,6 +1,12 @@
 { config, ... }:
 
 {
+  imports = [ ./alerts.nix ];
+
+  server.alerts.units = [
+    "ddclient"
+  ];
+
   sops.secrets.cf-ddns-token = { };
 
   services.ddclient = {
