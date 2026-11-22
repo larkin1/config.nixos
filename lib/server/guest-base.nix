@@ -31,7 +31,7 @@ in
 
   microvm = {
     vsock.cid = config.server.vms.${hostname}.index;
-    hypervisor = lib.mkDefault "cloud-hypervisor";
+    hypervisor = lib.mkDefault "qemu";
     socket = "${state}/${hostname}.sock";
 
     shares = [

@@ -35,7 +35,7 @@
         image = "/var/lib/microvms/${hostname}/nix-store-overlay.img";
         mountPoint = config.microvm.writableStoreOverlay;
         size = 40960;
-        label = "nix-store";
+        label = "store-overlay";
       }
     ];
   };

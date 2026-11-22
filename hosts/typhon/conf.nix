@@ -58,6 +58,8 @@
   services.zfs.trim.enable = true;
   zramSwap.enable = true;
 
+  nix.settings.trusted-users = [ "@wheel" ];
+
   microvm = {
     host.useNotifySockets = true;
     vms = lib.mapAttrs (name: _: {
