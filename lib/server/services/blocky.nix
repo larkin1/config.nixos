@@ -11,9 +11,17 @@ in
   networking.firewall.allowedTCPPorts = [ 53 ];
   networking.firewall.allowedUDPPorts = [ 53 ];
 
+  systemd.services.blocky.serviceConfig.StateDirectory = "blocky";
+
   services.blocky = {
     enable = true;
     settings = {
+
+      queryLog = {
+        type = "csv";
+        target = "/var/lib/blocky";
+        logRetentionDays = 7;
+      };
 
       ports.dns = [
         "${serverIP}:53"
