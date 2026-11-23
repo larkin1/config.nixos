@@ -32,11 +32,20 @@ in
       };
     };
 
+    sops.secrets.caddy-auth = { };
+
     services.caddy = {
       enable = true;
       virtualHosts = lib.mapAttrs (host: site: {
         useACMEHost = "sprk.foo";
-        extraConfig = "reverse_proxy ${vms.${site.vm}.ip}:${toString site.port}";
+        extraConfig = ''
+          ${lib.optionalString site.auth ''
+            basic_auth {
+              larkin {$BASIC_AUTH_HASH}
+            }
+          ''}
+          reverse_proxy ${vms.${site.vm}.ip}:${toString site.port}";
+        '';
       }) sites;
     };
 

@@ -12,6 +12,11 @@
           options = {
             vm = lib.mkOption { type = lib.types.str; };
             port = lib.mkOption { type = lib.types.port; };
+            auth = lib.mkOption {
+              type = lib.types.bool;
+              default = false;
+              description = "require HTTP basic auth in front of the site";
+            };
           };
         }
       );
