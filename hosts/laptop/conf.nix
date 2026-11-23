@@ -28,7 +28,7 @@
 
     ../../lib/system/security/global.nix
 
-    # ../../lib/server/remote-ssh.nix
+    ../../lib/server/remote-ssh.nix
   ];
 
   boot.tmp.useTmpfs = true; # Use RAM for /tmp
