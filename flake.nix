@@ -56,6 +56,11 @@
       url = "git+ssh://git@github.com/larkin1/whatsai";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    boo = {
+      url = "git+ssh://git@github.com/larkin1/boo";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

@@ -14,6 +14,7 @@
 
     # services
     ../../lib/server/services/whatsai.nix
+    ../../lib/server/services/boo.nix
   ];
 
   microvm = {

@@ -68,6 +68,11 @@
           vm = "pegasus";
           port = 8080;
         };
+        "boo.sprk.foo" = {
+          vm = "pegasus";
+          port = 3017;
+          auth = true;
+        };
       };
 
       forwards = {

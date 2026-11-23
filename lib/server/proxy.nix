@@ -34,6 +34,8 @@ in
 
     sops.secrets.caddy-auth = { };
 
+    systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.secrets.caddy-auth.path;
+
     services.caddy = {
       enable = true;
       virtualHosts = lib.mapAttrs (host: site: {
@@ -44,7 +46,7 @@ in
               larkin {$BASIC_AUTH_HASH}
             }
           ''}
-          reverse_proxy ${vms.${site.vm}.ip}:${toString site.port}";
+          reverse_proxy ${vms.${site.vm}.ip}:${toString site.port}
         '';
       }) sites;
     };
