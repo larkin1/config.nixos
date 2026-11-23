@@ -59,6 +59,10 @@
           vm = "tartarus";
           port = 8222;
         };
+        "what.sprk.foo" = {
+          vm = "pegasus";
+          port = 8080;
+        };
       };
 
       forwards = {

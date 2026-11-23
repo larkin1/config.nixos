@@ -183,7 +183,8 @@
         "microvm": "microvm",
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix",
-        "spicetify-nix": "spicetify-nix"
+        "spicetify-nix": "spicetify-nix",
+        "whatsai": "whatsai"
       }
     },
     "sops-nix": {
@@ -304,6 +305,26 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "type": "github"
+      }
+    },
+    "whatsai": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795401753,
+        "narHash": "sha256-pZ0myH63pzCw7UqWE0+ktc+dVwGTTW97QUpHCH1t7uw=",
+        "ref": "refs/heads/main",
+        "rev": "278cc51ebbf73ca7e0ba759cad75f38820cfefa9",
+        "revCount": 29,
+        "type": "git",
+        "url": "ssh://git@github.com/larkin1/whatsai"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/larkin1/whatsai"
       }
     }
   },

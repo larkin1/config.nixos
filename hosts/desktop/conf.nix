@@ -30,7 +30,7 @@
 
     ../../lib/system/dev/nvim.nix
 
-    # ../../lib/server/remote-ssh.nix
+    ../../lib/server/remote-ssh.nix
   ];
 
   services.udev.packages = [

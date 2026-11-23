@@ -51,6 +51,11 @@
       url = "git+https://github.com/nix-community/disko?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    whatsai = {
+      url = "git+ssh://git@github.com/larkin1/whatsai";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

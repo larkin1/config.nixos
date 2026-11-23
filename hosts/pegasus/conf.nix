@@ -2,13 +2,18 @@
 
 {
   imports = [
+    # core
     ../../lib/system/core/base.nix
     ../../lib/server/access.nix
     ../../lib/server/guest-base.nix
     ../../lib/server/guest-net.nix
 
+    # superflous
     ../../lib/system/dev/git.nix
     ../../lib/system/dev/nvim.nix
+
+    # services
+    ../../lib/server/services/whatsai.nix
   ];
 
   microvm = {
