@@ -3,9 +3,7 @@
 {
   imports = [
     ../../lib/user/user.nix
-    ../../lib/user/cli/git.nix
-    ../../lib/user/cli/zsh.nix
-    ../../lib/user/cli/nvim.nix
+    ../../lib/user/cli/dev.nix
     ../../lib/user/desktop/dots.nix
     ../../lib/user/programs/defaults.nix
     ../../lib/user/programs/helium.nix

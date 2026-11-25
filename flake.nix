@@ -5,7 +5,7 @@
     # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs.url = "git+https://github.com/nixos/nixpkgs?ref=nixos-unstable&shallow=1";
 
-    # --- Special Apps ---
+    # --- Apps ---
     hjem = {
       url = "git+https://github.com/feel-co/hjem?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,6 +23,11 @@
 
     sops-nix = {
       url = "git+https://github.com/Mic92/sops-nix?shallow=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-index-database = {
+      url = "git+https://github.com/nix-community/nix-index-database?shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -85,6 +90,7 @@
             inputs.hjem.nixosModules.default
             inputs.matugen.nixosModules.default
             inputs.sops-nix.nixosModules.default
+            inputs.nix-index-database.nixosModules.nix-index
           ];
         };
 
@@ -118,6 +124,28 @@
         };
     in
     {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+
+      checks.x86_64-linux =
+        let
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        in
+        {
+          lint =
+            pkgs.runCommand "lint"
+              {
+                nativeBuildInputs = [
+                  pkgs.statix
+                  pkgs.deadnix
+                ];
+              }
+              ''
+                statix check ${self}
+                deadnix --fail ${self}
+                touch $out
+              '';
+        };
+
       nixosConfigurations = {
         laptop = mkHost { hostname = "laptop"; };
         desktop = mkHost { hostname = "desktop"; };

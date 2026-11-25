@@ -36,13 +36,6 @@
         mountPoint = "/var/lib/postgresql";
         label = "postgres";
       }
-      {
-        # make nix store writeable from in the vm
-        image = "/var/lib/microvms/${hostname}/nix-store-overlay.img";
-        mountPoint = config.microvm.writableStoreOverlay;
-        size = 40960;
-        label = "store-overlay";
-      }
     ];
   };
 
@@ -50,12 +43,4 @@
     "d /var/lib/postgresql 0700 postgres postgres -"
     "z /var/lib/postgresql 0700 postgres postgres -"
   ];
-
-  # allow rebuilding from inside the machine
-  system.switch.enable = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  microvm.writableStoreOverlay = "/nix/.rwstore";
 }

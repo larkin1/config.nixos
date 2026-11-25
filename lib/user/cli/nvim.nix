@@ -36,7 +36,7 @@ in
         rust-analyzer
         basedpyright
         qt6.qtdeclarative # qmlls
-        nil
+        nixd
         nixfmt
         bash-language-server
         shellcheck

@@ -23,10 +23,10 @@
     "config-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1794287813,
-        "narHash": "sha256-btvI8UFw3XcgJVdF0ECG8T+S6uOaEQMXUIqKMjPWxOc=",
+        "lastModified": 1795640712,
+        "narHash": "sha256-5nmTtmS0aHrdImJcqGufbki66m1qiT+G4cLB+MDBUSg=",
         "ref": "refs/heads/main",
-        "rev": "011a81d7071f86c60babb63d077269e5dc69e9d5",
+        "rev": "e191c477866d736231e9ccaf7696621d70de2e33",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.nvim"
@@ -40,10 +40,10 @@
     "config-quickshell": {
       "flake": false,
       "locked": {
-        "lastModified": 1795565314,
-        "narHash": "sha256-NTMke9Tqe/fi52ih2PCegOlWQFCQ2p7Jo1d5OGUljN4=",
+        "lastModified": 1795593905,
+        "narHash": "sha256-10pL1J1HAsNbHgk7tHA9ePUWOFj+zEnmw/cQWpu7AUc=",
         "ref": "refs/heads/main",
-        "rev": "747715a0d0533624c236caee1f16b07377b339c9",
+        "rev": "4f6134bca0a4000ca714d98e86607d013f74b8dc",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.quickshell"
@@ -162,6 +162,27 @@
         "url": "https://github.com/astro/microvm.nix"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1795345257,
+        "narHash": "sha256-p1dA8lUFQTLJfDI2gaTZQ+CcMKw3nxvyHNbwpVMy2rY=",
+        "ref": "refs/heads/main",
+        "rev": "905f3e6f1e78165e79457c0bbe7ec4b885a5fce1",
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/nix-community/nix-index-database"
+      },
+      "original": {
+        "shallow": true,
+        "type": "git",
+        "url": "https://github.com/nix-community/nix-index-database"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1795085501,
@@ -202,6 +223,7 @@
         "hjem": "hjem",
         "matugen": "matugen",
         "microvm": "microvm",
+        "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix",
         "spicetify-nix": "spicetify-nix",

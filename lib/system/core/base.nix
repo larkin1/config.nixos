@@ -1,4 +1,4 @@
-{ hostname, ... }:
+{ pkgs, hostname, ... }:
 
 {
   # Things that are included on every host by default
@@ -21,6 +21,8 @@
       extraArgs = "--keep-since 7d --keep 5";
     };
   };
+
+  nix.package = pkgs.lixPackageSets.stable.lix;
 
   sops.defaultSopsFile = "${../../../secrets}/${hostname}.yaml";
   sops.age.keyFile = "/var/lib/sops-nix/key.txt";
