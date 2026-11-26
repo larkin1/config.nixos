@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   # --- optimise some things about the disk ---

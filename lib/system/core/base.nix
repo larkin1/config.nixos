@@ -24,9 +24,11 @@
 
   nix.package = pkgs.lixPackageSets.stable.lix;
 
-  sops.defaultSopsFile = "${../../../secrets}/${hostname}.yaml";
-  sops.age.keyFile = "/var/lib/sops-nix/key.txt";
-  sops.age.generateKey = false;
+  sops = {
+    defaultSopsFile = "${../../../secrets}/${hostname}.yaml";
+    age.keyFile = "/var/lib/sops-nix/key.txt";
+    age.generateKey = false;
+  };
 
   system.stateVersion = "26.05";
 }

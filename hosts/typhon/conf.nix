@@ -29,41 +29,43 @@
 
     # superfluous
     ../../lib/system/dev/nvim.nix
-
-    # for testing
-    ./vm-test.nix
   ];
+  boot = {
+    loader.grub = {
+      enable = true;
+      efiSupport = true;
+      efiInstallAsRemovable = true;
+      mirroredBoots = [
+        {
+          devices = [ "nodev" ];
+          path = "/boot";
+        }
+        {
+          devices = [ "nodev" ];
+          path = "/boot-fallback";
+        }
+      ];
+    };
 
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    efiInstallAsRemovable = true;
-    mirroredBoots = [
-      {
-        devices = [ "nodev" ];
-        path = "/boot";
-      }
-      {
-        devices = [ "nodev" ];
-        path = "/boot-fallback";
-      }
-    ];
+    supportedFilesystems = [ "zfs" ];
+    zfs.forceImportRoot = false;
+    kernelParams = [ "zfs.zfs_arc_max=17179869184" ];
   };
 
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.forceImportRoot = false;
-  boot.kernelParams = [ "zfs.zfs_arc_max=17179869184" ];
   networking.hostId = "49389043";
 
-  services.zfs.autoScrub.enable = true;
-  services.zfs.trim.enable = true;
+  services = {
+    zfs.autoScrub.enable = true;
+    zfs.trim.enable = true;
+  };
+
   zramSwap.enable = true;
 
   nix.settings.trusted-users = [ "@wheel" ];
 
   microvm = {
     host.useNotifySockets = true;
-    vms = lib.mapAttrs (name: _: {
+    vms = lib.mapAttrs (_: _: {
       flake = inputs.self;
       restartIfChanged = true;
     }) config.server.vms;

@@ -51,7 +51,7 @@
   config.systemd = {
     services = lib.mapAttrs' (
       name: val:
-      lib.nameValuePair ("backup-" + name) ({
+      lib.nameValuePair ("backup-" + name) {
         serviceConfig = {
           Type = "oneshot";
           User = val.user;
@@ -64,18 +64,17 @@
         '';
         startAt = val.time;
         unitConfig.RequiresMountsFor = val.outPath;
-      })
+      }
     ) config.server.backup;
 
     tmpfiles.settings = lib.mapAttrs' (
       name: val:
-      lib.nameValuePair ("backup-${name}") ({
+      lib.nameValuePair "backup-${name}" {
         "${val.outPath}".d = {
           mode = "0700";
-          user = val.user;
-          group = val.group;
+          inherit (val) user group;
         };
-      })
+      }
     ) config.server.backup;
   };
 }

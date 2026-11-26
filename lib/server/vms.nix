@@ -12,7 +12,7 @@ let
       index = 13;
     };
   };
-  vmType = { config, name, ... }: {
+  vmType = { config, ... }: {
     options = {
       index = lib.mkOption {
         type = lib.types.ints.between 1 254;

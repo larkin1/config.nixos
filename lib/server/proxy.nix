@@ -38,7 +38,7 @@ in
 
     services.caddy = {
       enable = true;
-      virtualHosts = lib.mapAttrs (host: site: {
+      virtualHosts = lib.mapAttrs (_: site: {
         useACMEHost = "sprk.foo";
         extraConfig = ''
           ${lib.optionalString site.auth ''

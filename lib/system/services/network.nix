@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   # --- Basic networking config to allow connection ---

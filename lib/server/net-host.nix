@@ -31,8 +31,20 @@ in
   };
 
   config = {
-    networking.useNetworkd = true;
-    networking.useDHCP = false;
+    networking = {
+      useNetworkd = true;
+      useDHCP = false;
+
+      nat = {
+        enable = true;
+        internalInterfaces = map (vm: vm.tap) vms;
+        inherit forwardPorts;
+        inherit (net) externalInterface;
+      };
+
+      nftables.enable = true;
+      firewall.filterForward = true;
+    };
 
     systemd.network.networks = {
       "10-wan" = {
@@ -62,14 +74,5 @@ in
       }) vms
     );
 
-    networking.nat = {
-      enable = true;
-      externalInterface = net.externalInterface;
-      internalInterfaces = map (vm: vm.tap) vms;
-      inherit forwardPorts;
-    };
-
-    networking.nftables.enable = true;
-    networking.firewall.filterForward = true;
   };
 }

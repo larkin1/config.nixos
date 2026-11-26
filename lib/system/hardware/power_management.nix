@@ -1,45 +1,45 @@
-{ ... }:
+_:
 
 {
   # --- Power management (LLM Code) ---
 
-  # TLP
-  services.tlp = {
-    enable = true;
-    settings = {
-      CPU_SCALING_GOVERNOR_ON_AC = "performance";
-      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+  services = {
+    # TLP
+    tlp = {
+      enable = true;
+      settings = {
+        CPU_SCALING_GOVERNOR_ON_AC = "performance";
+        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+        CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
 
-      # Disable turbo on battery
-      CPU_BOOST_ON_AC = 1;
-      CPU_BOOST_ON_BAT = 0;
+        # Disable turbo on battery
+        CPU_BOOST_ON_AC = 1;
+        CPU_BOOST_ON_BAT = 0;
 
-      # Platform profiles (Intel Evo supports this)
-      PLATFORM_PROFILE_ON_AC = "performance";
-      PLATFORM_PROFILE_ON_BAT = "low-power";
+        # Platform profiles (Intel Evo supports this)
+        PLATFORM_PROFILE_ON_AC = "performance";
+        PLATFORM_PROFILE_ON_BAT = "low-power";
 
-      # Aggressive PCI runtime PM
-      RUNTIME_PM_ON_AC = "on";
-      RUNTIME_PM_ON_BAT = "auto";
+        # Aggressive PCI runtime PM
+        RUNTIME_PM_ON_AC = "on";
+        RUNTIME_PM_ON_BAT = "auto";
 
-      # WiFi power save
-      WIFI_PWR_ON_AC = "off";
-      WIFI_PWR_ON_BAT = "on";
+        # WiFi power save
+        WIFI_PWR_ON_AC = "off";
+        WIFI_PWR_ON_BAT = "on";
 
-      # NVMe power management
-      DISK_IOSCHED = "none";
-      PCIE_ASPM_ON_BAT = "powersupersave";
+        # NVMe power management
+        DISK_IOSCHED = "none";
+        PCIE_ASPM_ON_BAT = "powersupersave";
+      };
     };
+    # Power profiles daemon conflicts with TLP — disable it
+    power-profiles-daemon.enable = false;
+    udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0x272b", ATTR{d3cold_allowed}="0"
+    '';
   };
-
-  # Power profiles daemon conflicts with TLP — disable it
-  services.power-profiles-daemon.enable = false;
-
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0x272b", ATTR{d3cold_allowed}="0"
-  '';
 
   # Re-apply after every resume since s2idle can reset it
   systemd.services.disable-wifi-d3cold = {

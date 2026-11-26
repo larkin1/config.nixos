@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   # --- Locale Settings ---

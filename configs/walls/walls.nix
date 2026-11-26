@@ -4,10 +4,9 @@ let
 in
 pkgs.linkFarm "wallpapers" (
   map (e: {
-    name = e.name;
+    inherit (e) name;
     path = pkgs.fetchurl {
-      url = e.url;
-      sha256 = e.sha256;
+      inherit (e) url sha256;
     };
   }) manifest
 )

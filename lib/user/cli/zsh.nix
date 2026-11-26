@@ -30,7 +30,7 @@
     files = {
       ".zshrc".text =
         let
-          zsh = pkgs.zsh;
+          inherit (pkgs) zsh;
           syntax = pkgs.zsh-syntax-highlighting;
           hist = pkgs.zsh-history-substring-search;
         in

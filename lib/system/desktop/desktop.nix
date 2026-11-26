@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   # Anything that is required to run any DE

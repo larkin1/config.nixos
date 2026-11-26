@@ -49,7 +49,7 @@ in
     dbBackend = "postgresql";
 
     configurePostgres = true;
-    domain = domain;
+    inherit domain;
 
     environmentFile = config.sops.secrets.vaultwarden-env.path;
     config = {

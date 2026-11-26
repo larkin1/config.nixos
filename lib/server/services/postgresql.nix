@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   # contains common settings for services that use postgresql

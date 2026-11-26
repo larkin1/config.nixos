@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   # --- handles lid close, power button etc ---
