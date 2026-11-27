@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1795427924,
-        "narHash": "sha256-ANZgVXZUHsoRRV0q0WO2EYDr7lQbO5dQxL7zkf6RhNg=",
+        "lastModified": 1795781005,
+        "narHash": "sha256-c1IcqUmUyjuXswZ/eGeyx7Hj/qTA4x5YOyBRBcB9S68=",
         "ref": "refs/heads/main",
-        "rev": "d0abbd238621a7c3c95bcefbf44bba108d23ba80",
-        "revCount": 4,
+        "rev": "15652e915661637ea915f1a865de0b5f06c921f4",
+        "revCount": 5,
         "type": "git",
         "url": "ssh://git@github.com/larkin1/boo"
       },
@@ -40,10 +40,10 @@
     "config-quickshell": {
       "flake": false,
       "locked": {
-        "lastModified": 1795756841,
-        "narHash": "sha256-3CCkGo8SVnqtyXCEiKnm9Vv+M4rEfwOGWrNbofwJ82k=",
+        "lastModified": 1795758720,
+        "narHash": "sha256-pC3l0JL64gL2nv1QkVqd8GqqgDEBbQ/BEwKkO6nPdxA=",
         "ref": "refs/heads/main",
-        "rev": "8a88289e1e0dc96c856d54737ab1381e8bae6f3e",
+        "rev": "249681d0056456a898034852a0c9fa3edf521247",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/larkin1/config.quickshell"
@@ -83,10 +83,10 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1795555469,
-        "narHash": "sha256-LoWbp7VNJrmUAa+vv0mvS+O/fiw+b4O/fT8WTZrJHpI=",
+        "lastModified": 1795765376,
+        "narHash": "sha256-8OFGhv2FutUkm6BW6wRx2fhWtjWC+lJg+8kcTXGXJwk=",
         "ref": "refs/heads/main",
-        "rev": "4a6622bb3b0491847a99253646afa88a138bf4cb",
+        "rev": "449c7ce94f72f551faa9ed7f6ccb350a8f4d1487",
         "shallow": true,
         "type": "git",
         "url": "https://github.com/schembriaiden/helium-browser-nix-flake"
